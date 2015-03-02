@@ -1,0 +1,19 @@
+Package: goldpack
+Type: Package
+Title: A Gold Version Package Template
+Version: 0.0.1
+Date: 2015-01-05
+Author: Tyler Rinker <tyler.rinker@gmail.com>
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Depends:
+    R (>= 3.1.0)
+Suggests:
+    knitr,
+    testthat,
+LazyData: TRUE
+VignetteBuilder: knitr
+Description: A package templating system that assumes the use of testthat, Travis-CI and covr (coveralls).  
+License: GPL-2
+URL: http://trinker.github.com/goldpack/
+BugReports: http://github.com/trinker/qgoldpack/issues
+Roxygen: list(wrap = FALSE)

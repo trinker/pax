@@ -1,0 +1,17 @@
+Package: sample
+Title: Common U.S. Regular Expressions
+Version: 0.0.1
+Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role =
+    c("aut", "cre")))
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Depends:
+    R (>= 3.1.2)
+Imports:
+    regexr
+Suggests:
+    goldpack,
+    testthat
+Date: 2015-01-09
+Description: A sample regex library.
+License: GPL-2
+LazyData: TRUE

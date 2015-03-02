@@ -1,0 +1,16 @@
+Version: 1.0
+
+RestoreWorkspace: No
+SaveWorkspace: No
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+Encoding: UTF-8
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+
+BuildType: Package
+PackageInstallArgs: --no-multiarch
+PackageBuildArgs: --compact-vignettes=qpdf --resave-data=best
+PackageCheckArgs: --as-cran
