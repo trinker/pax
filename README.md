@@ -13,7 +13,16 @@ goldpack
 
 <img src="inst/goldpack_logo/r_goldpack.png" width="20%", alt="">  
 
-[**goldpack**](http://trinker.github.io/goldpack_dev) 
+[**goldpack**](http://trinker.github.io/goldpack_dev) is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  **goldpack** is not flexible, rather it maintains and enforces a narrow package management philosophy.  It expects the user will utilize:
+
+1.  [GitHub](https://github.com) for repository sharing
+2.  [RStudio](http://www.rstudio.com/) for GUI 
+3.  [**testthat**](http://cran.r-project.org/web/packages/testthat/index.html) for unit testing
+4.  [Coveralls](https://coveralls.io/) + [**covr**](https://github.com/jimhester/covr) for code coverage rating
+5.  [**devtools**](http://cran.r-project.org/web/packages/devtools/index.html)/[**roxygen2**](http://cran.r-project.org/web/packages/roxygen2/index.html) for documentation 
+6.  [**knitr**](http://yihui.name/knitr/) for README managment
+
+**goldpack** allows the user to specify argument (locally or via options in .Rprofile)...***UNDER CONSTRUCTION***  
 
 ## Installation
 
