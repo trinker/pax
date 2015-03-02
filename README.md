@@ -5,6 +5,7 @@ goldpack
 
 [![Build Status](https://travis-ci.org/trinker/goldpack.png?branch=master)](https://travis-ci.org/trinker/goldpack)
 [![Coverage Status](https://coveralls.io/repos/trinker/goldpack/badge.png?branch=master)](https://coveralls.io/r/trinker/goldpack?branch=master)
+[![DOI](https://zenodo.org/badge/5398/trinker/goldpack.svg)](http://dx.doi.org/10.5281/zenodo.15758)
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a></p>
 
 ## A Gold Version R Package Template

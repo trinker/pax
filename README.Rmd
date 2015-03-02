@@ -11,6 +11,7 @@ verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg">
 
 [![Build Status](https://travis-ci.org/trinker/goldpack.png?branch=master)](https://travis-ci.org/trinker/goldpack)
 [![Coverage Status](https://coveralls.io/repos/trinker/goldpack/badge.png?branch=master)](https://coveralls.io/r/trinker/goldpack?branch=master)
+[![DOI](https://zenodo.org/badge/5398/trinker/goldpack.svg)](http://dx.doi.org/10.5281/zenodo.15758)
 `r verbad`
 
 ## A Gold Version R Package Template
