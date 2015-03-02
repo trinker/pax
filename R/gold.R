@@ -46,11 +46,14 @@
 #' \dontrun{
 #' library_template("DELETE_ME")
 #' }
-god <- function(path, name = getOption("name"), 
+gold <- function(path, name = getOption("name"), 
     email = getOption("email"), news = TRUE, readme = TRUE, rstudio = TRUE, 
     gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE, 
     github.user = getOption("github.user"), samples = TRUE){
 
+warning("Under Development, Unstable")    
+    
+    
     ## Quick path by supplying file only
     qpath <- pathfix(path)
 
