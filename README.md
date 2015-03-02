@@ -19,7 +19,7 @@ goldpack
 
 To download the development version of goldpack:
 
-Download the [zip ball](https://github.com/trinker/goldpack/zipball/master) or [tar ball](https://github.com/trinker/goldpack/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
+Download the [zip ball](https://github.com/trinker/goldpack/zipball/master) or [tar ball](https://github.com/trinker/goldpack/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **pacman** package to install the development version:
 
 ```r
 if (!require("pacman")) install.packages("pacman")
