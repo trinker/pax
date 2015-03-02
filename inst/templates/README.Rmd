@@ -1,0 +1,33 @@
+# %s
+
+```{r, echo=FALSE}
+desc <- suppressWarnings(readLines("DESCRIPTION"))
+regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
+loc <- grep(regex, desc)
+ver <- gsub(regex, "\\2", desc[loc])
+verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.svg"><img src="https://img.shields.io/badge/Version-%%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+````
+
+[![Build Status](https://travis-ci.org/%s/%s.png?branch=master)](https://travis-ci.org/trinker/goldpack)
+[![Coverage Status](https://coveralls.io/repos/%s/%s/badge.png?branch=master)](https://coveralls.io/r/%s/%s?branch=master)
+`r verbadge`
+
+**%s** is...
+
+## Installation
+
+To download the development version of **%s**:
+
+Download the [zip ball](https://github.com/%s/%s/zipball/master) or [tar ball](https://github.com/%s/%s/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **pacman** package to install the development version:
+
+```r
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh("%s/%s")
+```
+
+## Contact
+
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/%s/%s/issues>
+* send a pull request on: <https://github.com/%s/%s/>
+* compose a friendly e-mail to: <%s>

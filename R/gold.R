@@ -67,7 +67,6 @@ warning("Under Development, Unstable")
         last <- name["last"]
         name <- paste(
             name["first"],
-#            name[!names(name) %in% c("last", "first")],
             name["last"], collapse=" "
         )
     }
@@ -96,8 +95,8 @@ warning("Under Development, Unstable")
         package, 
         first, last, email, name, email,
         paste(R.Version()[c("major", "minor")], collapse="."),
-        ifelse(testthat, "\nSuggests: goldpack, testthat", 
-            "\nSuggests: goldpack"),
+        ifelse(testthat, "\nSuggests: testthat", 
+            ""),
         Sys.Date()
     ), file=qpath("DESCRIPTION"))    
 
@@ -137,14 +136,26 @@ warning("Under Development, Unstable")
         cat(paste(gitignore_temp, collapse="\n"), file=qpath(".gitignore"))
     }
 
+    ## Generate buildignore
+    if (gitignore) {
+        cat(paste(buildignore_temp , collapse="\n"), file=qpath(".Rbuildignore"))
+    }    
+    
     ## Generate readme
     if (readme) {
-        readme_path <- system.file("templates/README.md", 
+        readme_path <- system.file("templates/README.Rmd", 
             package = "goldpack")
         readme_temp <- do.call(sprintf, c(list(paste(readLines(readme_path), collapse="\n")), 
             readme_fill(package, github.user, email)))
-        cat(readme_temp, file=qpath("README.md"))
-    }
+        cat(readme_temp, file=qpath("README.Rmd"))
+ 
+        ## knit .Rmd to .md      
+        cur <- getwd() 
+        setwd(path)
+        knitr::knit2html(input = "README.Rmd",  output = "README.md")
+        setwd(cur)
+        unlink(file.path(path, "README.html"), recursive = TRUE, force = FALSE)
+    } 
 
     ## Generate news
     if (news) {
@@ -154,17 +165,26 @@ warning("Under Development, Unstable")
         cat(paste(news_temp, collapse="\n"), file=qpath("NEWS"))
     }
     
+    ## Add maintenance.R file to inst
+    suppressWarnings(dir.create(qpath("inst")))
+    file.copy(system.file("templates/maintenance.R", 
+        package = "goldpack"), qpath("inst"))
+
     ## Add .R sample in R directory
     if (samples) {
         file.copy(system.file("templates/sample.R", 
             package = "goldpack"), qpath("R"))
     }    
-    message("Regular Expression Library Template Created!")
+
+    message(sprintf("%s Created!", package))
     invisible(TRUE)
 }
 
+
+
+
 readme_fill <- function(p, g, e){
-    c(rep(p, 3), rep(c(g, p), 5), e)
+    c(rep(p, 1), rep(c(p, g), 3), rep(p, 2), rep(c(g, p), 5), e)
 }
 
 pathfix <- function(path){
@@ -187,7 +207,7 @@ DESCRIPTION_temp <- c(
 )
 
 
-testthat_temp <- "library(\"testthat\")\nlibrary(\"goldpack\")\nlibrary(\"%s\")\n\ntest_check(\"%s\")" 
+testthat_temp <- "library(\"testthat\")\nlibrary(\"%s\")\n\ntest_check(\"%s\")" 
 
 travis_temp <- c(
     "language: c", 
@@ -225,5 +245,29 @@ gitignore_temp <- c(
     "",
     ".Rprofile",
     ".Rproj.user",
-    "%s.Rproj"
+    "%s.Rproj",
+    "inst/maintenance.R"
+)
+
+
+buildignore_temp <- c(
+    "^.*\\.Rproj$", 
+    "^\\.Rproj\\.user$", 
+    "^\\.gitignore", 
+    "NEWS.md", 
+    "FAQ.md", 
+    "NEWS.html", 
+    "FAQ.html", 
+    "^\\.travis\\.yml$", 
+    "inst/staticdocs", 
+    "inst/maintenance.R", 
+    "inst/extra_statdoc", 
+    "travis-tool.sh", 
+    "inst/web", 
+    "contributors.geojson", 
+    "inst/build.R", 
+    "^.*\\.Rprofile$", 
+    "README.Rmd", 
+    "README.R",
+    "travis.yml"
 )
