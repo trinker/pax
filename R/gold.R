@@ -40,6 +40,13 @@
 #' file will be placed in the \file{R} directory.  Additionally, if 
 #' \code{testthat = TRUE}, a sample \file{.R} unit test will be placed in the 
 #' \file{./tests/testthat} directory.
+#' @param tweak Additional user supplied function that can be sourced at the end 
+#' of the package creation.  The folowing parameters are passed to your function 
+#' automatically: (1) the package's name, (2) \code{qpath} (a function that binds 
+#' together path pieces; the starting piece is suppied by the \code{path} argument,
+#' (3) \code{name} (vector of 2: first and last), and (4) your \code{email}.
+#' @param \ldots Other arguments passed to the user supplied \code{tweak} 
+#' function.
 #' @keywords template
 #' @export
 #' @examples
@@ -49,9 +56,7 @@
 gold <- function(path, name = getOption("name"), 
     email = getOption("email"), news = TRUE, readme = TRUE, rstudio = TRUE, 
     gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE, 
-    github.user = getOption("github.user"), samples = TRUE){
-
-warning("Under Development, Unstable")    
+    github.user = getOption("github.user"), samples = TRUE, tweak = NULL, ...){ 
     
     
     ## Quick path by supplying file only
@@ -151,6 +156,7 @@ warning("Under Development, Unstable")
  
         ## knit .Rmd to .md      
         cur <- getwd() 
+        on.exit(setwd(cur))
         setwd(path)
         knitr::knit2html(input = "README.Rmd",  output = "README.md")
         setwd(cur)
@@ -176,6 +182,15 @@ warning("Under Development, Unstable")
             package = "goldpack"), qpath("R"))
     }    
 
+    if (!null(tweak)) {
+        myfun <- try(source(path))
+        if (inherits("try-error")) {
+            warning("`tweak` file errored")
+        } else {
+            myfun(package = package, name = name, qpath = qpath, ...)
+        }
+    }
+    
     message(sprintf("%s Created!", package))
     invisible(TRUE)
 }
