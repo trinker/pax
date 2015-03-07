@@ -20,10 +20,10 @@ And constructed with the following guidelines:
 
 
 
-CHANGES IN goldpack VERSION 0.0.1
+CHANGES IN pax VERSION 0.0.1
 ----------------------------------------------------------------
 
-* The first CRAN installation of the goldpack package
+* The first CRAN installation of the pax package
 
 * Package designed to provide a package templating system that assumes the use 
   of testthat, Travis-CI and covr (coveralls).

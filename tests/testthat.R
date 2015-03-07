@@ -1,5 +1,5 @@
 library("testthat")
-library("goldpack")
+library("pax")
 
 
-test_check("goldpack")
+test_check("pax")

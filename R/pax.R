@@ -4,7 +4,7 @@
 #' defaults that expects the user to use \pkg{testthat}, 
 #' \href{https://travis-ci.org}{Travis-CI} and \pkg{covr} 
 #' (\href{https://coveralls.io/}{coveralls}) to maintain the package.  This is 
-#' not a lightweight template, but a deluxe gold level template.
+#' not a lightweight template, but a deluxe pax level template.
 #' 
 #' @param path location to create new regular expression library package. The 
 #' last component of the path will be used as the package name.
@@ -15,6 +15,9 @@
 #' @param email An email address to use for \bold{CRAN} maintainer.  This can be 
 #' set in the user's \code{options} in the \file{.Rprofile}; for example: \cr 
 #' \code{options(email = "tyler.rinker@@gmail.com")}.
+#' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
+#' The default is to test if \code{new_report} is being used in the global 
+#' environment, if it is then the project directory will be opened.  
 #' @param news logical.  If \code{TRUE} a \file{NEWS} file is generated.
 #' @param readme logical.  If \code{TRUE} a \file{README.md} file is generated.
 #' @param rstudio logical.  If \code{TRUE} it is assumed 
@@ -53,8 +56,8 @@
 #' \dontrun{
 #' library_template("DELETE_ME")
 #' }
-gold <- function(path, name = getOption("name"), 
-    email = getOption("email"), news = TRUE, readme = TRUE, rstudio = TRUE, 
+pax <- function(path, name = getOption("name"),  email = getOption("email"), 
+    open = is.global(2), news = TRUE, readme = TRUE, rstudio = TRUE, 
     gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE, 
     github.user = getOption("github.user"), samples = TRUE, tweak = NULL, ...){ 
     
@@ -115,7 +118,7 @@ gold <- function(path, name = getOption("name"),
         cat(sprintf(testthat_temp, package, package), file=qpath("tests/testthat.R"))
         if (samples) {
             file.copy(system.file("templates/test-sample.R", 
-                package = "goldpack"), qpath("tests/testthat"))
+                package = "pax"), qpath("tests/testthat"))
         }
     }
 
@@ -130,7 +133,7 @@ gold <- function(path, name = getOption("name"),
     ## Generate rproj
     if (rstudio) {
         template_path <- system.file("templates/template.Rproj", 
-            package = "goldpack")
+            package = "pax")
         gitignore_temp[9] <- sprintf(gitignore_temp[9], package)
         file.copy(template_path, path)
         file.rename(qpath("template.rproj"), qpath(sprintf("%s.rproj", package)))
@@ -149,7 +152,7 @@ gold <- function(path, name = getOption("name"),
     ## Generate readme
     if (readme) {
         readme_path <- system.file("templates/README.Rmd", 
-            package = "goldpack")
+            package = "pax")
         readme_temp <- do.call(sprintf, c(list(paste(readLines(readme_path), collapse="\n")), 
             readme_fill(package, github.user, email)))
         cat(readme_temp, file=qpath("README.Rmd"))
@@ -166,7 +169,7 @@ gold <- function(path, name = getOption("name"),
     ## Generate news
     if (news) {
         news_path <- system.file("templates/NEWS", 
-            package = "goldpack")
+            package = "pax")
         news_temp <- sprintf(readLines(news_path), package)
         cat(paste(news_temp, collapse="\n"), file=qpath("NEWS"))
     }
@@ -174,21 +177,26 @@ gold <- function(path, name = getOption("name"),
     ## Add maintenance.R file to inst
     suppressWarnings(dir.create(qpath("inst")))
     file.copy(system.file("templates/maintenance.R", 
-        package = "goldpack"), qpath("inst"))
+        package = "pax"), qpath("inst"))
 
     ## Add .R sample in R directory
     if (samples) {
         file.copy(system.file("templates/sample.R", 
-            package = "goldpack"), qpath("R"))
+            package = "pax"), qpath("R"))
     }    
 
-    if (!null(tweak)) {
+    ## Run an additional script that acts on the output directory
+    if (!is.null(tweak)) {
         myfun <- try(source(path))
         if (inherits("try-error")) {
             warning("`tweak` file errored")
         } else {
-            myfun(package = package, name = name, qpath = qpath, ...)
+            myfun(package = package, name = name, qpath = qpath, path = path, ...)
         }
+    }
+    
+    if (open) {
+        open_project(qpath(paste0(package, ".Rproj")))
     }
     
     message(sprintf("%s Created!", package))
