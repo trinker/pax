@@ -5,7 +5,7 @@
 \alias{package-pax}
 \alias{pax}
 \alias{pax-package}
-\title{\pkg{pax}: A pax Version Package Template}
+\title{\pkg{pax}: A Gold Version Package Template}
 \usage{
 pax(path, name = getOption("name"), email = getOption("email"),
   open = is.global(2), news = TRUE, readme = TRUE, rstudio = TRUE,
@@ -74,7 +74,10 @@ together path pieces; the starting piece is suppied by the \code{path} argument,
 function.}
 }
 \description{
-\pkg{pax}...
+\href{http://trinker.github.io/pax_dev}{\pkg{pax}} is a package template
+system that is NOT designed to be light weight.  It is the delux, gold
+version of a package template.  **pax** is not flexible, rather it
+maintains and enforces a narrow package management philosophy.
 
 This function creates a package template.  It utiizes a framework with
 defaults that expects the user to use \pkg{testthat},
