@@ -47,7 +47,10 @@
 #' of the package creation.  The folowing parameters are passed to your function 
 #' automatically: (1) the package's name, (2) \code{qpath} (a function that binds 
 #' together path pieces; the starting piece is suppied by the \code{path} argument,
-#' (3) \code{name} (vector of 2: first and last), and (4) your \code{email}.
+#' (3) \code{name} (vector of 2: first and last), (4) your \code{email}, and (5)
+#' \code{path}.  This can be argument can be set in the user's \code{options} in 
+#' the \file{.Rprofile}; for example: \cr 
+#' \code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}. 
 #' @param \ldots Other arguments passed to the user supplied \code{tweak} 
 #' function.
 #' @keywords template
@@ -59,7 +62,8 @@
 pax <- function(path, name = getOption("name"),  email = getOption("email"), 
     open = is.global(2), news = TRUE, readme = TRUE, rstudio = TRUE, 
     gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE, 
-    github.user = getOption("github.user"), samples = TRUE, tweak = NULL, ...){ 
+    github.user = getOption("github.user"), samples = TRUE, 
+    tweak = getOption("tweak"), ...){ 
     
     
     ## Quick path by supplying file only
@@ -187,8 +191,8 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
 
     ## Run an additional script that acts on the output directory
     if (!is.null(tweak)) {
-        myfun <- try(source(path))
-        if (inherits("try-error")) {
+        myfun <- try(source(tweak)[["value"]])
+        if (!is.function(myfun)) {
             warning("`tweak` file errored")
         } else {
             myfun(package = package, name = name, qpath = qpath, path = path, ...)
