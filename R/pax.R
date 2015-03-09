@@ -193,6 +193,9 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     if (!is.null(tweak)) {
         if (grepl("(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", tweak)){
             myfun <- try(source(curl::curl(tweak))[["value"]])
+            if (!is.function(myfun)) {
+                myfun <- try(source(tweak)[["value"]])
+            }
         } else {
             myfun <- try(source(tweak)[["value"]])
         }
