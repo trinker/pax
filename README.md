@@ -13,7 +13,8 @@ pax
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
 
-[**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  **pax** is not flexible, rather it maintains and enforces a narrow package management philosophy.  It expects the user will utilize:
+
+[**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  **pax** enforces a fairly narrow package management philosophy.  It expects the user will utilize:
 
 1.  [GitHub](https://github.com) for repository sharing
 2.  [RStudio](http://www.rstudio.com/) for GUI 
@@ -22,7 +23,17 @@ pax
 5.  [**devtools**](http://cran.r-project.org/web/packages/devtools/index.html)/[**roxygen2**](http://cran.r-project.org/web/packages/roxygen2/index.html) for documentation 
 6.  [**knitr**](http://yihui.name/knitr/) for README managment
 
-**pax** allows the user to specify construction arguments (locally or via options in .Rprofile)...***UNDER CONSTRUCTION***  
+**pax** has one main function that does one job.  `pax` (package and function named **pax**) creates a package template.  It allows the user to specify construction arguments (locally or [via options in *.Rprofile*](http://www.statmethods.net/interface/customizing.html)). These arguments that can be set in the *.Rprofile* include:
+
+
+| Argument         |  Description                                       | Example                                             |
+|------------------|---------------------------------------------|-----------------------------------------------------|
+| `name`  | The user's name (first & last) |   `options(name = c(first="Tyler",  last="Rinker"))`|                 |
+| `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
+| `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
+| `tweak`  | \*A path or url to a user specified 'tweaking' function |   `options(tweak = "https://gist.github.com/trinker/fc346e6b60e60839eb95")`| 
+
+\****Note***: *See `?oax` for more information about the `tweak` argument.*
 
 
 ## Installation
