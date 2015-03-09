@@ -31,7 +31,7 @@ pax
 | `name`  | The user's name (first & last) |   `options(name = c(first="Tyler",  last="Rinker"))`|                 |
 | `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
-| `tweak`  | \*A path or url to a user specified 'tweaking' function |   `options(tweak = "https://gist.github.com/trinker/fc346e6b60e60839eb95")`| 
+| `tweak`  | \*A path or [url](https://gist.github.com/trinker/fc346e6b60e60839eb95) to a user specified 'tweaking' function |   `options(tweak = "https://gist.github.com/trinker/fc346e6b60e60839eb95")`| 
 
 \****Note***: *See `?pax` for more information about the `tweak` argument.*
 
