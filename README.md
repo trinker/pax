@@ -13,7 +13,6 @@ pax
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
 
-
 [**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  **pax** enforces a fairly narrow package management philosophy.  It expects the user will utilize:
 
 1.  [GitHub](https://github.com) for repository sharing
@@ -31,10 +30,9 @@ pax
 | `name`  | The user's name (first & last) |   `options(name = c(first="Tyler",  last="Rinker"))`|                 |
 | `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
-| `tweak`  | \*A path or [url](https://gist.github.com/trinker/fc346e6b60e60839eb95) to a user specified 'tweaking' function |   `options(tweak = "http://goo.gl/cMPQ12")`| 
+| `tweak`  | A path or [url](https://gist.github.com/trinker/fc346e6b60e60839eb95) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/cMPQ12")`| 
 
 \****Note***: *See `?pax` for more information about the `tweak` argument.*
-
 
 ## Installation
 
