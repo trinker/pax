@@ -191,8 +191,8 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
 
     ## Run an additional script that acts on the output directory
     if (!is.null(tweak)) {
-        if (RCurl::url.exists(tweak)){
-            myfun <- source(curl::curl(tweak))[["value"]]
+        if (grepl("(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", tweak)){
+            myfun <- try(source(curl::curl(tweak))[["value"]])
         } else {
             myfun <- try(source(tweak)[["value"]])
         }
