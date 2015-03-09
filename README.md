@@ -33,7 +33,7 @@ pax
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
 | `tweak`  | \*A path or url to a user specified 'tweaking' function |   `options(tweak = "https://gist.github.com/trinker/fc346e6b60e60839eb95")`| 
 
-\****Note***: *See `?oax` for more information about the `tweak` argument.*
+\****Note***: *See `?pax` for more information about the `tweak` argument.*
 
 
 ## Installation
