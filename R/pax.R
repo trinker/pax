@@ -191,7 +191,11 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
 
     ## Run an additional script that acts on the output directory
     if (!is.null(tweak)) {
-        myfun <- try(source(tweak)[["value"]])
+        if (RCurl::url.exists(tweak)){
+            myfun <- source(curl::curl(tweak))[["value"]]
+        } else {
+            myfun <- try(source(tweak)[["value"]])
+        }
         if (!is.function(myfun)) {
             warning("`tweak` file errored")
         } else {
