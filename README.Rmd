@@ -28,7 +28,7 @@ verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg">
 5.  [**devtools**](http://cran.r-project.org/web/packages/devtools/index.html)/[**roxygen2**](http://cran.r-project.org/web/packages/roxygen2/index.html) for documentation 
 6.  [**knitr**](http://yihui.name/knitr/) for README managment
 
-**pax** has one main function that does one job.  `pax` (package and function named **pax**) creates a package template.  It allows the user to specify construction arguments (locally or [via options in *.Rprofile*](http://www.statmethods.net/interface/customizing.html)). These arguments that can be set in the *.Rprofile* include:
+**pax** has one main function that does one job.  `pax` (package and function named **pax**) creates a package template.  It allows the user to specify construction arguments (locally or [via options in *.Rprofile*](http://www.statmethods.net/interface/customizing.html)). Arguments that can be set in the *.Rprofile* include:
 
 
 | Argument         |  Description                                       | Example                                             |
