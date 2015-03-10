@@ -32,7 +32,7 @@ pax
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
 | `tweak`  | A path, [url](http://goo.gl/oL7UXO) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/oL7UXO")`| 
 
-\****Note***: *See `?pax` for more information about the `tweak` argument.*
+\****Note***: *See `?pax` for more information about the `tweak` argument; [CLICK HERE](https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R) for an example.*
 
 ## Installation
 
