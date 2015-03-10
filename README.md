@@ -6,7 +6,7 @@ pax
 [![Build Status](https://travis-ci.org/trinker/pax.png?branch=master)](https://travis-ci.org/trinker/pax)
 [![Coverage Status](https://coveralls.io/repos/trinker/pax/badge.png?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
-<a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a></p>
+<a href="https://img.shields.io/badge/Version-0.0.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.2-orange.svg" alt="Version"/></a></p>
 
 ## A Gold Version R Package Template
 
@@ -30,7 +30,7 @@ pax
 | `name`  | The user's name (first & last) |   `options(name = c(first="Tyler",  last="Rinker"))`|                 |
 | `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
-| `tweak`  | A path, [url](http://goo.gl/z7aN3P) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/z7aN3P")`| 
+| `tweak`  | A path, [url](http://goo.gl/oL7UXO) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/oL7UXO")`| 
 
 \****Note***: *See `?pax` for more information about the `tweak` argument.*
 
