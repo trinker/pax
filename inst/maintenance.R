@@ -18,6 +18,11 @@ knitr::knit2html("README.Rmd", output ='README.md'); reports::delete("README.htm
 #==========================
 update_news()
 
+#==========================
+# UPDATE NEWS
+#==========================
+update_version()
+
 #========================
 #staticdocs dev version
 #========================

@@ -19,11 +19,11 @@ last component of the path will be used as the package name.}
 
 \item{name}{A named vector that minimally contains the user's first and last
 name (e.g., \code{c(first="Tyler", last="Rinker"))}).  This can be set in the
-user's \code{options} in the \file{.Rprofile}; for example: \cr
+user's \code{options} in the \file{.Rprofile}; for example:      \cr
 \code{options(name = c(first="Tyler", middle = "W.", last="Rinker"))}.}
 
 \item{email}{An email address to use for \bold{CRAN} maintainer.  This can be
-set in the user's \code{options} in the \file{.Rprofile}; for example: \cr
+set in the user's \code{options} in the \file{.Rprofile}; for example:      \cr
 \code{options(email = "tyler.rinker@gmail.com")}.}
 
 \item{open}{logical.  If \code{TRUE} the project will be opened in RStudio.
@@ -48,7 +48,7 @@ subdirectories and files will be created.}
 \item{travis}{logical.  If \code{TRUE} it is assumed
 \href{https://travis-ci.org}{Travis-CI} will be used and a \file{travis.yml}
 file is generated.  For more on managing a \file{travis.yml} with
-\pkg{R} see: \url{https://github.com/craigcitro/r-travis}.}
+\pkg{R} see:      \url{https://github.com/craigcitro/r-travis}.}
 
 \item{coverage}{logical.  If \code{TRUE} it is assumed
 \href{https://github.com/jimhester/covr}{\pkg{covr}} will be used.  This
@@ -56,7 +56,7 @@ information will be added to the \file{travis.yml}.}
 
 \item{github.user}{The user's \href{https://github.com/}{GitHub} user name.
 This can be set in the user's \code{options} in the \file{.Rprofile}; for
-example:  \cr
+example:       \cr
 \code{options(github.user = "trinker")}.}
 
 \item{samples}{logical.  If \code{TRUE} a sample \file{.R} regular expression
@@ -68,10 +68,13 @@ file will be placed in the \file{R} directory.  Additionally, if
 of the package creation.  The folowing parameters are passed to your function
 automatically: (1) the package's name, (2) \code{qpath} (a function that binds
 together path pieces; the starting piece is suppied by the \code{path} argument,
-(3) \code{name} (vector of 2: first and last), (4) your \code{email}, and (5)
-\code{path}.  This can be argument can be set in the user's \code{options} in
-the \file{.Rprofile}; for example: \cr
-\code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}.}
+(3) \code{name} (vector of 2:      first and last), (4) your \code{email}, (5)
+\code{path}, code{and (6) github.user}.  This can be argument can be set in
+the user's \code{options} in the \file{.Rprofile}; for example:      \cr
+\code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}.
+This argument can be a path to or \href{http://goo.gl/z7aN3P}{url} to a user
+specified 'tweaking' function.  The user can also pass the function directy
+to \code{tweak}.}
 
 \item{\ldots}{Other arguments passed to the user supplied \code{tweak}
 function.}

@@ -19,6 +19,11 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+CHANGES IN pax VERSION 0.0.2
+----------------------------------------------------------------
+
+*  `pax` is considered ready for use.
+
 
 CHANGES IN pax VERSION 0.0.1
 ----------------------------------------------------------------
@@ -26,4 +31,4 @@ CHANGES IN pax VERSION 0.0.1
 * The first CRAN installation of the pax package
 
 * Package designed to provide a package templating system that assumes the use 
-  of testthat, Travis-CI and covr (coveralls).
+  of **testthat**, Travis-CI, RStudio, **devtools**, and **covr** (coveralls).

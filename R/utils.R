@@ -20,8 +20,9 @@ function() {
     temp[short.path] 
 }
 
-open_project <- function(Rproj.loc) {
+open_project <- function(Rproj.loc, package) {
     action <- paste(wheresRstudio(), Rproj.loc)
-    message("Preparing to open project!")
+    message(sprintf("\nPreparing to open %s!", package))
     try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
+

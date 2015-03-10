@@ -10,10 +10,10 @@
 #' last component of the path will be used as the package name.
 #' @param name A named vector that minimally contains the user's first and last 
 #' name (e.g., \code{c(first="Tyler", last="Rinker"))}).  This can be set in the 
-#' user's \code{options} in the \file{.Rprofile}; for example: \cr
+#' user's \code{options} in the \file{.Rprofile}; for example:      \cr
 #' \code{options(name = c(first="Tyler", middle = "W.", last="Rinker"))}.
 #' @param email An email address to use for \bold{CRAN} maintainer.  This can be 
-#' set in the user's \code{options} in the \file{.Rprofile}; for example: \cr 
+#' set in the user's \code{options} in the \file{.Rprofile}; for example:      \cr 
 #' \code{options(email = "tyler.rinker@@gmail.com")}.
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_report} is being used in the global 
@@ -31,13 +31,13 @@
 #' @param travis logical.  If \code{TRUE} it is assumed 
 #' \href{https://travis-ci.org}{Travis-CI} will be used and a \file{travis.yml} 
 #' file is generated.  For more on managing a \file{travis.yml} with 
-#' \pkg{R} see: \url{https://github.com/craigcitro/r-travis}.
+#' \pkg{R} see:      \url{https://github.com/craigcitro/r-travis}.
 #' @param coverage  logical.  If \code{TRUE} it is assumed 
 #' \href{https://github.com/jimhester/covr}{\pkg{covr}} will be used.  This 
 #' information will be added to the \file{travis.yml}.  
 #' @param github.user The user's \href{https://github.com/}{GitHub} user name.  
 #' This can be set in the user's \code{options} in the \file{.Rprofile}; for 
-#' example:  \cr
+#' example:       \cr
 #' \code{options(github.user = "trinker")}.
 #' @param samples logical.  If \code{TRUE} a sample \file{.R} regular expression
 #' file will be placed in the \file{R} directory.  Additionally, if 
@@ -47,10 +47,13 @@
 #' of the package creation.  The folowing parameters are passed to your function 
 #' automatically: (1) the package's name, (2) \code{qpath} (a function that binds 
 #' together path pieces; the starting piece is suppied by the \code{path} argument,
-#' (3) \code{name} (vector of 2: first and last), (4) your \code{email}, and (5)
-#' \code{path}.  This can be argument can be set in the user's \code{options} in 
-#' the \file{.Rprofile}; for example: \cr 
+#' (3) \code{name} (vector of 2:      first and last), (4) your \code{email}, (5)
+#' \code{path}, code{and (6) github.user}.  This can be argument can be set in 
+#' the user's \code{options} in the \file{.Rprofile}; for example:      \cr 
 #' \code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}. 
+#' This argument can be a path to or \href{http://goo.gl/z7aN3P}{url} to a user 
+#' specified 'tweaking' function.  The user can also pass the function directy 
+#' to \code{tweak}.
 #' @param \ldots Other arguments passed to the user supplied \code{tweak} 
 #' function.
 #' @keywords template
@@ -88,7 +91,9 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     package <- basename(path)
     if (is.null(github.user)) github.user <- "GITHUB_USERNAME"
 
+    
     ## Create home directory
+    message(sprintf("-> Creating:..........  %s root directory", package))
     if (file.exists(path)) {
         message(paste0("\"", path, "\" already exists:\nDo you want to overwrite?\n"))
         ans <- menu(c("Yes", "No"))
@@ -102,28 +107,47 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         suppressWarnings(dir.create(path))
     }
 
+
     ## Generate DESCRIPTION FILE
+    message("  -> Adding:............  DESCRIPTION")
+    message(sprintf("    -Email used:.......... %s", email))
+    message(sprintf("    -Name used:........... %s", paste(head(name, 1), tail(name, 1))))        
     cat(sprintf(paste(DESCRIPTION_temp, collapse="\n"), 
         package, 
         first, last, email, name, email,
         paste(R.Version()[c("major", "minor")], collapse="."),
-        ifelse(testthat, "\nSuggests: testthat", 
+        ifelse(testthat, "\nSuggests:           testthat", 
             ""),
         Sys.Date()
     ), file=qpath("DESCRIPTION"))    
 
     ## Generate R folder
+    message("  -> Creating:..........  R directory")        
     suppressWarnings(dir.create(qpath("R")))
 
-    ## Generate testthat
+    ## Add .R sample in R directory
+    if (samples) {
+        message("    -> Adding:............  sample.R")         
+        file.copy(system.file("templates/sample.R", 
+            package = "pax"), qpath("R"))
+    }  
+    
+    ## Generate testthat      
     if (testthat) {
+        message("  -> Creating:..........  tests")   
         suppressWarnings(dir.create(qpath("tests")))
+        
+        message("    -> Creating:..........  testthat")           
         suppressWarnings(dir.create(qpath("tests/testthat")))
-        cat(sprintf(testthat_temp, package, package), file=qpath("tests/testthat.R"))
         if (samples) {
+            message("      -> Adding:............  test-sample.R file") 
             file.copy(system.file("templates/test-sample.R", 
                 package = "pax"), qpath("tests/testthat"))
         }
+        
+        message("    -> Adding:............  testthat.R file") 
+        cat(sprintf(testthat_temp, package, package), file=qpath("tests/testthat.R"))
+        
     }
 
     ## Generate travis
@@ -131,6 +155,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         if (!coverage){
             travis_temp <- travis_temp[-c(12, 14:15)] 
         }
+        message("  -> Adding:............  travis.yml") 
         cat(paste(travis_temp, collapse="\n"), file=qpath("travis.yml"))
     }
 
@@ -139,22 +164,41 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         template_path <- system.file("templates/template.Rproj", 
             package = "pax")
         gitignore_temp[9] <- sprintf(gitignore_temp[9], package)
+        message(sprintf("  -> Adding:............  %s.rproj", package))         
         file.copy(template_path, path)
         file.rename(qpath("template.rproj"), qpath(sprintf("%s.rproj", package)))
     }
 
     ## Generate gitignore
     if (gitignore) {
+        message("  -> Adding:............  .gitignore")      
         cat(paste(gitignore_temp, collapse="\n"), file=qpath(".gitignore"))
     }
 
     ## Generate buildignore
-    if (gitignore) {
-        cat(paste(buildignore_temp , collapse="\n"), file=qpath(".Rbuildignore"))
-    }    
+    message("  -> Adding:............  .Rbuildignore") 
+    cat(paste(buildignore_temp , collapse="\n"), file=qpath(".Rbuildignore"))
+
+    ## Generate news
+    if (news) {
+        news_path <- system.file("templates/NEWS", 
+            package = "pax")
+        news_temp <- sprintf(readLines(news_path), package)
+        message("  -> Adding:............  NEWS")         
+        cat(paste(news_temp, collapse="\n"), file=qpath("NEWS"))
+    }
     
+    ## Add maintenance.R file to inst
+    message("  -> Creating:..........  inst")         
+    suppressWarnings(dir.create(qpath("inst")))
+        
+    message("    -> Adding:............  maintenance.R")         
+    file.copy(system.file("templates/maintenance.R", 
+        package = "pax"), qpath("inst"))
+     
     ## Generate readme
     if (readme) {
+        message("  -> Adding:............  README.Rmd")       
         readme_path <- system.file("templates/README.Rmd", 
             package = "pax")
         readme_temp <- do.call(sprintf, c(list(paste(readLines(readme_path), collapse="\n")), 
@@ -165,53 +209,46 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         cur <- getwd() 
         on.exit(setwd(cur))
         setwd(path)
+        message("    -> Knitting:..........  README.md file")         
         knitr::knit2html(input = "README.Rmd",  output = "README.md")
         setwd(cur)
         unlink(file.path(path, "README.html"), recursive = TRUE, force = FALSE)
     } 
 
-    ## Generate news
-    if (news) {
-        news_path <- system.file("templates/NEWS", 
-            package = "pax")
-        news_temp <- sprintf(readLines(news_path), package)
-        cat(paste(news_temp, collapse="\n"), file=qpath("NEWS"))
+    if (file.exists(path)){
+        ret <- TRUE
+        message(sprintf("\n%s build completed!\n", package))
+    } else {
+        ret <- FALSE        
     }
     
-    ## Add maintenance.R file to inst
-    suppressWarnings(dir.create(qpath("inst")))
-    file.copy(system.file("templates/maintenance.R", 
-        package = "pax"), qpath("inst"))
-
-    ## Add .R sample in R directory
-    if (samples) {
-        file.copy(system.file("templates/sample.R", 
-            package = "pax"), qpath("R"))
-    }    
-
     ## Run an additional script that acts on the output directory
     if (!is.null(tweak)) {
-        if (grepl("(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", tweak)){
-            myfun <- try(source(curl::curl(tweak))[["value"]])
-            if (!is.function(myfun)) {
+
+        message(sprintf("Attempting to tweak %s...", package))
+        if(!is.function(tweak)){
+            if (grepl("(http[^ ]*)|(ftp[^ ]*)|(www\\.[^ ]*)", tweak)){
+                myfun <- try(source(curl::curl(tweak))[["value"]])
+                if (!is.function(myfun)) {
+                    myfun <- try(source(tweak)[["value"]])
+                }
+            } else {
                 myfun <- try(source(tweak)[["value"]])
             }
+            if (!is.function(myfun)) {
+                warning("`tweak` file errored")
+            }
         } else {
-            myfun <- try(source(tweak)[["value"]])
+            myfun <- tweak
         }
-        if (!is.function(myfun)) {
-            warning("`tweak` file errored")
-        } else {
-            myfun(package = package, name = name, qpath = qpath, path = path, ...)
-        }
+        myfun(package = package, name = name, qpath = qpath, path = path, 
+            github.user = github.user, ...)
     }
-    
     if (open) {
-        open_project(qpath(paste0(package, ".Rproj")))
+        open_project(qpath(paste0(package, ".Rproj")), package)
     }
     
-    message(sprintf("%s Created!", package))
-    invisible(TRUE)
+    invisible(ret)
 }
 
 
@@ -227,24 +264,24 @@ pathfix <- function(path){
 
 
 DESCRIPTION_temp <- c(
-    "Package: %s", 
-    "Title: What the Package Does (one line)", 
-    "Version: 0.0.1", 
-    "Authors@R: c(person(\"%s\", \"%s\", email = \"%s\", role = c(\"aut\", \"cre\")))", 
-    "Maintainer: %s <%s>", 
-    "Description: What the package does (one paragraph)", 
-    "Depends: R (>= %s)%s",
-    "Date: %s", 
-    "License: What license is it under?", 
-    "LazyData: TRUE",
-    "Roxygen: list(wrap = FALSE)"
+    "Package:      %s", 
+    "Title:      What the Package Does (one line)", 
+    "Version:      0.0.1", 
+    "Authors@R:      c(person(\"%s\", \"%s\", email = \"%s\", role = c(\"aut\", \"cre\")))", 
+    "Maintainer:      %s <%s>", 
+    "Description:      What the package does (one paragraph)", 
+    "Depends:      R (>= %s)%s",
+    "Date:      %s", 
+    "License:      What license is it under?", 
+    "LazyData:      TRUE",
+    "Roxygen:      list(wrap = FALSE)"
 )
 
 
 testthat_temp <- "library(\"testthat\")\nlibrary(\"%s\")\n\ntest_check(\"%s\")" 
 
 travis_temp <- c(
-    "language: c", 
+    "language:      c", 
     "", 
     "before_install:", 
     "  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh", 
@@ -256,13 +293,13 @@ travis_temp <- c(
     "  - ./travis-tool.sh install_github hadley/devtools", 
     "  - ./travis-tool.sh install_deps", 
     "  - ./travis-tool.sh github_package jimhester/covr",         ## if isTRUE(coveralls)
-    "script: ./travis-tool.sh run_tests",                
+    "script:      ./travis-tool.sh run_tests",                
     "after_success:",                                             ## if isTRUE(coveralls)
     "  - Rscript -e 'library(covr);coveralls()'",                 ## if isTRUE(coveralls)
     "notifications:", 
     "  email:", 
-    "    on_success: change", 
-    "    on_failure: change", 
+    "    on_success:      change", 
+    "    on_failure:      change", 
     "env:", "   global:", 
     "     - R_BUILD_ARGS=\"--resave-data=best\" ", 
     "     - R_CHECK_ARGS=\"--as-cran\"", 
@@ -293,9 +330,6 @@ buildignore_temp <- c(
     "NEWS.html", 
     "FAQ.html", 
     "^\\.travis\\.yml$", 
-    "inst/staticdocs", 
-    "inst/maintenance.R", 
-    "inst/extra_statdoc", 
     "travis-tool.sh", 
     "inst/web", 
     "contributors.geojson", 
