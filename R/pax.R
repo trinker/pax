@@ -13,8 +13,12 @@
 #' user's \code{options} in the \file{.Rprofile}; for example:      \cr
 #' \code{options(name = c(first="Tyler", middle = "W.", last="Rinker"))}.
 #' @param email An email address to use for \bold{CRAN} maintainer.  This can be 
-#' set in the user's \code{options} in the \file{.Rprofile}; for example:      \cr 
+#' set in the user's \code{options} in the \file{.Rprofile}; for example:  \cr 
 #' \code{options(email = "tyler.rinker@@gmail.com")}.
+#' @param license A license to use in the \file{DESCRIPTION} file (e.g., 
+#' "GPL-2", "MIT"). This can be set in the user's \code{options} in the 
+#' \file{.Rprofile}; for example:    \cr 
+#' \code{options(license = "GPL-2")}.
 #' @param open logical.  If \code{TRUE} the project will be opened in RStudio.  
 #' The default is to test if \code{new_report} is being used in the global 
 #' environment, if it is then the project directory will be opened.  
@@ -63,10 +67,10 @@
 #' library_template("DELETE_ME")
 #' }
 pax <- function(path, name = getOption("name"),  email = getOption("email"), 
-    open = is.global(2), news = TRUE, readme = TRUE, rstudio = TRUE, 
-    gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE, 
-    github.user = getOption("github.user"), samples = TRUE, 
-    tweak = getOption("tweak"), ...){ 
+    license = getOption("license"), open = is.global(2), news = TRUE, 
+    readme = TRUE, rstudio = TRUE, gitignore = TRUE, testthat = TRUE, 
+    travis = TRUE, coverage = TRUE, github.user = getOption("github.user"), 
+    samples = TRUE, tweak = getOption("tweak"), ...){ 
     
     
     ## Quick path by supplying file only
@@ -91,6 +95,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     package <- basename(path)
     if (is.null(github.user)) github.user <- "GITHUB_USERNAME"
 
+    if (is.null(license)) license <- "What license is it under?"
     
     ## Create home directory
     message(sprintf("-> Creating:..........  %s root directory", package))
@@ -107,24 +112,30 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         suppressWarnings(dir.create(path))
     }
 
-
     ## Generate DESCRIPTION FILE
+    
     message("  -> Adding:............  DESCRIPTION")
     message(sprintf("    -Email used:.......... %s", email))
-    message(sprintf("    -Name used:........... %s", paste(head(name, 1), tail(name, 1))))        
+    message(sprintf("    -Name used:........... %s", paste(head(name, 1), tail(name, 1)))) 
+    message(sprintf("    -License used:.......... %s", license))    
     cat(sprintf(paste(DESCRIPTION_temp, collapse="\n"), 
         package, 
         first, last, email, name, email,
         paste(R.Version()[c("major", "minor")], collapse="."),
-        ifelse(testthat, "\nSuggests:           testthat", 
+        ifelse(testthat, "\nSuggests: testthat", 
             ""),
-        Sys.Date()
+        Sys.Date(),
+        license
     ), file=qpath("DESCRIPTION"))    
 
     ## Generate R folder
     message("  -> Creating:..........  R directory")        
     suppressWarnings(dir.create(qpath("R")))
 
+    ## Add utils.R to R folder
+    message("    -> Adding:............  utils.R")    
+    cat("", file = qpath("R/utils.R"))
+    
     ## Add .R sample in R directory
     if (samples) {
         message("    -> Adding:............  sample.R")         
@@ -264,17 +275,17 @@ pathfix <- function(path){
 
 
 DESCRIPTION_temp <- c(
-    "Package:      %s", 
-    "Title:      What the Package Does (one line)", 
-    "Version:      0.0.1", 
-    "Authors@R:      c(person(\"%s\", \"%s\", email = \"%s\", role = c(\"aut\", \"cre\")))", 
-    "Maintainer:      %s <%s>", 
-    "Description:      What the package does (one paragraph)", 
-    "Depends:      R (>= %s)%s",
-    "Date:      %s", 
-    "License:      What license is it under?", 
-    "LazyData:      TRUE",
-    "Roxygen:      list(wrap = FALSE)"
+    "Package: %s", 
+    "Title: What the Package Does (one line)", 
+    "Version: 0.0.1", 
+    "Authors@R: c(person(\"%s\", \"%s\", email = \"%s\", role = c(\"aut\", \"cre\")))", 
+    "Maintainer: %s <%s>", 
+    "Description: What the package does (one paragraph)", 
+    "Depends: R (>= %s)%s",
+    "Date: %s", 
+    "License: %s", 
+    "LazyData: TRUE",
+    "Roxygen: list(wrap = FALSE)"
 )
 
 

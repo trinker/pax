@@ -8,10 +8,10 @@
 \title{\pkg{pax}: A Gold Version Package Template}
 \usage{
 pax(path, name = getOption("name"), email = getOption("email"),
-  open = is.global(2), news = TRUE, readme = TRUE, rstudio = TRUE,
-  gitignore = TRUE, testthat = TRUE, travis = TRUE, coverage = TRUE,
-  github.user = getOption("github.user"), samples = TRUE,
-  tweak = getOption("tweak"), ...)
+  license = getOption("license"), open = is.global(2), news = TRUE,
+  readme = TRUE, rstudio = TRUE, gitignore = TRUE, testthat = TRUE,
+  travis = TRUE, coverage = TRUE, github.user = getOption("github.user"),
+  samples = TRUE, tweak = getOption("tweak"), ...)
 }
 \arguments{
 \item{path}{location to create new regular expression library package. The
@@ -23,8 +23,13 @@ user's \code{options} in the \file{.Rprofile}; for example:      \cr
 \code{options(name = c(first="Tyler", middle = "W.", last="Rinker"))}.}
 
 \item{email}{An email address to use for \bold{CRAN} maintainer.  This can be
-set in the user's \code{options} in the \file{.Rprofile}; for example:      \cr
+set in the user's \code{options} in the \file{.Rprofile}; for example:  \cr
 \code{options(email = "tyler.rinker@gmail.com")}.}
+
+\item{license}{A license to use in the \file{DESCRIPTION} file (e.g.,
+"GPL-2", "MIT"). This can be set in the user's \code{options} in the
+\file{.Rprofile}; for example:    \cr
+\code{options(license = "GPL-2")}.}
 
 \item{open}{logical.  If \code{TRUE} the project will be opened in RStudio.
 The default is to test if \code{new_report} is being used in the global
