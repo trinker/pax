@@ -29,9 +29,10 @@ pax
 |------------------|---------------------------------------------|-----------------------------------------------------|
 | `name`  | The user's name (first & last) |   `options(name = c(first="Tyler",  last="Rinker"))`|                 |
 | `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
+| `license` | The package license | `options(license = "GPL-2")` |
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
 | `tweak`  | A path, [url](http://goo.gl/oL7UXO) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/oL7UXO")`| 
-| `license` | The package license | `options(license = "GPL-2")` |
+
 
 \****Note***: *See `?pax` for more information about the `tweak` argument; [CLICK HERE](https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R) for an example.*
 
