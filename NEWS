@@ -22,7 +22,23 @@ And constructed with the following guidelines:
 CHANGES IN pax VERSION 0.0.2
 ----------------------------------------------------------------
 
-*  `pax` is considered ready for use.
+`pax` is considered ready for use.
+
+
+BUG FIXES
+
+NEW FEATURES
+
+* `ploc` added to allow the user to (1) set a package directory location in the 
+  .Rprofile and (2) supply a package name to create a file path.  Useful with
+  `pax` function to supply just a package name and the package is placed in a 
+  standard location.
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
 
 
 CHANGES IN pax VERSION 0.0.1

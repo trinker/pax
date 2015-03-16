@@ -64,7 +64,13 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' library_template("DELETE_ME")
+#' pax("DELETE_ME")
+#' 
+#' ## Set a package location in .Rprofile and use `ploc` to convienently 
+#' ## complete the full path to where the package should be created
+#' ##
+#' options(dir = file.path(Sys.getenv("USERPROFILE"), "Desktop")) 
+#' pax(ploc("DELETE_ME"))
 #' }
 pax <- function(path, name = getOption("name"),  email = getOption("email"), 
     license = getOption("license"), open = is.global(2), news = TRUE, 
@@ -116,7 +122,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     
     message("  -> Adding:............  DESCRIPTION")
     message(sprintf("    -Email used:.......... %s", email))
-    message(sprintf("    -Name used:........... %s", paste(head(name, 1), tail(name, 1)))) 
+    message(sprintf("    -Name used:........... %s", name)) 
     message(sprintf("    -License used:.......... %s", license))    
     cat(sprintf(paste(DESCRIPTION_temp, collapse="\n"), 
         package, 

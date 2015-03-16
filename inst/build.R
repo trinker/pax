@@ -1,16 +1,11 @@
-root <- switch(Sys.info()[["user"]],
-    Tyler = "C:/Users/Tyler",
-    trinker = "C:/Users/trinker", 
-    message("Computer name not found")
-)
-
+root <- Sys.getenv("USERPROFILE")
 repo <- pack <- basename(getwd())
 
 curd <- getwd()
 loc <- file.path(root, "Desktop")
 setwd(loc)
 
-base.git <- file.path(root, "GitHub")
+base.git <- dirname(curd)
 
 
 qman <- function(x = repo, db = file.path(root, "/Dropbox/Public"), dir=loc) {

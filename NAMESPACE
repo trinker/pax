@@ -2,3 +2,4 @@
 
 export(is.global)
 export(pax)
+export(ploc)

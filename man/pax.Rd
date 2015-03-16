@@ -98,7 +98,13 @@ not a lightweight template, but a deluxe pax level template.
 }
 \examples{
 \dontrun{
-library_template("DELETE_ME")
+pax("DELETE_ME")
+
+## Set a package location in .Rprofile and use `ploc` to convienently
+## complete the full path to where the package should be created
+##
+options(dir = file.path(Sys.getenv("USERPROFILE"), "Desktop"))
+pax(ploc("DELETE_ME"))
 }
 }
 \keyword{template}
