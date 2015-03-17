@@ -36,6 +36,35 @@ pax
 
 \****Note***: *See `?pax` for more information about the `tweak` argument; [CLICK HERE](https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R) for an example.*
 
+
+## Template
+
+The standard **pax** template looks like:
+
+```
+|   .gitignore
+|   .Rbuildignore
+|   DESCRIPTION
+|   foo.rproj
+|   NEWS
+|   README.md
+|   README.Rmd
+|   travis.yml
+|   
++---inst
+|       maintenance.R
+|       
++---R
+|       sample.R
+|       utils.R
+|       
+\---tests
+    |   testthat.R
+    |   
+    \---testthat
+            test-sample.R
+```
+
 ## Installation
 
 To download the development version of pax:
