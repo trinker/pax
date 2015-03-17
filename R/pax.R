@@ -1,10 +1,10 @@
 #' Package Template
 #' 
-#' This function creates a package template.  It utiizes a framework with 
+#' This function creates a package template.  It utilizes a framework with 
 #' defaults that expects the user to use \pkg{testthat}, 
 #' \href{https://travis-ci.org}{Travis-CI} and \pkg{covr} 
 #' (\href{https://coveralls.io/}{coveralls}) to maintain the package.  This is 
-#' not a lightweight template, but a deluxe pax level template.
+#' not a light weight template, but a deluxe pax level template.
 #' 
 #' @param path location to create new regular expression library package. The 
 #' last component of the path will be used as the package name.
@@ -61,6 +61,7 @@
 #' @param \ldots Other arguments passed to the user supplied \code{tweak} 
 #' function.
 #' @keywords template
+#' @rdname pax.R
 #' @export
 #' @examples
 #' \dontrun{
