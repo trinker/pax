@@ -6,6 +6,5 @@
 #' maintains and enforces a narrow package management philosophy.  
 #' @docType package
 #' @name pax
-#' @rdname pax-package.R
 #' @aliases pax package-pax
 NULL

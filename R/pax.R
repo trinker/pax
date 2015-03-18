@@ -61,7 +61,6 @@
 #' @param \ldots Other arguments passed to the user supplied \code{tweak} 
 #' function.
 #' @keywords template
-#' @rdname pax.R
 #' @export
 #' @examples
 #' \dontrun{
