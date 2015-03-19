@@ -24,17 +24,22 @@ CHANGES IN pax VERSION 0.0.3
 
 BUG FIXES
 
-* `pax::pax`  Missed a package insertion in the README.Rmd file for the 
+* `pax::pax`  Missed a package name insertion in the README.Rmd file for the 
   Travis-CI link.
 
 * `pax::pax` created a **travis.yml** file, missing the leading dot.  Replaced 
   with **.travis.yml**.
+
+* `pax::pax` had incorrect link to coverage badge as package and GitHub name were
+  reversed.
 
 NEW FEATURES
 
 MINOR FEATURES
 
 IMPROVEMENTS
+
+* The **README.Rmd** uses *.svg* badges rather than *.png* badges.
 
 CHANGES
 
