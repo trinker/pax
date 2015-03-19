@@ -19,13 +19,28 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+CHANGES IN pax VERSION 0.0.3
+----------------------------------------------------------------
+
+BUG FIXES
+
+* `pax::pax`  Missed a package insertion in the README.Rmd file for the 
+  Travis-CI link.
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
 CHANGES IN pax VERSION 0.0.2
 ----------------------------------------------------------------
 
 `pax` is considered ready for use.
 
-
-BUG FIXES
 
 NEW FEATURES
 
@@ -33,12 +48,6 @@ NEW FEATURES
   .Rprofile and (2) supply a package name to create a file path.  Useful with
   `pax` function to supply just a package name and the package is placed in a 
   standard location.
-
-MINOR FEATURES
-
-IMPROVEMENTS
-
-CHANGES
 
 
 CHANGES IN pax VERSION 0.0.1

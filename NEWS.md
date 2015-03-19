@@ -19,10 +19,35 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+&lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.3
+----------------------------------------------------------------
+
+&lt;b&gt;BUG FIXES&lt;/b&gt;
+
+* `pax::pax`  Missed a package insertion in the README.Rmd file for the 
+  Travis-CI link.
+
+&lt;b&gt;NEW FEATURES&lt;/b&gt;
+
+&lt;b&gt;MINOR FEATURES&lt;/b&gt;
+
+IMPROVEMENTS
+
+&lt;b&gt;CHANGES&lt;/b&gt;
+
+
 &lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.2
 ----------------------------------------------------------------
 
-*  `pax` is considered ready for use.
+`pax` is considered ready for use.
+
+
+&lt;b&gt;NEW FEATURES&lt;/b&gt;
+
+* `ploc` added to allow the user to (1) set a package directory location in the 
+  .Rprofile and (2) supply a package name to create a file path.  Useful with
+  `pax` function to supply just a package name and the package is placed in a 
+  standard location.
 
 
 &lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.1
