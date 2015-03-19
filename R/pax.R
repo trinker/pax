@@ -272,7 +272,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
 
 
 readme_fill <- function(p, g, e){
-    c(rep(p, 1), rep(c(p, g), 3), rep(p, 2), rep(c(g, p), 5), e)
+    c(rep(p, 1), rep(c(p, g), 2), rep(p, 2), g, rep(p, 2), rep(c(g, p), 5), e)
 }
 
 pathfix <- function(path){
