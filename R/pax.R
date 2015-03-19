@@ -173,7 +173,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
             travis_temp <- travis_temp[-c(12, 14:15)] 
         }
         message("  -> Adding:............  travis.yml") 
-        cat(paste(travis_temp, collapse="\n"), file=qpath("travis.yml"))
+        cat(paste(travis_temp, collapse="\n"), file=qpath(".travis.yml"))
     }
 
     ## Generate rproj

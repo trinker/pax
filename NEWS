@@ -27,6 +27,9 @@ BUG FIXES
 * `pax::pax`  Missed a package insertion in the README.Rmd file for the 
   Travis-CI link.
 
+* `pax::pax` created a **travis.yml** file, missing the leading dot.  Replaced 
+  with **.travis.yml**.
+
 NEW FEATURES
 
 MINOR FEATURES
