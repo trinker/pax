@@ -3,7 +3,7 @@ pax
 
 
 
-[![Build Status](https://travis-ci.org/trinker/pax.png?branch=master)](https://travis-ci.org/trinker/pax)
+[![Build Status](https://travis-ci.org/trinker/pax.svg?branch=master)](https://travis-ci.org/trinker/pax)
 [![Coverage Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 <a href="https://img.shields.io/badge/Version-0.0.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.2-orange.svg" alt="Version"/></a></p>
