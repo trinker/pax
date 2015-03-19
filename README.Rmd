@@ -9,7 +9,7 @@ ver <- gsub(regex, "\\2", desc[loc])
 verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 ````
 
-[![Build Status](https://travis-ci.org/trinker/pax.png?branch=master)](https://travis-ci.org/trinker/pax)
+[![Build Status](https://travis-ci.org/trinker/pax.svg?branch=master)](https://travis-ci.org/trinker/pax)
 [![Coverage Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 `r verbad`
