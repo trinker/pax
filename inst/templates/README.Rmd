@@ -8,7 +8,7 @@ ver <- gsub(regex, "\\2", desc[loc])
 verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.svg"><img src="https://img.shields.io/badge/Version-%%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 ````
 
-[![Build Status](https://travis-ci.org/%s/%s.png?branch=master)](https://travis-ci.org/trinker/pax)
+[![Build Status](https://travis-ci.org/%s/%s.png?branch=master)](https://travis-ci.org/trinker/%s)
 [![Coverage Status](https://coveralls.io/repos/%s/%s/badge.png?branch=master)](https://coveralls.io/r/%s/%s?branch=master)
 `r verbadge`
 
