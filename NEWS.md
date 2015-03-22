@@ -77,7 +77,7 @@ IMPROVEMENTS
 **CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.1
 ----------------------------------------------------------------
 
-* The first CRAN installation of the <a href="https://github.com/trinker/pax" target="_blank">pax</a> package
+* The first GitHub installation of the <a href="https://github.com/trinker/pax" target="_blank">pax</a> package
 
 * Package designed to provide a package templating system that assumes the use 
   of **testthat**, Travis-CI, RStudio, **devtools**, and **covr** (coveralls).

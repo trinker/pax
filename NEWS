@@ -77,7 +77,7 @@ NEW FEATURES
 CHANGES IN pax VERSION 0.0.1
 ----------------------------------------------------------------
 
-* The first CRAN installation of the pax package
+* The first GitHub installation of the pax package
 
 * Package designed to provide a package templating system that assumes the use 
   of **testthat**, Travis-CI, RStudio, **devtools**, and **covr** (coveralls).
