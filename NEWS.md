@@ -19,10 +19,10 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-&lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.3
+**CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.3
 ----------------------------------------------------------------
 
-&lt;b&gt;BUG FIXES&lt;/b&gt;
+**BUG FIXES**
 
 * `pax::pax`  Missed a package name insertion in the README.Rmd file for the 
   Travis-CI link.
@@ -33,7 +33,7 @@ And constructed with the following guidelines:
 * `pax::pax` had incorrect link to coverage badge as package and GitHub name were
   reversed.
 
-&lt;b&gt;NEW FEATURES&lt;/b&gt;
+**NEW FEATURES**
 
 * `new_r` added to quickly produce a **roxygen2** style .R template file from a 
   `function` (output file will include the function) or a character string.
@@ -45,7 +45,7 @@ And constructed with the following guidelines:
   one call.
 
 
-&lt;b&gt;MINOR FEATURES&lt;/b&gt;
+**MINOR FEATURES**
 
 * **staticdocs** website is up and running: http://trinker.github.io/pax/  
   Improvements to come.
@@ -57,16 +57,16 @@ IMPROVEMENTS
 
 * The **README.Rmd** uses *.svg* badges rather than *.png* badges.
 
-&lt;b&gt;CHANGES&lt;/b&gt;
+**CHANGES**
 
 
-&lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.2
+**CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.2
 ----------------------------------------------------------------
 
 `pax` is considered ready for use.
 
 
-&lt;b&gt;NEW FEATURES&lt;/b&gt;
+**NEW FEATURES**
 
 * `ploc` added to allow the user to (1) set a package directory location in the 
   .Rprofile and (2) supply a package name to create a file path.  Useful with
@@ -74,7 +74,7 @@ IMPROVEMENTS
   standard location.
 
 
-&lt;b&gt;CHANGES&lt;/b&gt; IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.1
+**CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.1
 ----------------------------------------------------------------
 
 * The first CRAN installation of the <a href="https://github.com/trinker/pax" target="_blank">pax</a> package
