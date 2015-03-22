@@ -41,7 +41,7 @@ NEW FEATURES
 * `new_test` added to quickly produce a **testthat** style test .R template file 
    from a `function` (output file will include the function) or a character string.
 
-* `new_r_test` added to combine the functionalty of `new_r and `new_test` into 
+* `new_r_test` added to combine the functionality of `new_r` and `new_test` into 
   one call.
 
 
