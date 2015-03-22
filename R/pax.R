@@ -47,6 +47,9 @@
 #' file will be placed in the \file{R} directory.  Additionally, if 
 #' \code{testthat = TRUE}, a sample \file{.R} unit test will be placed in the 
 #' \file{./tests/testthat} directory.
+#' This can be set in the user's \code{options} in the \file{.Rprofile}; for 
+#' example:       \cr
+#' \code{options(samples = TRUE)}.
 #' @param tweak Additional user supplied function that can be sourced at the end 
 #' of the package creation.  The following parameters are passed to your function 
 #' automatically: (1) the package's name, (2) \code{qpath} (a function that binds 
@@ -76,7 +79,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     license = getOption("license"), open = is.global(2), news = TRUE, 
     readme = TRUE, rstudio = TRUE, gitignore = TRUE, testthat = TRUE, 
     travis = TRUE, coverage = TRUE, github.user = getOption("github.user"), 
-    samples = TRUE, tweak = getOption("tweak"), ...){ 
+    samples = getOption("samples"), tweak = getOption("tweak"), ...){ 
     
     
     ## Quick path by supplying file only
@@ -143,7 +146,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     cat("", file = qpath("R/utils.R"))
     
     ## Add .R sample in R directory
-    if (samples) {
+    if (isTRUE(samples) | is.null(samples)) {
         message("    -> Adding:............  sample.R")         
         file.copy(system.file("templates/sample.R", 
             package = "pax"), qpath("R"))
@@ -156,7 +159,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         
         message("    -> Creating:..........  testthat")           
         suppressWarnings(dir.create(qpath("tests/testthat")))
-        if (samples) {
+        if (isTRUE(samples) | is.null(samples)) {
             message("      -> Adding:............  test-sample.R file") 
             file.copy(system.file("templates/test-sample.R", 
                 package = "pax"), qpath("tests/testthat"))

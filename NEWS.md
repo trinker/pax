@@ -41,10 +41,17 @@ And constructed with the following guidelines:
 * `new_test` added to quickly produce a **testthat** style test .R template file 
    from a `function` (output file will include the function) or a character string.
 
+* `new_r_test` added to combine the functionalty of `new_r and `new_test` into 
+  one call.
+
+
 &lt;b&gt;MINOR FEATURES&lt;/b&gt;
 
 * **staticdocs** website is up and running: http://trinker.github.io/pax/  
   Improvements to come.
+
+* `pax::pax`'s `sample` argument is now set to `getOption("samples")`.  The 
+  argument can now be set via .Rprofile.
 
 IMPROVEMENTS
 

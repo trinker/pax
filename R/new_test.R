@@ -7,7 +7,7 @@
 #' @param fun A \code{\link[base]{function}} or character string naming the 
 #' function.
 #' @param path Path to directory to generate the function test in.  Default is 
-#' to use \code{"R"} for ease of use within RStudio.
+#' to use \code{"tests/testthat"} for ease of use within RStudio.
 #' @param file.name By default the file is named the same as: \cr 
 #' "text-" + \code{fun} + ".R". \cr
 #' This can be changed by supplying a file name to \code{file.name}.
@@ -20,8 +20,13 @@
 #' unlink("temp_dir", TRUE, TRUE)
 new_test <-
 function (fun, path = "tests/testthat", file.name = NULL) {
-    nm <- as.character(substitute(fun))
-
+    
+    if (is.function(fun)) {
+        nm <- as.character(substitute(fun))
+    } else {
+        if (!is.character(fun)) stop("`fun` must be a function or character string")
+        nm <- fun
+    }
     if (is.null(file.name)) {
         file.name <- paste0("test-", nm, ".R")
     }

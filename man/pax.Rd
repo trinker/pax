@@ -11,7 +11,7 @@ pax(path, name = getOption("name"), email = getOption("email"),
   license = getOption("license"), open = is.global(2), news = TRUE,
   readme = TRUE, rstudio = TRUE, gitignore = TRUE, testthat = TRUE,
   travis = TRUE, coverage = TRUE, github.user = getOption("github.user"),
-  samples = TRUE, tweak = getOption("tweak"), ...)
+  samples = getOption("samples"), tweak = getOption("tweak"), ...)
 }
 \arguments{
 \item{path}{location to create new regular expression library package. The
@@ -67,7 +67,10 @@ example:       \cr
 \item{samples}{logical.  If \code{TRUE} a sample \file{.R} regular expression
 file will be placed in the \file{R} directory.  Additionally, if
 \code{testthat = TRUE}, a sample \file{.R} unit test will be placed in the
-\file{./tests/testthat} directory.}
+\file{./tests/testthat} directory.
+This can be set in the user's \code{options} in the \file{.Rprofile}; for
+example:       \cr
+\code{options(samples = TRUE)}.}
 
 \item{tweak}{Additional user supplied function that can be sourced at the end
 of the package creation.  The following parameters are passed to your function

@@ -2,6 +2,7 @@
 
 export(is.global)
 export(new_r)
+export(new_r_test)
 export(new_test)
 export(pax)
 export(ploc)

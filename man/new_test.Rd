@@ -11,7 +11,7 @@ new_test(fun, path = "tests/testthat", file.name = NULL)
 function.}
 
 \item{path}{Path to directory to generate the function test in.  Default is
-to use \code{"R"} for ease of use within RStudio.}
+to use \code{"tests/testthat"} for ease of use within RStudio.}
 
 \item{file.name}{By default the file is named the same as: \cr
 "text-" + \code{fun} + ".R". \cr
