@@ -13,14 +13,14 @@ pax
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
 
-[**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  **pax** enforces a fairly narrow package management philosophy.  It expects the user will utilize:
+[**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the deluxe, gold version of a package template.  **pax** enforces a fairly narrow package management philosophy.  It expects the user will utilize:
 
 1.  [GitHub](https://github.com) for repository sharing
 2.  [RStudio](http://www.rstudio.com/) for GUI 
 3.  [**testthat**](http://cran.r-project.org/web/packages/testthat/index.html) for unit testing
 4.  [Coveralls](https://coveralls.io/) + [**covr**](https://github.com/jimhester/covr) for code coverage rating
 5.  [**devtools**](http://cran.r-project.org/web/packages/devtools/index.html)/[**roxygen2**](http://cran.r-project.org/web/packages/roxygen2/index.html) for documentation 
-6.  [**knitr**](http://yihui.name/knitr/) for README managment
+6.  [**knitr**](http://yihui.name/knitr/) for README management
 
 **pax** has one main function that does one job.  `pax` (package and function named **pax**) creates a package template.  It allows the user to specify construction arguments (locally or [via options in *.Rprofile*](http://www.statmethods.net/interface/customizing.html)). Arguments that can be set in the *.Rprofile* include:
 
