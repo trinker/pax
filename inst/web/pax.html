@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>pax. pax 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pax 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1><span class = "pkg">pax</span>: A Gold Version Package Template</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>pax(path, name&nbsp;=&nbsp;getOption("name"), email&nbsp;=&nbsp;getOption("email"), license&nbsp;=&nbsp;getOption("license"), open&nbsp;=&nbsp;is.global(2), news&nbsp;=&nbsp;TRUE, readme&nbsp;=&nbsp;TRUE, rstudio&nbsp;=&nbsp;TRUE, gitignore&nbsp;=&nbsp;TRUE, testthat&nbsp;=&nbsp;TRUE, travis&nbsp;=&nbsp;TRUE, coverage&nbsp;=&nbsp;TRUE, github.user&nbsp;=&nbsp;getOption("github.user"), samples&nbsp;=&nbsp;TRUE, tweak&nbsp;=&nbsp;getOption("tweak"), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>path</dt>
+      <dd>location to create new regular expression library package. The
+last component of the path will be used as the package name.</dd>
+      <dt>name</dt>
+      <dd>A named vector that minimally contains the user's first and last
+name (e.g., <code>c(first="Tyler", last="Rinker"))</code>).  This can be set in the
+user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for example:      
+<code>options(name = c(first="Tyler", middle = "W.", last="Rinker"))</code>.</dd>
+      <dt>email</dt>
+      <dd>An email address to use for <b>CRAN</b> maintainer.  This can be
+set in the user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for example:  
+<code>options(email = "tyler.rinker@gmail.com")</code>.</dd>
+      <dt>license</dt>
+      <dd>A license to use in the &#145;<span class = "file">DESCRIPTION</span>&#146; file (e.g.,
+"GPL-2", "MIT"). This can be set in the user's <code>options</code> in the
+&#145;<span class = "file">.Rprofile</span>&#146;; for example:    
+<code>options(license = "GPL-2")</code>.</dd>
+      <dt>open</dt>
+      <dd>logical.  If <code>TRUE</code> the project will be opened in RStudio.
+The default is to test if <code>new_report</code> is being used in the global
+environment, if it is then the project directory will be opened.</dd>
+      <dt>news</dt>
+      <dd>logical.  If <code>TRUE</code> a &#145;<span class = "file">NEWS</span>&#146; file is generated.</dd>
+      <dt>readme</dt>
+      <dd>logical.  If <code>TRUE</code> a &#145;<span class = "file">README.md</span>&#146; file is generated.</dd>
+      <dt>rstudio</dt>
+      <dd>logical.  If <code>TRUE</code> it is assumed
+<a href = 'http://www.rstudio.com/'>RStudio</a> will be used and a &#145;<span class = "file">xxx.proj</span>&#146;
+file is generated.</dd>
+      <dt>gitignore</dt>
+      <dd>logical.  If <code>TRUE</code> a &#145;<span class = "file">.gitignore</span>&#146; file is generated.</dd>
+      <dt>testthat</dt>
+      <dd>logical.  If <code>TRUE</code> it is assumed
+<a href = 'http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf'><span class = "pkg">testthat</span></a>
+will be used and a &#145;<span class = "file">test</span>&#146; subfolder with appropriate <span class = "pkg">testthat</span>
+subdirectories and files will be created.</dd>
+      <dt>travis</dt>
+      <dd>logical.  If <code>TRUE</code> it is assumed
+<a href = 'https://travis-ci.org'>Travis-CI</a> will be used and a &#145;<span class = "file">travis.yml</span>&#146;
+file is generated.  For more on managing a &#145;<span class = "file">travis.yml</span>&#146; with
+<span class = "pkg">R</span> see:      <a href = 'https://github.com/craigcitro/r-travis'>https://github.com/craigcitro/r-travis</a>.</dd>
+      <dt>coverage</dt>
+      <dd>logical.  If <code>TRUE</code> it is assumed
+<a href = 'https://github.com/jimhester/covr'><span class = "pkg">covr</span></a> will be used.  This
+information will be added to the &#145;<span class = "file">travis.yml</span>&#146;.</dd>
+      <dt>github.user</dt>
+      <dd>The user's <a href = 'https://github.com/'>GitHub</a> user name.
+This can be set in the user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for
+example:       
+<code>options(github.user = "trinker")</code>.</dd>
+      <dt>samples</dt>
+      <dd>logical.  If <code>TRUE</code> a sample &#145;<span class = "file">.R</span>&#146; regular expression
+file will be placed in the &#145;<span class = "file">R</span>&#146; directory.  Additionally, if
+<code>testthat = TRUE</code>, a sample &#145;<span class = "file">.R</span>&#146; unit test will be placed in the
+&#145;<span class = "file">./tests/testthat</span>&#146; directory.</dd>
+      <dt>tweak</dt>
+      <dd>Additional user supplied function that can be sourced at the end
+of the package creation.  The following parameters are passed to your function
+automatically: (1) the package's name, (2) <code>qpath</code> (a function that binds
+together path pieces; the starting piece is supplied by the <code>path</code> argument,
+(3) <code>name</code> (vector of 2:      first and last), (4) your <code>email</code>, (5)
+<code>path</code>, codeand (6) github.user.  This can be argument can be set in
+the user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for example:      
+<code>options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")</code>.
+This argument can be a path to or <a href = 'http://goo.gl/z7aN3P'>url</a> to a user
+specified 'tweaking' function.  The user can also pass the function directly
+to <code>tweak</code>.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to the user supplied <code>tweak</code>
+function.</dd>
+    </dl>
+    
+    <div class="&lt;span class = &quot;pkg&quot;&gt;pax&lt;/span&gt;: A Gold Version Package Template">
+      <h2>&lt;span class = &quot;pkg&quot;&gt;pax&lt;/span&gt;: A Gold Version Package Template</h2>
+      
+    </div>
+
+    <div class="&lt;span class = &quot;pkg&quot;&gt;pax&lt;/span&gt;: A Gold Version Package Template">
+      <h2>&lt;span class = &quot;pkg&quot;&gt;pax&lt;/span&gt;: A Gold Version Package Template</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><a href = 'http://trinker.github.io/pax_dev'><span class = "pkg">pax</span></a> is a package template
+system that is NOT designed to be light weight.  It is the delux, gold
+version of a package template.  **pax** is not flexible, rather it
+maintains and enforces a narrow package management philosophy.</p>
+  
+      <p>This function creates a package template.  It utilizes a framework with
+defaults that expects the user to use <span class = "pkg">testthat</span>,
+<a href = 'https://travis-ci.org'>Travis-CI</a> and <span class = "pkg">covr</span>
+(<a href = 'https://coveralls.io/'>coveralls</a>) to maintain the package.  This is
+not a light weight template, but a deluxe template.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# pax(&quot;DELETE_ME&quot;)
+# 
+# ## Set a package location in .Rprofile and use `ploc` to conveniently
+# ## complete the full path to where the package should be created
+# ##
+# options(dir = file.path(Sys.getenv(&quot;USERPROFILE&quot;), &quot;Desktop&quot;))
+# pax(ploc(&quot;DELETE_ME&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>package-pax</li><li>pax</li><li>pax-package</li>
+    </ul>
+    <ul>
+      <li>template</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

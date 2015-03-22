@@ -35,7 +35,16 @@ BUG FIXES
 
 NEW FEATURES
 
+* `new_r` added to quickly produce a **roxygen2** style .R template file from a 
+  `function` (output file will include the function) or a character string.
+
+* `new_test` added to quickly produce a **testthat** style test .R template file 
+   from a `function` (output file will include the function) or a character string.
+
 MINOR FEATURES
+
+* **staticdocs** website is up and running: http://trinker.github.io/pax/  
+  Improvements to come.
 
 IMPROVEMENTS
 

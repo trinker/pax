@@ -4,7 +4,7 @@
 #' defaults that expects the user to use \pkg{testthat}, 
 #' \href{https://travis-ci.org}{Travis-CI} and \pkg{covr} 
 #' (\href{https://coveralls.io/}{coveralls}) to maintain the package.  This is 
-#' not a light weight template, but a deluxe pax level template.
+#' not a light weight template, but a deluxe template.
 #' 
 #' @param path location to create new regular expression library package. The 
 #' last component of the path will be used as the package name.
@@ -48,15 +48,15 @@
 #' \code{testthat = TRUE}, a sample \file{.R} unit test will be placed in the 
 #' \file{./tests/testthat} directory.
 #' @param tweak Additional user supplied function that can be sourced at the end 
-#' of the package creation.  The folowing parameters are passed to your function 
+#' of the package creation.  The following parameters are passed to your function 
 #' automatically: (1) the package's name, (2) \code{qpath} (a function that binds 
-#' together path pieces; the starting piece is suppied by the \code{path} argument,
+#' together path pieces; the starting piece is supplied by the \code{path} argument,
 #' (3) \code{name} (vector of 2:      first and last), (4) your \code{email}, (5)
 #' \code{path}, code{and (6) github.user}.  This can be argument can be set in 
 #' the user's \code{options} in the \file{.Rprofile}; for example:      \cr 
 #' \code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}. 
 #' This argument can be a path to or \href{http://goo.gl/z7aN3P}{url} to a user 
-#' specified 'tweaking' function.  The user can also pass the function directy 
+#' specified 'tweaking' function.  The user can also pass the function directly 
 #' to \code{tweak}.
 #' @param \ldots Other arguments passed to the user supplied \code{tweak} 
 #' function.
@@ -66,7 +66,7 @@
 #' \dontrun{
 #' pax("DELETE_ME")
 #' 
-#' ## Set a package location in .Rprofile and use `ploc` to convienently 
+#' ## Set a package location in .Rprofile and use `ploc` to conveniently 
 #' ## complete the full path to where the package should be created
 #' ##
 #' options(dir = file.path(Sys.getenv("USERPROFILE"), "Desktop")) 

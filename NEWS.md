@@ -24,17 +24,31 @@ And constructed with the following guidelines:
 
 &lt;b&gt;BUG FIXES&lt;/b&gt;
 
-* `pax::pax`  Missed a package insertion in the README.Rmd file for the 
+* `pax::pax`  Missed a package name insertion in the README.Rmd file for the 
   Travis-CI link.
 
 * `pax::pax` created a **travis.yml** file, missing the leading dot.  Replaced 
   with **.travis.yml**.
 
+* `pax::pax` had incorrect link to coverage badge as package and GitHub name were
+  reversed.
+
 &lt;b&gt;NEW FEATURES&lt;/b&gt;
+
+* `new_r` added to quickly produce a **roxygen2** style .R template file from a 
+  `function` (output file will include the function) or a character string.
+
+* `new_test` added to quickly produce a **testthat** style test .R template file 
+   from a `function` (output file will include the function) or a character string.
 
 &lt;b&gt;MINOR FEATURES&lt;/b&gt;
 
+* **staticdocs** website is up and running: http://trinker.github.io/pax/  
+  Improvements to come.
+
 IMPROVEMENTS
+
+* The **README.Rmd** uses *.svg* badges rather than *.png* badges.
 
 &lt;b&gt;CHANGES&lt;/b&gt;
 

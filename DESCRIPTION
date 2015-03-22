@@ -9,10 +9,8 @@ Depends:
     R (>= 3.1.0)
 Imports: curl, knitr
 Suggests:
-    knitr,
     testthat
 LazyData: TRUE
-VignetteBuilder: knitr
 Description: A package templating system that assumes the use of GitHub, RStudio, testthat, Travis-CI and covr (coveralls).  
 License: GPL-2
 URL: http://trinker.github.com/pax/

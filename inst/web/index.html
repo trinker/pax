@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Index. pax 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Tyler Rinker &lt;tyler.rinker@gmail.com&gt;">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pax 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <div class="row">
+  <div class="span8">
+    <h1>pax</h1>
+
+<p><a href="https://travis-ci.org/trinker/pax"><img src="https://travis-ci.org/trinker/pax.svg?branch=master" alt="Build Status"/></a>
+<a href="https://coveralls.io/r/trinker/pax?branch=master"><img src="https://coveralls.io/repos/trinker/pax/badge.svg?branch=master" alt="Coverage Status"/></a>
+<a href="http://dx.doi.org/10.5281/zenodo.15891"><img src="https://zenodo.org/badge/5398/trinker/pax.svg" alt="DOI"/></a>
+<a href="https://img.shields.io/badge/Version-0.0.3-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.3-orange.svg" alt="Version"/></a></p></p>
+
+<h2>A Gold Version R Package Template</h2>
+
+<p><img src="inst/pax_logo/r_pax.png" width="20%", alt="">  </p>
+
+<p><a href="http://trinker.github.io/pax_dev"><strong>pax</strong></a> is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  <strong>pax</strong> enforces a fairly narrow package management philosophy.  It expects the user will utilize:</p>
+
+<ol>
+<li> <a href="https://github.com">GitHub</a> for repository sharing</li>
+<li> <a href="http://www.rstudio.com/">RStudio</a> for GUI </li>
+<li> <a href="http://cran.r-project.org/web/packages/testthat/index.html"><strong>testthat</strong></a> for unit testing</li>
+<li> <a href="https://coveralls.io/">Coveralls</a> + <a href="https://github.com/jimhester/covr"><strong>covr</strong></a> for code coverage rating</li>
+<li> <a href="http://cran.r-project.org/web/packages/devtools/index.html"><strong>devtools</strong></a>/<a href="http://cran.r-project.org/web/packages/roxygen2/index.html"><strong>roxygen2</strong></a> for documentation </li>
+<li> <a href="http://yihui.name/knitr/"><strong>knitr</strong></a> for README managment</li>
+</ol>
+
+<p><strong>pax</strong> has one main function that does one job.  <code>pax</code> (package and function named <strong>pax</strong>) creates a package template.  It allows the user to specify construction arguments (locally or <a href="http://www.statmethods.net/interface/customizing.html">via options in <em>.Rprofile</em></a>). Arguments that can be set in the <em>.Rprofile</em> include:</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>name</code></td>
+<td>The user&#39;s name (first &amp; last)</td>
+<td><code>options(name = c(first=&quot;Tyler&quot;,  last=&quot;Rinker&quot;))</code></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>The user&#39;s email address</td>
+<td><code>options(email = &quot;tyler.rinker@gmail.com&quot;)</code></td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>The package license</td>
+<td><code>options(license = &quot;GPL-2&quot;)</code></td>
+</tr>
+<tr>
+<td><code>github.user</code></td>
+<td>The user&#39;s <a href="https://github.com">GitHub</a> name</td>
+<td><code>options(github.user = &quot;trinker&quot;)</code></td>
+</tr>
+<tr>
+<td><code>tweak</code></td>
+<td>A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified &#39;tweaking&#39; function*</td>
+<td><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
+</tr>
+</tbody></table>
+
+<p>*<strong><em>Note</em></strong>: <em>See <code>?pax</code> for more information about the <code>tweak</code> argument; <a href="https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R">CLICK HERE</a> for an example.</em></p>
+
+<h2>Template</h2>
+
+<p>The standard <strong>pax</strong> template looks like:</p>
+
+<pre><code>|   .gitignore
+|   .Rbuildignore
+|   DESCRIPTION
+|   foo.rproj
+|   NEWS
+|   README.md
+|   README.Rmd
+|   travis.yml
+|   
++---inst
+|       maintenance.R
+|       
++---R
+|       sample.R
+|       utils.R
+|       
+\---tests
+    |   testthat.R
+    |   
+    \---testthat
+            test-sample.R
+</code></pre>
+
+<h2>Installation</h2>
+
+<p>To download the development version of pax:</p>
+
+<p>Download the <a href="https://github.com/trinker/pax/zipball/master">zip ball</a> or <a href="https://github.com/trinker/pax/tarball/master">tar ball</a>, decompress and run <code>R CMD INSTALL</code> on it, or use the <strong>pacman</strong> package to install the development version:</p>
+
+<pre><code class="r">if (!require(&quot;pacman&quot;)) install.packages(&quot;pacman&quot;)
+pacman::p_load_gh(&quot;trinker/pax&quot;)
+</code></pre>
+
+<h2>Help</h2>
+
+<ul>
+<li><a href="http://trinker.github.com/pax/">Web Page</a><br/></li>
+<li><a href="http://trinker.github.io/pax/vignettes/introduction.html">HTML Vignette: Introduction to pax</a><br/></li>
+<li><a href="https://dl.dropboxusercontent.com/u/61803503/pax.pdf">Package PDF Help Manual</a><br/></li>
+</ul>
+
+<h2>Contact</h2>
+
+<p>You are welcome to:</p>
+
+<ul>
+<li>submit suggestions and bug-reports at: <a href="https://github.com/trinker/pax/issues">https://github.com/trinker/pax/issues</a></li>
+<li>send a pull request on: <a href="https://github.com/trinker/pax/">https://github.com/trinker/pax/</a></li>
+<li>compose a friendly e-mail to: <a href="mailto:tyler.rinker@gmail.com">tyler.rinker@gmail.com</a></li>
+</ul>
+
+
+    <h2>Help topics</h2>
+
+    <h3>Templating functions</h3>
+    <p>Functions for constructing package and file templates.</p>
+
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="pax.html">pax</a></code>(package-pax, pax-package)<br />pax</li>
+            
+      <li>
+        <code><a href="new_r.html">new_r</a></code><br />Generate </li>
+            
+      <li>
+        <code><a href="new_test.html">new_test</a></code><br />Generate </li>
+    
+    </ul>
+    <h3>General use function</h3>
+    <p>Functions intended for internal or general use.</p>
+
+    
+    <ul class="index">
+        
+      <li>
+        <code><a href="is.global.html">is.global</a></code><br />Test If Environment is Global</li>
+            
+      <li>
+        <code><a href="ploc.html">ploc</a></code><br />Package File Path Location</li>
+    
+    </ul>
+  </div>
+  
+  <div class="span3 offset1">
+        
+    <h2>Dependencies</h2>
+    <ul>
+      <li><strong>Depends</strong>: </li>
+      <li><strong>Imports</strong>: curl, knitr</li>
+      <li><strong>Suggests</strong>: testthat</li>
+      <li><strong>Extends</strong>: </li>
+    </ul>
+     
+    
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

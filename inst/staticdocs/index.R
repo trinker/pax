@@ -1,20 +1,20 @@
 library(staticdocs)
 
-sd_section("Regular Expression Library Tools",
-  "Function for constructing and testing regular expressions.",
+sd_section("Templating functions",
+  "Functions for constructing package and file templates.",
   c(
-      "library_list",
-      "library_minimal",
-      "library_vignette", 
-      "library_template"
+      "pax",
+      "new_r",
+      "new_test"
   )
 )
 
 
-sd_section("Unit Testing Regular Expressions",
-  "Function for constructing and testing regular expressions.",
+sd_section("General use function",
+  "Functions intended for internal or general use.",
   c(
-      "test_extract"
+      "is.global",
+      "ploc"
   )
 )
 

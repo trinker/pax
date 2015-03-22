@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>ploc. pax 0.0.3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pax 0.0.3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Package File Path Location</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>ploc(base, dir&nbsp;=&nbsp;getOption("dir"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>base</dt>
+      <dd>The base name (package name).</dd>
+      <dt>dir</dt>
+      <dd>The location to place <code>base</code>.  This can be
+set in the user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for example:  
+<code>options(dir = file.path(Sys.getenv("USERPROFILE"), "GitHub"))</code>.</dd>
+    </dl>
+    
+    <div class="Package File Path Location">
+      <h2>Package File Path Location</h2>
+      
+    </div>
+
+    <div class="Package File Path Location">
+      <h2>Package File Path Location</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a concatenated file path using <code>dir</code> and <code>base</code>.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>A wrapper for <code>file.path</code> that allows the user to (1) set a
+package directory location and (2) supply a package name and a file
+path is constructed.  This is the inverse of <code><a href='http://www.inside-r.org/packages/cran/base/docs/basename'>basename</a></code> +
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/basename'>dirname</a></code>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# options(dir = file.path(Sys.getenv(&quot;USERPROFILE&quot;), &quot;Desktop&quot;))
+# pax(ploc(&quot;DELETE_ME&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>ploc</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/file.path'>file.path</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/basename'>basename</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/basename'>dirname</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

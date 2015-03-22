@@ -1,5 +1,4 @@
-wheresRstudio <- 
-function() {
+wheresRstudio <- function() {
     myPaths <- c("rstudio",  "~/.cabal/bin/rstudio", 
         "~/Library/Haskell/bin/rstudio", "C:\\PROGRA~1\\RStudio\\bin\\rstudio.exe",
         "C:\\RStudio\\bin\\rstudio.exe", "/Applications/RStudio.app/Contents/MacOS/RStudio")
@@ -26,3 +25,20 @@ open_project <- function(Rproj.loc, package) {
     try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
 
+
+roxfun <- function (fun) {
+
+    ## grab arguments
+    pars <- formals(fun)
+    if (!is.null(pars)){
+        pars <- paste("#' @param", gsub("\\.{3}", "\\\\ldots", names(pars)))
+    } 
+
+    ## additional roxygen style markup
+    name.desc <- c("#' Title", "#' ", "#' Description", "#' ")
+    ending <- c("#' @return", "#' @references", "#' @keywords", 
+        "#' @export", "#' @seealso", "#' @examples")
+
+    paste0(c(name.desc, pars, ending), collapse = "\n")
+
+}

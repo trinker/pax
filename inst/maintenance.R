@@ -46,7 +46,7 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- file.path(R_USER, "GitHub", basename(getwd()), "inst/extra_statdoc/readme.R")
 library(acc.roxygen2); library(qdap);
-extras <- qcv("test_remove", "test_split")
+extras <- NULL #qcv("test_remove", "test_split")
 ## drops <- qcv()
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
