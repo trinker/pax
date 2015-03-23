@@ -1,4 +1,4 @@
-wheresRstudio <- function() {
+locate_rstudio <- function() {
     myPaths <- c("rstudio",  "~/.cabal/bin/rstudio", 
         "~/Library/Haskell/bin/rstudio", "C:\\PROGRA~1\\RStudio\\bin\\rstudio.exe",
         "C:\\RStudio\\bin\\rstudio.exe", "/Applications/RStudio.app/Contents/MacOS/RStudio")
@@ -20,7 +20,7 @@ wheresRstudio <- function() {
 }
 
 open_project <- function(Rproj.loc, package) {
-    action <- paste(wheresRstudio(), Rproj.loc)
+    action <- paste(locate_rstudio(), Rproj.loc)
     message(sprintf("\nPreparing to open %s!", package))
     try(system(action, wait = FALSE, ignore.stderr = TRUE))
 }
@@ -43,12 +43,10 @@ roxfun <- function (fun) {
 
 }
 
-writeToClipboard  <- function(x) {
+write_clip  <- function(x) {
     ## The code for this helper function comes from the oveRflow package.  
     ## # https://raw.github.com/sebastian-c/oveRflow/master/R/writeClip.R
     ## This is code I submitted but was modified by the package maintainers.
-    ## The idea to keep this function as a modular unit makes sense and was 
-    ## subsequently applied to the pacman package
     
     OS <- Sys.info()["sysname"]
     

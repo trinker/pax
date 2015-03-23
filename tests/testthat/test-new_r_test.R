@@ -29,3 +29,17 @@ test_that("new_r_test creates a .R file when passed a character and rename the .
     lns <- readLines(fls)
     expect_true(tail(lns, 1) == "")
 })
+
+test_that("new_r_test creates a .R file when passed a single line function",{
+
+    printer <- function(text = "Robots stink") print(text)
+    tmp <- tempdir()  
+    paxtest4 <- file.path(tmp, "pax_testing")
+    unlink(paxtest4, TRUE, TRUE)    
+    dir.create(paxtest4)
+    suppressMessages(new_r_test(printer, paxtest4, test.path = paxtest4))
+    fls <- file.path(paxtest4, "printer.R")
+    expect_true(file.exists(fls))
+    lns <- readLines(fls)
+    expect_true(length(grep("^function", lns)) > 0)
+})

@@ -15,7 +15,7 @@
 pax_options <- function(copy2clip = interactive()) {
 
     if (copy2clip) {
-        writeToClipboard(opts)
+        write_clip(opts)
     }
     message(opts)
     return(invisible(opts))
