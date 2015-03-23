@@ -89,7 +89,7 @@ pacman::p_load_gh("trinker/pax")
 ```
 ## Additional Features
 
-In addition to the `pax` templating function, **pax** also has a few additional tools to generate *.R* and *test-____.R* scripts that adds a **roxygen2** style *.R* file to the *R* directory as well as adding a **testthat** style unit test file to *tests/testthat* directory.  These actions can be done separately but it is recommended that they be combined into one function call: `new_r_test`.  This sets a [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development) expectations that as a function is created a unit test is used in the development process.
+In addition to the `pax` templating function, **pax** also has a few additional tools to generate *.R* and *test-____.R* scripts that adds a **roxygen2** style *.R* file to the *R* directory as well as adding a **testthat** style unit test file to *tests/testthat* directory.  These actions can be done separately but it is recommended that they be combined into one function call: `new_r_test`.  This sets a [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development) expectation that as a function is created a unit test is used in the development process.
 
 |  Function    |  Description    |
 |--------------|-----------------|
