@@ -30,7 +30,7 @@
 #' @param gitignore logical.  If \code{TRUE} a \file{.gitignore} file is generated.
 #' @param testthat logical.  If \code{TRUE} it is assumed 
 #' \href{http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf}{\pkg{testthat}} 
-#' will be used and a \file{test} subfolder with appropriate \pkg{testthat} 
+#' will be used and a \file{test} sub-folder with appropriate \pkg{testthat} 
 #' subdirectories and files will be created.
 #' @param travis logical.  If \code{TRUE} it is assumed 
 #' \href{https://travis-ci.org}{Travis-CI} will be used and a \file{travis.yml} 

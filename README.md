@@ -46,6 +46,7 @@ options(license = "")
 options(github.user = "")
 options(samples = )
 options(tweak = "")
+options(dir = "")
 ```
 
 ## Template

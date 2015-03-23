@@ -27,5 +27,6 @@ opts <- paste(c(
     "options(license = \"\")",
     "options(github.user = \"\")",  
     "options(samples = )",
-    "options(tweak = \"\")"
+    "options(tweak = \"\")",
+    "options(dir = \"\")"
 ), collapse = "\n")
