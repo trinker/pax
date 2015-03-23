@@ -29,8 +29,10 @@ function (fun, path = "R", file.name = NULL) {
         rox <- roxfun(fun)
         supp <- capture.output(dput(fun))
         loc <- grep("^\\{$", supp)[1]
-        supp[loc - 1] <- paste0(supp[loc - 1], "{")
-        supp <- supp[-loc]
+        if (!is.na(loc)) {
+            supp[loc - 1] <- paste0(supp[loc - 1], "{")
+            supp <- supp[-loc]
+        }
         if (grepl("^<environment: namespace:", tail(supp, 1))) {
             supp <- head(supp, -1)
         }
