@@ -44,6 +44,9 @@ And constructed with the following guidelines:
 * `new_r_test` added to combine the functionality of `new_r` and `new_test` into 
   one call.
 
+* `pax_options` added to generate a script template of blank **pax** options 
+  that can be added to *.Rprofile*.
+
 
 **MINOR FEATURES**
 

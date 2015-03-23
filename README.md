@@ -31,10 +31,22 @@ pax
 | `email`  | The user's email address |   `options(email = "tyler.rinker@gmail.com")`|  
 | `license` | The package license | `options(license = "GPL-2")` |
 | `github.user`  | The user's [GitHub](https://github.com) name |   `options(github.user = "trinker")`|  
+| `samples`  | Logical; if `TRUE` a sample *.R* & *test-___.R* added |   `options(samples = FALSE)`| 
 | `tweak`  | A function or path/[url](http://goo.gl/oL7UXO) to a user specified 'tweaking' function\* |   `options(tweak = "http://goo.gl/oL7UXO")`| 
 
-
 \****Note***: *See `?pax` for more information about the `tweak` argument; [CLICK HERE](https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R) for an example.*
+
+These arguments can be quickly added by using the `pax_options` function.  This generates the following blank script that can be added to the user's *.Rprofile*:
+
+
+```
+options(name = c(first="",  last=""))
+options(email = "")
+options(license = "")
+options(github.user = "")
+options(samples = )
+options(tweak = "")
+```
 
 ## Template
 
@@ -74,6 +86,15 @@ Download the [zip ball](https://github.com/trinker/pax/zipball/master) or [tar b
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh("trinker/pax")
 ```
+## Additional Features
+
+In addition to the `pax` templating function, **pax** also has a few additional tools to generate *.R* and *test-____.R* scripts that adds a *roxygen2** style *.R* file to the *R* directory as well as adding a **testthat** style unit test file to *tests/testthat* directory.  These actions can be done separately but it is recommended that they be combined into one function call: `new_r_test`.  This sets a [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development) expectations that as a function is created a unit test is used in the development process.
+
+|  Function    |  Description    |
+|--------------|-----------------|
+| `new_r`      | Makes **roxygen2** style *.R* template file from a `function` or character string |
+| `new_test`   | Makes **testthat** style unit test template file from a `function` or character string |
+| `new_r_test` | Makes **roxygen2** style *.R* and **testthat** style unit test files from a `function` or character string |
 
 ## Help
 
