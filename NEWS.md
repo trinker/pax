@@ -47,6 +47,8 @@ And constructed with the following guidelines:
 * `pax_options` added to generate a script template of blank **pax** options 
   that can be added to *.Rprofile*.
 
+* `new_vignette` added to quickly add **rmarkdown** style vignette tempaltes.
+
 
 **MINOR FEATURES**
 

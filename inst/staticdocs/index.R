@@ -6,7 +6,8 @@ sd_section("Templating functions",
       "pax",
       "new_r_test",
       "new_r",
-      "new_test"
+      "new_test",
+      "new_vignette"
   )
 )
 
