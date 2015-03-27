@@ -9,7 +9,7 @@ test_that("pax_options outputs a string of \n separated options",{
         "options(github.user = \"\")",  
         "options(samples = )",
         "options(tweak = \"\")",
-        "options(dir = \"\")"
+        "options(dir = \"\") ## See `?ploc` for details"
     ), collapse = "\n")
     
     expect_equal(suppressMessages(pax_options()), expected)
