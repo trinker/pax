@@ -68,7 +68,7 @@ The standard **pax** template looks like:
 |       maintenance.R
 |       
 +---R
-|       package-package.R
+|       foo-package.R
 |       sample.R
 |       utils.R
 |       
