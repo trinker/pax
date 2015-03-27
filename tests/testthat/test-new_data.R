@@ -20,3 +20,13 @@ test_that("new_data adds a data file and documents in the correct location",{
 
 })
 
+test_that("new_data helper `what` for data typing",{
+
+    expect_equal(what(mtcars), "data frame")
+    expect_equal(what(list(1, 2, 4)), "list")
+    expect_equal(what("the dog"), "character vector")
+    expect_equal(what(c(1, 2, 4)), "vector")
+    expect_equal(what(environment()), "environment")
+
+})
+

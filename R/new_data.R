@@ -133,11 +133,11 @@ what <- function(x) {
     if (is.list(x) & !is.data.frame(x)) {
         return("list")
     }
-    if (is.vector(x)) {
-        return("vector")
-    }
     if (class(x) == "character") {
         return("character vector")
+    }
+    if (is.vector(x)) {
+        return("vector")
     }
     if (is.environment(x)) {
         return("environment")
