@@ -20,14 +20,17 @@ This can be changed by supplying a file name to \code{file.name}.}
 Generates a \file{____.R} file.
 }
 \description{
-Quickly produce a \pkg{roxygen2} style .R template file from a
-\code{\link[base]{function}} (output file will include the function) or a
-character string.
+Quickly produce a \href{http://r-pkgs.had.co.nz/man.html}{\pkg{roxygen2} style}
+\file{.R} template  file from a \code{\link[base]{function}} (output file will
+include the function) or a character string.
 }
 \examples{
 dir.create("temp_dir")
 new_r(paste, "temp_dir")
 new_r("myfun", "temp_dir")
 unlink("temp_dir", TRUE, TRUE)
+}
+\references{
+\url{http://r-pkgs.had.co.nz/man.html}
 }
 

@@ -21,14 +21,17 @@ This can be changed by supplying a file name to \code{file.name}.}
 Generates a \file{test-____.R} file.
 }
 \description{
-Quickly produce a \pkg{testthat} style test .R template file from a
-\code{\link[base]{function}} (output file will include the function) or a
-character string.
+Quickly produce a \href{http://r-pkgs.had.co.nz/tests.html}{\pkg{testthat} style}
+test \file{.R} template file from a \code{\link[base]{function}} (output file
+will include the function) or a character string.
 }
 \examples{
 dir.create("temp_dir")
 new_test(paste, "temp_dir")
 new_test("myfun", "temp_dir")
 unlink("temp_dir", TRUE, TRUE)
+}
+\references{
+\url{http://r-pkgs.had.co.nz/tests.html}
 }
 

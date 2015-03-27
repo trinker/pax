@@ -1,8 +1,8 @@
 #' Generate \pkg{roxygen2} Style R Files 
 #' 
-#' Quickly produce a \pkg{roxygen2} style .R template file from a 
-#' \code{\link[base]{function}} (output file will include the function) or a 
-#' character string.
+#' Quickly produce a \href{http://r-pkgs.had.co.nz/man.html}{\pkg{roxygen2} style} 
+#' \file{.R} template  file from a \code{\link[base]{function}} (output file will 
+#' include the function) or a character string.
 #' 
 #' @param fun A \code{\link[base]{function}} or character string naming the 
 #' function.
@@ -12,6 +12,7 @@
 #' This can be changed by supplying a file name to \code{file.name}.
 #' @return Generates a \file{____.R} file.
 #' @export
+#' @references \url{http://r-pkgs.had.co.nz/man.html}
 #' @examples 
 #' dir.create("temp_dir")
 #' new_r(paste, "temp_dir")

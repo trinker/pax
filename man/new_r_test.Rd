@@ -28,8 +28,10 @@ This can be changed by supplying a file name to \code{file.name}.}
 Generates \file{____.R} and \file{test-____.R} files.
 }
 \description{
-Quickly produce a \pkg{roxygen2} style .R template and \pkg{testthat} style
-test .R template filefile from a \code{\link[base]{function}} (output file
+Quickly produce a \href{http://r-pkgs.had.co.nz/man.html}{\pkg{roxygen2} style}
+\file{.R} and
+\href{http://r-pkgs.had.co.nz/tests.html}{\pkg{testthat} style} test
+\file{.R} template files from a \code{\link[base]{function}} (output file
 will include the function) or a character string.  Wraps \code{new_r} and
 \code{new_test} function capabilities into one function call.
 }
@@ -38,5 +40,9 @@ dir.create("temp_dir")
 new_r_test(paste, r.path = "temp_dir", test.path = "temp_dir")
 new_r_test("myfun", r.path = "temp_dir", test.path = "temp_dir")
 unlink("temp_dir", TRUE, TRUE)
+}
+\references{
+\url{http://r-pkgs.had.co.nz/man.html} \cr
+\url{http://r-pkgs.had.co.nz/tests.html}
 }
 

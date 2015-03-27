@@ -20,9 +20,9 @@ underscore (for space) .Rmd file that utilizes the \code{title} argument.}
 be placed).}
 
 \item{add.builder}{logical.  If \code{TRUE} the \code{builder} argument will
-be added as the \code{VignetteBuilder} in the \file{DESCRIPTION} file.
+be added as the \code{VignetteBuilder} fied in the \file{DESCRIPTION} file.
 Additionally, if \code{builder = "knitr"} this will be added to
-\code{Suggests: } if not already a dependency.}
+\code{Suggests: } field if not already a dependency.}
 
 \item{desc.path}{The path to the \file{DESCRIPTION} file.  Defaults to
 \code{desc.path = "DESCRIPTION"}.}
@@ -34,8 +34,10 @@ Additionally, if \code{builder = "knitr"} this will be added to
 Generates a \file{____.Rmd} vignette file template.
 }
 \description{
-Generate an \pkg{rmarkdown} template and add \pkg{knitr} to
-\code{VignetteBuilder} and \code{Suggests} if not already included.
+Generates an
+\href{http://rmarkdown.rstudio.com/package_vignette_format.html}{\pkg{rmarkdown} style}
+template \file{.Rmd} file and adds \pkg{knitr} to \code{VignetteBuilder} &
+\code{Suggests} fields if not already included.
 }
 \examples{
 \dontrun{
@@ -47,6 +49,10 @@ new_vignette("intro", vign.path = "temp_dir/vignettes",
     desc.path = "temp_dir/DESCRIPTION")
 unlink("temp_dir", TRUE, TRUE)
 }
+}
+\references{
+\url{http://rmarkdown.rstudio.com/package_vignette_format.html} \cr
+\url{http://r-pkgs.had.co.nz/vignettes.html}
 }
 \keyword{vignette}
 

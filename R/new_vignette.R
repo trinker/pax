@@ -1,7 +1,9 @@
 #' Add an \pkg{rmarkdown} Template
 #' 
-#' Generate an \pkg{rmarkdown} template and add \pkg{knitr} to 
-#' \code{VignetteBuilder} and \code{Suggests} if not already included.
+#' Generates an 
+#' \href{http://rmarkdown.rstudio.com/package_vignette_format.html}{\pkg{rmarkdown} style} 
+#' template \file{.Rmd} file and adds \pkg{knitr} to \code{VignetteBuilder} & 
+#' \code{Suggests} fields if not already included.
 #' 
 #' @param title The title of the \pkg{rmarkdown} vignette document.  Defaults 
 #' to \emph{Introduction to x} where \emph{x} is the name of the package.
@@ -10,9 +12,9 @@
 #' @param vign.path The path to the vignettes directory (where the vignette will
 #' be placed).
 #' @param add.builder logical.  If \code{TRUE} the \code{builder} argument will
-#' be added as the \code{VignetteBuilder} in the \file{DESCRIPTION} file.  
+#' be added as the \code{VignetteBuilder} fied in the \file{DESCRIPTION} file.  
 #' Additionally, if \code{builder = "knitr"} this will be added to 
-#' \code{Suggests: } if not already a dependency.
+#' \code{Suggests: } field if not already a dependency.
 #' @param desc.path The path to the \file{DESCRIPTION} file.  Defaults to
 #' \code{desc.path = "DESCRIPTION"}.
 #' @param builder The name of the \code{VignetteBuilder} in the 
@@ -20,6 +22,8 @@
 #' @return Generates a \file{____.Rmd} vignette file template.
 #' @keywords vignette
 #' @export
+#' @references \url{http://rmarkdown.rstudio.com/package_vignette_format.html} \cr
+#' \url{http://r-pkgs.had.co.nz/vignettes.html}
 #' @examples 
 #' \dontrun{
 #' pax("temp_dir", open = FALSE)
