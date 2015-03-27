@@ -47,7 +47,7 @@ options(license = "")
 options(github.user = "")
 options(samples = )
 options(tweak = "")
-options(dir = "")
+options(dir = "") ## See `?ploc` for details
 ```
 
 ## Template

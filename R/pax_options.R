@@ -28,5 +28,5 @@ opts <- paste(c(
     "options(github.user = \"\")",  
     "options(samples = )",
     "options(tweak = \"\")",
-    "options(dir = \"\")"
+    "options(dir = \"\") ## See `?ploc` for details"
 ), collapse = "\n")
