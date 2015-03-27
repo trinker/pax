@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Index. pax 0.0.3</title>
+<title>Index. pax 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Tyler Rinker &lt;tyler.rinker@gmail.com&gt;">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">pax 0.0.3</a>
+      <a class="brand" href="#">pax 0.1.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -39,16 +39,17 @@
   <div class="span8">
     <h1>pax</h1>
 
-<p><a href="https://travis-ci.org/trinker/pax"><img src="https://travis-ci.org/trinker/pax.svg?branch=master" alt="Build Status"/></a>
+<p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/0.1.0/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."/></a>
+<a href="https://travis-ci.org/trinker/pax"><img src="https://travis-ci.org/trinker/pax.svg?branch=master" alt="Build Status"/></a>
 <a href="https://coveralls.io/r/trinker/pax?branch=master"><img src="https://coveralls.io/repos/trinker/pax/badge.svg?branch=master" alt="Coverage Status"/></a>
 <a href="http://dx.doi.org/10.5281/zenodo.15891"><img src="https://zenodo.org/badge/5398/trinker/pax.svg" alt="DOI"/></a>
-<a href="https://img.shields.io/badge/Version-0.0.3-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.3-orange.svg" alt="Version"/></a></p></p>
+<a href="https://img.shields.io/badge/Version-0.1.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"/></a></p></p>
 
 <h2>A Gold Version R Package Template</h2>
 
 <p><img src="inst/pax_logo/r_pax.png" width="20%", alt="">  </p>
 
-<p><a href="http://trinker.github.io/pax_dev"><strong>pax</strong></a> is a package template system that is NOT designed to be light weight.  It is the delux, gold version of a package template.  <strong>pax</strong> enforces a fairly narrow package management philosophy.  It expects the user will utilize:</p>
+<p><a href="http://trinker.github.io/pax_dev"><strong>pax</strong></a> is a package template system that is NOT designed to be light weight.  It is the deluxe, gold version of a package template.  <strong>pax</strong> enforces a fairly narrow package management philosophy.  It expects the user will utilize:</p>
 
 <ol>
 <li> <a href="https://github.com">GitHub</a> for repository sharing</li>
@@ -56,7 +57,7 @@
 <li> <a href="http://cran.r-project.org/web/packages/testthat/index.html"><strong>testthat</strong></a> for unit testing</li>
 <li> <a href="https://coveralls.io/">Coveralls</a> + <a href="https://github.com/jimhester/covr"><strong>covr</strong></a> for code coverage rating</li>
 <li> <a href="http://cran.r-project.org/web/packages/devtools/index.html"><strong>devtools</strong></a>/<a href="http://cran.r-project.org/web/packages/roxygen2/index.html"><strong>roxygen2</strong></a> for documentation </li>
-<li> <a href="http://yihui.name/knitr/"><strong>knitr</strong></a> for README managment</li>
+<li> <a href="http://yihui.name/knitr/"><strong>knitr</strong></a> for README management</li>
 </ol>
 
 <p><strong>pax</strong> has one main function that does one job.  <code>pax</code> (package and function named <strong>pax</strong>) creates a package template.  It allows the user to specify construction arguments (locally or <a href="http://www.statmethods.net/interface/customizing.html">via options in <em>.Rprofile</em></a>). Arguments that can be set in the <em>.Rprofile</em> include:</p>
@@ -89,6 +90,11 @@
 <td><code>options(github.user = &quot;trinker&quot;)</code></td>
 </tr>
 <tr>
+<td><code>samples</code></td>
+<td>Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-___.R</em> added</td>
+<td><code>options(samples = FALSE)</code></td>
+</tr>
+<tr>
 <td><code>tweak</code></td>
 <td>A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified &#39;tweaking&#39; function*</td>
 <td><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
@@ -96,6 +102,17 @@
 </tbody></table>
 
 <p>*<strong><em>Note</em></strong>: <em>See <code>?pax</code> for more information about the <code>tweak</code> argument; <a href="https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R">CLICK HERE</a> for an example.</em></p>
+
+<p>These arguments can be quickly added by using the <code>pax_options</code> function.  This generates the following blank script that can be added to the user&#39;s <em>.Rprofile</em>:</p>
+
+<pre><code>options(name = c(first=&quot;&quot;,  last=&quot;&quot;))
+options(email = &quot;&quot;)
+options(license = &quot;&quot;)
+options(github.user = &quot;&quot;)
+options(samples = )
+options(tweak = &quot;&quot;)
+options(dir = &quot;&quot;)
+</code></pre>
 
 <h2>Template</h2>
 
@@ -134,6 +151,30 @@
 pacman::p_load_gh(&quot;trinker/pax&quot;)
 </code></pre>
 
+<h2>Additional Features</h2>
+
+<p>In addition to the <code>pax</code> templating function, <strong>pax</strong> also has a few additional tools to generate <em>.R</em> and <em>test-____.R</em> scripts that add a <strong>roxygen2</strong> style <em>.R</em> file to the <em>R</em> directory as well as adding a <strong>testthat</strong> style unit test file to <em>tests/testthat</em> directory.  These actions can be done separately but it is recommended that they be combined into one function call: <code>new_r_test</code>.  This sets a <a href="http://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a> expectation that as a function is created a unit test is used in the development process.</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>new_r</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> template file from a <code>function</code> or character string</td>
+</tr>
+<tr>
+<td><code>new_test</code></td>
+<td>Makes <strong>testthat</strong> style unit test template file from a <code>function</code> or character string</td>
+</tr>
+<tr>
+<td><code>new_r_test</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> and <strong>testthat</strong> style unit test files from a <code>function</code> or character string</td>
+</tr>
+</tbody></table>
+
 <h2>Help</h2>
 
 <ul>
@@ -165,10 +206,16 @@ pacman::p_load_gh(&quot;trinker/pax&quot;)
         <code><a href="pax.html">pax</a></code>(package-pax, pax-package)<br />pax</li>
             
       <li>
+        <code><a href="new_r_test.html">new_r_test</a></code><br />Wrapper: </li>
+            
+      <li>
         <code><a href="new_r.html">new_r</a></code><br />Generate </li>
             
       <li>
         <code><a href="new_test.html">new_test</a></code><br />Generate </li>
+            
+      <li>
+        <code><a href="new_vignette.html">new_vignette</a></code><br />Add an </li>
     
     </ul>
     <h3>General use function</h3>
@@ -179,6 +226,9 @@ pacman::p_load_gh(&quot;trinker/pax&quot;)
         
       <li>
         <code><a href="is.global.html">is.global</a></code><br />Test If Environment is Global</li>
+            
+      <li>
+        <code><a href="pax_options.html">pax_options</a></code><br />pax</li>
             
       <li>
         <code><a href="ploc.html">ploc</a></code><br />Package File Path Location</li>

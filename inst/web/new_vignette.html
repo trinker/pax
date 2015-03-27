@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>new_vignette. pax 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pax 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Add an <span class = "pkg">rmarkdown</span> Template</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>new_vignette(title&nbsp;=&nbsp;paste("Introduction to", basename(getwd())), file.name&nbsp;=&nbsp;paste0(gsub("\\s+", "_", tolower(title)), ".Rmd"), vign.path&nbsp;=&nbsp;"vignettes", add.builder&nbsp;=&nbsp;TRUE, desc.path&nbsp;=&nbsp;"DESCRIPTION", builder&nbsp;=&nbsp;"knitr")</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>title</dt>
+      <dd>The title of the <span class = "pkg">rmarkdown</span> vignette document.  Defaults
+to <em>Introduction to x</em> where <em>x</em> is the name of the package.</dd>
+      <dt>file.name</dt>
+      <dd>The name of the vignette file.  Defaults to lower case,
+underscore (for space) .Rmd file that utilizes the <code>title</code> argument.</dd>
+      <dt>vign.path</dt>
+      <dd>The path to the vignettes directory (where the vignette will
+be placed).</dd>
+      <dt>add.builder</dt>
+      <dd>logical.  If <code>TRUE</code> the <code>builder</code> argument will
+be added as the <code>VignetteBuilder</code> in the &#145;<span class = "file">DESCRIPTION</span>&#146; file.
+Additionally, if <code>builder = "knitr"</code> this will be added to
+<code>Suggests: </code> if not already a dependency.</dd>
+      <dt>desc.path</dt>
+      <dd>The path to the &#145;<span class = "file">DESCRIPTION</span>&#146; file.  Defaults to
+<code>desc.path = "DESCRIPTION"</code>.</dd>
+      <dt>builder</dt>
+      <dd>The name of the <code>VignetteBuilder</code> in the
+&#145;<span class = "file">DESCRIPTION</span>&#146; file.  Defaults to <code>builder = "knitr"</code>.</dd>
+    </dl>
+    
+    <div class="Add an &lt;span class = &quot;pkg&quot;&gt;rmarkdown&lt;/span&gt; Template">
+      <h2>Add an &lt;span class = &quot;pkg&quot;&gt;rmarkdown&lt;/span&gt; Template</h2>
+      
+    </div>
+
+    <div class="Add an &lt;span class = &quot;pkg&quot;&gt;rmarkdown&lt;/span&gt; Template">
+      <h2>Add an &lt;span class = &quot;pkg&quot;&gt;rmarkdown&lt;/span&gt; Template</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Generates a &#145;<span class = "file">____.Rmd</span>&#146; vignette file template.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Generate an <span class = "pkg">rmarkdown</span> template and add <span class = "pkg">knitr</span> to
+<code>VignetteBuilder</code> and <code>Suggests</code> if not already included.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# pax(&quot;temp_dir&quot;, open = FALSE)
+# dir.create(&quot;temp_dir/vignettes&quot;)
+# ## Note: If used in RStudio with the root directory set to the
+# ##       package the user does not need to supply `vign,path` or `desc.path`
+# new_vignette(&quot;intro&quot;, vign.path = &quot;temp_dir/vignettes&quot;,
+#     desc.path = &quot;temp_dir/DESCRIPTION&quot;)
+# unlink(&quot;temp_dir&quot;, TRUE, TRUE)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>new_vignette</li>
+    </ul>
+    <ul>
+      <li>vignette</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

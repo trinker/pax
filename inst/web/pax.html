@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>pax. pax 0.0.3</title>
+<title>pax. pax 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">pax 0.0.3</a>
+      <a class="brand" href="#">pax 0.1.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>pax(path, name&nbsp;=&nbsp;getOption("name"), email&nbsp;=&nbsp;getOption("email"), license&nbsp;=&nbsp;getOption("license"), open&nbsp;=&nbsp;is.global(2), news&nbsp;=&nbsp;TRUE, readme&nbsp;=&nbsp;TRUE, rstudio&nbsp;=&nbsp;TRUE, gitignore&nbsp;=&nbsp;TRUE, testthat&nbsp;=&nbsp;TRUE, travis&nbsp;=&nbsp;TRUE, coverage&nbsp;=&nbsp;TRUE, github.user&nbsp;=&nbsp;getOption("github.user"), samples&nbsp;=&nbsp;TRUE, tweak&nbsp;=&nbsp;getOption("tweak"), ...)</div></pre>
+    <pre><div>pax(path, name&nbsp;=&nbsp;getOption("name"), email&nbsp;=&nbsp;getOption("email"), license&nbsp;=&nbsp;getOption("license"), open&nbsp;=&nbsp;is.global(2), news&nbsp;=&nbsp;TRUE, readme&nbsp;=&nbsp;TRUE, rstudio&nbsp;=&nbsp;TRUE, gitignore&nbsp;=&nbsp;TRUE, testthat&nbsp;=&nbsp;TRUE, travis&nbsp;=&nbsp;TRUE, coverage&nbsp;=&nbsp;TRUE, github.user&nbsp;=&nbsp;getOption("github.user"), samples&nbsp;=&nbsp;getOption("samples"), tweak&nbsp;=&nbsp;getOption("tweak"), ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -78,7 +78,7 @@ file is generated.</dd>
       <dt>testthat</dt>
       <dd>logical.  If <code>TRUE</code> it is assumed
 <a href = 'http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf'><span class = "pkg">testthat</span></a>
-will be used and a &#145;<span class = "file">test</span>&#146; subfolder with appropriate <span class = "pkg">testthat</span>
+will be used and a &#145;<span class = "file">test</span>&#146; sub-folder with appropriate <span class = "pkg">testthat</span>
 subdirectories and files will be created.</dd>
       <dt>travis</dt>
       <dd>logical.  If <code>TRUE</code> it is assumed
@@ -98,7 +98,10 @@ example:
       <dd>logical.  If <code>TRUE</code> a sample &#145;<span class = "file">.R</span>&#146; regular expression
 file will be placed in the &#145;<span class = "file">R</span>&#146; directory.  Additionally, if
 <code>testthat = TRUE</code>, a sample &#145;<span class = "file">.R</span>&#146; unit test will be placed in the
-&#145;<span class = "file">./tests/testthat</span>&#146; directory.</dd>
+&#145;<span class = "file">./tests/testthat</span>&#146; directory.
+This can be set in the user's <code>options</code> in the &#145;<span class = "file">.Rprofile</span>&#146;; for
+example:       
+<code>options(samples = TRUE)</code>.</dd>
       <dt>tweak</dt>
       <dd>Additional user supplied function that can be sourced at the end
 of the package creation.  The following parameters are passed to your function
@@ -130,7 +133,7 @@ function.</dd>
       <h2>Description</h2>
       
       <p><a href = 'http://trinker.github.io/pax_dev'><span class = "pkg">pax</span></a> is a package template
-system that is NOT designed to be light weight.  It is the delux, gold
+system that is NOT designed to be light weight.  It is the deluxe, gold
 version of a package template.  **pax** is not flexible, rather it
 maintains and enforces a narrow package management philosophy.</p>
   

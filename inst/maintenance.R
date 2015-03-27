@@ -21,7 +21,7 @@ update_news()
 #==========================
 # UPDATE NEWS
 #==========================
-update_version()
+update_version("0.1.0")
 
 #========================
 #staticdocs dev version

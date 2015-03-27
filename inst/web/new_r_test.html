@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>new_test. pax 0.1.0</title>
+<title>new_r_test. pax 0.1.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -35,61 +35,72 @@
         
       </header>
       
-      <h1>Generate <span class = "pkg">testthat</span> Style Test .R Files</h1>
+      <h1>Wrapper: <code>new_r</code> + <code>new_test</code></h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>new_test(fun, path&nbsp;=&nbsp;"tests/testthat", file.name&nbsp;=&nbsp;NULL)</div></pre>
+    <pre><div>new_r_test(fun, r.path&nbsp;=&nbsp;"R", r.file.name&nbsp;=&nbsp;NULL, test.path&nbsp;=&nbsp;"tests/testthat", test.file.name&nbsp;=&nbsp;NULL)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>fun</dt>
       <dd>A <code><a href='http://www.inside-r.org/packages/cran/base/docs/function'>function</a></code> or character string naming the
 function.</dd>
-      <dt>path</dt>
+      <dt>r.path</dt>
+      <dd>Path to directory to generate the function test in.  Default is
+to use <code>"R"</code> for ease of use within RStudio.</dd>
+      <dt>r.file.name</dt>
+      <dd>By default the file is named the same as <code>fun</code> + ".R".
+This can be changed by supplying a file name to <code>file.name</code>.</dd>
+      <dt>test.path</dt>
       <dd>Path to directory to generate the function test in.  Default is
 to use <code>"tests/testthat"</code> for ease of use within RStudio.</dd>
-      <dt>file.name</dt>
+      <dt>test.file.name</dt>
       <dd>By default the file is named the same as: 
 "text-" + <code>fun</code> + ".R". 
 This can be changed by supplying a file name to <code>file.name</code>.</dd>
     </dl>
     
-    <div class="Generate &lt;span class = &quot;pkg&quot;&gt;testthat&lt;/span&gt; Style Test .R Files">
-      <h2>Generate &lt;span class = &quot;pkg&quot;&gt;testthat&lt;/span&gt; Style Test .R Files</h2>
+    <div class="Wrapper: &lt;code&gt;new_r&lt;/code&gt; + &lt;code&gt;new_test&lt;/code&gt;">
+      <h2>Wrapper: &lt;code&gt;new_r&lt;/code&gt; + &lt;code&gt;new_test&lt;/code&gt;</h2>
       
     </div>
 
-    <div class="Generate &lt;span class = &quot;pkg&quot;&gt;testthat&lt;/span&gt; Style Test .R Files">
-      <h2>Generate &lt;span class = &quot;pkg&quot;&gt;testthat&lt;/span&gt; Style Test .R Files</h2>
+    <div class="Wrapper: &lt;code&gt;new_r&lt;/code&gt; + &lt;code&gt;new_test&lt;/code&gt;">
+      <h2>Wrapper: &lt;code&gt;new_r&lt;/code&gt; + &lt;code&gt;new_test&lt;/code&gt;</h2>
       
     </div>
 
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Generates a &#145;<span class = "file">test-____.R</span>&#146; file.</p>
+      <p>Generates &#145;<span class = "file">____.R</span>&#146; and &#145;<span class = "file">test-____.R</span>&#146; files.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Quickly produce a <span class = "pkg">testthat</span> style test .R template file from a
-<code><a href='http://www.inside-r.org/packages/cran/base/docs/function'>function</a></code> (output file will include the function) or a
-character string.</p>
+      <p>Quickly produce a <span class = "pkg">roxygen2</span> style .R template and <span class = "pkg">testthat</span> style
+test .R template filefile from a <code><a href='http://www.inside-r.org/packages/cran/base/docs/function'>function</a></code> (output file
+will include the function) or a character string.  Wraps <code>new_r</code> and
+<code>new_test</code> function capabilities into one function call.</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>dir.create(&quot;temp_dir&quot;)
-new_test(paste, &quot;temp_dir&quot;)
+new_r_test(paste, r.path = &quot;temp_dir&quot;, test.path = &quot;temp_dir&quot;)
 </div>
+<strong class='message'>R file created:
+ temp_dir/paste.R</strong>
 <strong class='message'>test file created:
  temp_dir/test-paste.R</strong>
-<div class='input'>new_test(&quot;myfun&quot;, &quot;temp_dir&quot;)
+<div class='input'>new_r_test(&quot;myfun&quot;, r.path = &quot;temp_dir&quot;, test.path = &quot;temp_dir&quot;)
 </div>
+<strong class='message'>R file created:
+ temp_dir/myfun.R</strong>
 <strong class='message'>test file created:
  temp_dir/test-myfun.R</strong>
 <div class='input'>unlink(&quot;temp_dir&quot;, TRUE, TRUE)
@@ -97,7 +108,7 @@ new_test(paste, &quot;temp_dir&quot;)
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>new_test</li>
+      <li>new_r_test</li>
     </ul>
     <ul>
       

@@ -1,7 +1,7 @@
 Package: pax
 Type: Package
 Title: A pax Version Package Template
-Version: 0.0.3
+Version: 0.1.0
 Date: 2015-01-05
 Author: Tyler Rinker <tyler.rinker@gmail.com>
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
