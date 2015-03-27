@@ -44,7 +44,7 @@ template \file{.Rmd} file and adds \pkg{knitr} to \code{VignetteBuilder} &
 pax("temp_dir", open = FALSE)
 dir.create("temp_dir/vignettes")
 ## Note: If used in RStudio with the root directory set to the
-##       package the user does not need to supply `vign,path` or `desc.path`
+##       package the user does not need to supply `vign.path` or `desc.path`
 new_vignette("intro", vign.path = "temp_dir/vignettes",
     desc.path = "temp_dir/DESCRIPTION")
 unlink("temp_dir", TRUE, TRUE)

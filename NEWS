@@ -27,9 +27,16 @@ BUG FIXES
 
 NEW FEATURES
 
+* `new_data` added to quickly add data sets and accompanying **roxygen2** style 
+  template to the package description *.R* file.
+
 MINOR FEATURES
 
 IMPROVEMENTS
+
+* A *package-package.R* file is added to the *R* directory that describes the 
+  package in the documentation.  This is also where **roxygen2** style 
+  formatting is added to document data sets.
 
 CHANGES
 

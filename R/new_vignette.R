@@ -29,7 +29,7 @@
 #' pax("temp_dir", open = FALSE)
 #' dir.create("temp_dir/vignettes")
 #' ## Note: If used in RStudio with the root directory set to the 
-#' ##       package the user does not need to supply `vign,path` or `desc.path`
+#' ##       package the user does not need to supply `vign.path` or `desc.path`
 #' new_vignette("intro", vign.path = "temp_dir/vignettes", 
 #'     desc.path = "temp_dir/DESCRIPTION")
 #' unlink("temp_dir", TRUE, TRUE)
@@ -46,8 +46,7 @@ function (title = paste("Introduction to", basename(getwd())),
         ans <- menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`new_vignette` aborted")
-        }
-        else {
+        } else {
             suppressWarnings(dir.create(vign.path))
         }
     }
@@ -55,8 +54,7 @@ function (title = paste("Introduction to", basename(getwd())),
         if (!file.exists(desc.path)) {
             warning(sprintf("Path to %s file not found...\nVignetteBuilder not added.", 
                 desc.path))
-        }
-        else {
+        } else {
             desc <- read.dcf(desc.path)
             if (!any(colnames(desc) %in% "VignetteBuilder")) {
                 add <- sprintf("\nVignetteBuilder: %s", builder)
@@ -66,11 +64,10 @@ function (title = paste("Introduction to", basename(getwd())),
                 len <- length(desc)
                 desc[len] <- paste(desc[len], add)
                 cat(paste(desc, collapse = "\n"), file = desc.path)
-            }
-            else {
+            } else {
                 if (desc[, "VignetteBuilder"] != builder) {
-                  warning(sprintf("Conflict between specified `builder` (%s) and existing VignetteBuilder (%s)", 
-                    builder, desc[, "VignetteBuilder"]))
+                    warning(sprintf("Conflict between specified `builder` (%s) and existing VignetteBuilder (%s)", 
+                        builder, desc[, "VignetteBuilder"]))
                 }
             }
         }
@@ -79,8 +76,7 @@ function (title = paste("Introduction to", basename(getwd())),
         if (!file.exists(desc.path)) {
             warning(sprintf("Path to %s file not found...\nknitr not added to Suggests.", 
                 desc.path))
-        }
-        else {
+        } else {
             desc <- read.dcf(desc.path)
             if (!any(colnames(desc) %in% "Suggests")) {
                 addknitr <- "\nSuggests: knitr"
@@ -89,8 +85,7 @@ function (title = paste("Introduction to", basename(getwd())),
                 len <- length(desc)
                 desc[len] <- paste(desc[len], addknitr)
                 cat(paste(desc, collapse = "\n"), file = desc.path)
-            }
-            else {
+            } else {
                 desc <- read.dcf(desc.path)
                 sugg <-  paste(desc[, colnames(desc) %in% c("Imports", 
                     "Suggests", "Depends")], collapse=",")

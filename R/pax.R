@@ -151,6 +151,11 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
         file.copy(system.file("templates/sample.R", 
             package = "pax"), qpath("R"))
     }  
+
+    ## Add pack-package.R to R folder
+    message(sprintf("    -> Adding:............  %s-package.R", package))    
+    cat(paste(sprintf(package_desc, package, package, package), collapse = "\n"),
+        file = qpath(sprintf("R/%s-package.R", package)))    
     
     ## Generate testthat      
     if (testthat) {
@@ -282,6 +287,15 @@ pathfix <- function(path){
     function(file) file.path(path, file)
 }
 
+package_desc <- c(
+    "#' What the Package Does (one line)", 
+    "#'", 
+    "#' What the package does (one or more paragraphs)", 
+    "#' @docType package", 
+    "#' @name %s", 
+    "#' @aliases %s package-%s", 
+    "NULL"
+)
 
 DESCRIPTION_temp <- c(
     "Package: %s", 
