@@ -91,10 +91,6 @@ pacman::p_load_gh("trinker/pax")
 ```
 ## Additional Features
 
-In addition to the `pax` templating function, **pax** also has a few additional tools to generate *.R* and *test-____.R* scripts that add a **roxygen2** style *.R* file to the *R* directory as well as adding a **testthat** style unit test file to *tests/testthat* directory.  These actions can be done separately but it is recommended that they be combined into one function call: `new_r_test`.  This sets a [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development) expectation that as a function is created a unit test is used in the development process.
-
-The `new_data` enables the user to add a data set to the *data* directory and append the **roxygen2** style *.R* markup template to the package's description file (*R/____-package.R*).  The `new_vignette` function provides a means of quickly adding an [**rmarkdown**](http://rmarkdown.rstudio.com/package_vignette_format.html) with the appropriate `title` field and  `\VignetteIndexEntry` set.
-
 |  Function      |  Description    |
 |----------------|-----------------|
 | `new_r`        | Makes **roxygen2** style *.R* template file from a `function` or character string |
@@ -103,17 +99,21 @@ The `new_data` enables the user to add a data set to the *data* directory and ap
 | `new_data` | Adds data & appends **roxygen2** style template to package description *.R* file |
 | `new_vignette` | Makes **rmarkdown** style *.Rmd* vignette template file |
 
+In addition to the `pax` templating function, **pax** also has a few additional tools to generate *.R* and *test-____.R* scripts that add a **roxygen2** style *.R* file to the *R* directory as well as adding a **testthat** style unit test file to *tests/testthat* directory.  These actions can be done separately but it is recommended that they be combined into one function call: `new_r_test`.  This sets a [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development) expectation that as a function is created a unit test is used in the development process.
+
+The `new_data` enables the user to add a data set to the *data* directory and append the **roxygen2** style *.R* markup template to the package's description file (*R/____-package.R*).  The `new_vignette` function provides a means of quickly adding an [**rmarkdown**](http://rmarkdown.rstudio.com/package_vignette_format.html) with the appropriate `title` field and  `\VignetteIndexEntry` set.
+
 ## Help
 
 - [Web Page](http://trinker.github.com/pax/)     
-- [HTML Vignette: Introduction to pax](http://trinker.github.io/pax/vignettes/introduction.html)         
-- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)      
+- [HTML Vignette: Introduction to pax](http://trinker.github.io/pax/vignettes/introduction.html)       
+- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)   
 
 ## Additional Package Development Resources
 
 - [Writing R Extensions](http://cran.r-project.org/doc/manuals/r-release/R-exts.html)
 - [RStudio Package Development Cheat Sheet](http://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf)       
-- [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/)  
+- [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/)        
 
 ## Contact
 
