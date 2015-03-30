@@ -317,6 +317,7 @@ testthat_temp <- "library(\"testthat\")\nlibrary(\"%s\")\n\ntest_check(\"%s\")"
 travis_temp <- c(
     "language:      c", 
     "", 
+    "sudo: required", 
     "before_install:", 
     "  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh", 
     "  - chmod 755 ./travis-tool.sh", 
