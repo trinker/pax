@@ -22,7 +22,7 @@ pax_options <- function(copy2clip = interactive()) {
 }
 
 opts <- paste(c(
-    "options(name = c(first=\"\",  last=\"\"))",
+    "options(name = c(first = \"\",  last = \"\"))",
     "options(email = \"\")",  
     "options(license = \"\")",
     "options(github.user = \"\")",  

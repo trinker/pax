@@ -41,7 +41,7 @@ These arguments can be quickly added by using the `pax_options` function.  This 
 
 
 ```
-options(name = c(first="",  last=""))
+options(name = c(first = "",  last = ""))
 options(email = "")
 options(license = "")
 options(github.user = "")
