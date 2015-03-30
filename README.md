@@ -114,7 +114,7 @@ The `new_data` enables the user to add a data set to the *data* directory and ap
 - [Writing R Extensions](http://cran.r-project.org/doc/manuals/r-release/R-exts.html)
 - [RStudio Package Development Cheat Sheet](http://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf)       
 - [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/)  
-- 
+
 ## Contact
 
 You are welcome to:
