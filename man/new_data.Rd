@@ -39,5 +39,10 @@ unlink("temp_dir", TRUE, TRUE)
 \references{
 \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
 }
+\seealso{
+Other new.functions: \code{\link{new_r_test}};
+  \code{\link{new_r}}; \code{\link{new_test}};
+  \code{\link{new_vignette}}
+}
 \keyword{data}
 

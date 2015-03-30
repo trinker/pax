@@ -12,6 +12,7 @@
 #' This can be changed by supplying a file name to \code{file.name}.
 #' @return Generates a \file{____.R} file.
 #' @export
+#' @family new functions
 #' @references \url{http://r-pkgs.had.co.nz/man.html}
 #' @examples 
 #' dir.create("temp_dir")

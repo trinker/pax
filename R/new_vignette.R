@@ -21,6 +21,7 @@
 #' \file{DESCRIPTION} file.  Defaults to \code{builder = "knitr"}.
 #' @return Generates a \file{____.Rmd} vignette file template.
 #' @keywords vignette
+#' @family new functions
 #' @export
 #' @references \url{http://rmarkdown.rstudio.com/package_vignette_format.html} \cr
 #' \url{http://r-pkgs.had.co.nz/vignettes.html}

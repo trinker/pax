@@ -20,6 +20,7 @@
 #' This can be changed by supplying a file name to \code{file.name}.
 #' @return Generates \file{____.R} and \file{test-____.R} files.
 #' @export
+#' @family new functions
 #' @references \url{http://r-pkgs.had.co.nz/man.html} \cr
 #' \url{http://r-pkgs.had.co.nz/tests.html}
 #' @examples 

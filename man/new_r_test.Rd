@@ -45,4 +45,9 @@ unlink("temp_dir", TRUE, TRUE)
 \url{http://r-pkgs.had.co.nz/man.html} \cr
 \url{http://r-pkgs.had.co.nz/tests.html}
 }
+\seealso{
+Other new.functions: \code{\link{new_data}};
+  \code{\link{new_r}}; \code{\link{new_test}};
+  \code{\link{new_vignette}}
+}
 

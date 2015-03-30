@@ -14,6 +14,7 @@
 #' @references \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
 #' @keywords data
 #' @export
+#' @family new functions
 #' @examples 
 #' \dontrun{
 #' pax("temp_dir", open = FALSE)
