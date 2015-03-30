@@ -1,6 +1,6 @@
 Package: pax
 Type: Package
-Title: A pax Version Package Template
+Title: A Package Templating Package
 Version: 0.1.0
 Date: 2015-01-05
 Author: Tyler Rinker <tyler.rinker@gmail.com>
