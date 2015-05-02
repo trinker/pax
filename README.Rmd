@@ -1,5 +1,10 @@
-pax
-=======
+---
+title: "pax"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  md_document:
+    toc: true      
+---
 
 ```{r, echo=FALSE}
 library("pax")
@@ -16,7 +21,7 @@ verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg">
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 `r verbad`
 
-## A Gold Version R Package Template
+# A Gold Version R Package Template
 
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
@@ -50,7 +55,7 @@ These arguments can be quickly added by using the `pax_options` function.  This 
 pax_options()
 ```
 
-## Template
+# Template
 
 The standard **pax** template looks like:
 
@@ -79,7 +84,7 @@ The standard **pax** template looks like:
             test-sample.R
 ```
 
-## Installation
+# Installation
 
 To download the development version of pax:
 
@@ -89,7 +94,7 @@ Download the [zip ball](https://github.com/trinker/pax/zipball/master) or [tar b
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh("trinker/pax")
 ```
-## Additional Features
+# Additional Features
 
 |  Function      |  Description    |
 |----------------|-----------------|
@@ -103,19 +108,19 @@ In addition to the `pax` templating function, **pax** also has a few additional 
 
 The `new_data` enables the user to add a data set to the *data* directory and append the **roxygen2** style *.R* markup template to the package's description file (*R/____-package.R*).  The `new_vignette` function provides a means of quickly adding an [**rmarkdown**](http://rmarkdown.rstudio.com/package_vignette_format.html) with the appropriate `title` field and  `\VignetteIndexEntry` set.
 
-## Help
+# Help
 
 - [Web Page](http://trinker.github.com/pax/)     
 - [HTML Vignette: Introduction to pax](http://trinker.github.io/pax/vignettes/introduction.html)       
 - [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)   
 
-## Additional Package Development Resources
+# Additional Package Development Resources
 
 - [Writing R Extensions](http://cran.r-project.org/doc/manuals/r-release/R-exts.html)
 - [RStudio Package Development Cheat Sheet](http://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf)       
 - [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/)        
 
-## Contact
+# Contact
 
 You are welcome to:
 * submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues>

@@ -11,7 +11,7 @@ devtools::test()
 #==========================
 # knit README.md
 #==========================
-knitr::knit2html("README.Rmd", output ='README.md'); reports::delete("README.html")
+rmarkdown::render("README.Rmd", "all"); reports::delete("README.html"); md_toc()
 
 #==========================
 # UPDATE NEWS

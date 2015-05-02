@@ -1,4 +1,10 @@
-# %s
+---
+title: "%s"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  md_document:
+    toc: true      
+---
 
 ```{r, echo=FALSE}
 desc <- suppressWarnings(readLines("DESCRIPTION"))
@@ -15,7 +21,7 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.sv
 
 **%s** is...
 
-## Installation
+# Installation
 
 To download the development version of **%s**:
 
@@ -26,7 +32,7 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load_gh("%s/%s")
 ```
 
-## Contact
+# Contact
 
 You are welcome to:
 * submit suggestions and bug-reports at: <https://github.com/%s/%s/issues>
