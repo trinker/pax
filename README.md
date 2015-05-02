@@ -1,5 +1,5 @@
 pax
-------------
+============
 
 
 [![Project Status: Active - The project has reached a stable, usable
@@ -19,7 +19,7 @@ A Gold Version R Package Template
 
 
 Table of Contents
-------------
+============-
 
 -   [A Gold Version R Package Template](#a-gold-version-r-package-template)
 -   [Description](#description)
@@ -31,7 +31,7 @@ Table of Contents
 -   [Contact](#contact)
 
 Description
-------------
+============
 
 
 [**pax**](http://trinker.github.io/pax_dev) is a package template system
