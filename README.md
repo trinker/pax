@@ -223,6 +223,6 @@ Contact
 =======
 
 You are welcome to:     
-\* submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues>     
-\* send a pull request on: <https://github.com/trinker/pax/>       
-\* compose a friendly e-mail to: <tyler.rinker@gmail.com>    
+* submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues>     
+* send a pull request on: <https://github.com/trinker/pax/>       
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>    
