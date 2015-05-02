@@ -42,7 +42,7 @@ new_data <- function (data, data.path = "data",
         }
     }
 
-    save(data, file = sprintf("%s/%s.rda", data.path, nm))
+    save(data, file = sprintf("%s/%s.rda", data.path, nm), compress = TRUE)
     
     pdoc <- suppressWarnings(readLines(doc.path))
     
