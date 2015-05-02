@@ -26,6 +26,8 @@ verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg">
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
 
+# Description
+
 [**pax**](http://trinker.github.io/pax_dev) is a package template system that is NOT designed to be light weight.  It is the deluxe, gold version of a package template.  **pax** enforces a fairly narrow package management philosophy.  It expects the user will utilize:
 
 1.  [GitHub](https://github.com) for repository sharing
