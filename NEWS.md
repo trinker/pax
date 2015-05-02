@@ -38,6 +38,8 @@ IMPROVEMENTS
   package in the documentation.  This is also where **roxygen2** style 
   formatting is added to document data sets.
 
+* `pax` now used **rmarkdown** to render the `README.md` file.
+
 **CHANGES**
 
 **CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.0.3

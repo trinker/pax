@@ -80,7 +80,7 @@ together path pieces; the starting piece is supplied by the \code{path} argument
 \code{path}, code{and (6) github.user}.  This can be argument can be set in
 the user's \code{options} in the \file{.Rprofile}; for example:      \cr
 \code{options(tweak = "C:/Users/Tyler/Copy/Public Scripts/augpax.R")}.
-This argument can be a path to or \href{http://goo.gl/z7aN3P}{url} to a user
+This argument can be a path to or \href{https://raw.githubusercontent.com/trinker/pax_tweak/master/pax_tweak.R}{url} to a user
 specified 'tweaking' function.  The user can also pass the function directly
 to \code{tweak}.}
 
