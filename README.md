@@ -19,7 +19,7 @@ A Gold Version R Package Template
 
 
 Table of Contents
-============-
+============
 
 -   [A Gold Version R Package Template](#a-gold-version-r-package-template)
 -   [Description](#description)
