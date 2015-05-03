@@ -17,22 +17,8 @@ A Gold Version R Package Template
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">
 
-
-Table of Contents
-============
-
--   [A Gold Version R Package Template](#a-gold-version-r-package-template)
--   [Description](#description)
--   [Template](#template)
--   [Installation](#installation)
--   [Additional Features](#additional-features)
--   [Help](#help)
--   [Additional Package Development Resources](#additional-package-development-resources)
--   [Contact](#contact)
-
 Description
-============
-
+===========
 
 [**pax**](http://trinker.github.io/pax_dev) is a package template system
 that is NOT designed to be light weight. It is the deluxe, gold version
@@ -137,8 +123,22 @@ The standard **pax** template looks like:
         \---testthat
                 test-sample.R
 
+
+Table of Contents
+============
+
+-   [A Gold Version R Package Template](#a-gold-version-r-package-template)
+-   [Description](#description)
+-   [Template](#template)
+-   [Installation](#installation)
+-   [Additional Features](#additional-features)
+-   [Help](#help)
+-   [Additional Package Development Resources](#additional-package-development-resources)
+-   [Contact](#contact)
+
 Installation
 ============
+
 
 To download the development version of pax:
 
@@ -222,7 +222,10 @@ Additional Package Development Resources
 Contact
 =======
 
-You are welcome to: \* submit suggestions and bug-reports at:
-<https://github.com/trinker/pax/issues> \* send a pull request on:
-<https://github.com/trinker/pax/> \* compose a friendly e-mail to:
+You are welcome to: 
+* submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues> 
+* send a pull request on: <https://github.com/trinker/pax/> 
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+
+NA
 <tyler.rinker@gmail.com>
