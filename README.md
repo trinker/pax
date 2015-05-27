@@ -87,7 +87,7 @@ Arguments that can be set in the *.Rprofile* include:
 </tr>
 <tr class="odd">
 <td align="left"><code>samples</code></td>
-<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-FUN_NAME.R</em> added</td>
+<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-.R</em> added</td>
 <td align="left"><code>options(samples = FALSE)</code></td>
 </tr>
 <tr class="even">
