@@ -25,6 +25,9 @@ First stable release.
 
 BUG FIXES
 
+* `new_data` did not save a usable data file.  This have been corrected 
+  (2015-05-27).
+
 NEW FEATURES
 
 * `new_data` added to quickly add data sets and accompanying **roxygen2** style 

@@ -42,16 +42,21 @@ new_data <- function (data, data.path = "data",
         }
     }
 
-    save(data, file = sprintf("%s/%s.rda", data.path, nm), compress = TRUE)
+    datenv <- new.env(FALSE)
+    assign(nm, data, envir = datenv)
+    save(list=nm, envir=datenv, file = sprintf("%s/%s.rda", data.path, nm), 
+        compress = TRUE)
     
     pdoc <- suppressWarnings(readLines(doc.path))
     
+    final_message <- TRUE
     if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
         message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
         message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
         ans <- menu(c("Yes", "No"))
         if (ans == "2") {
             warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
+            final_message <- FALSE
         } else {
             roxdat(data, nm, file = doc.path, append = TRUE)
             inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
@@ -65,9 +70,11 @@ new_data <- function (data, data.path = "data",
     }
 
     if (file.exists(sprintf("%s/%s.rda", data.path, nm))) {
-        message(sprintf("Data set `%s.rds` added to:\n%s", nm, data.path))
+        message(sprintf("Data set `%s.rda` added to:\n%s", nm, data.path))
     }    
-    message(sprintf("Data set documentation added to:\n%s\n\nAdjust as necessary.", doc.path))
+    if (final_message){
+        message(sprintf("Data set documentation added to:\n%s\n\nAdjust as necessary.", doc.path))
+    }
 }
 
 roxdat <- function(dat, name, file = "", append = FALSE) {
@@ -116,11 +123,11 @@ roxdat <- function(dat, name, file = "", append = FALSE) {
             }
         }
     }
-    out <- c("\n#'", x, desc, x, "#' @details", dets, x, "#' @docType data", 
+    out <- c("\n\n#'", x, desc, x, "#' @details", dets, x, "#' @docType data", 
         "#' @keywords datasets", paste("#' @name", name), 
         paste0("#' @usage data(", name, ")"), paste("#' @format A", 
             type, "with", paste(elems, collapse = " ")), 
-        "#' @references", "NULL\n")
+        "#' @references", "NULL")
     cat(paste(out, "\n", collapse = ""), file = file, append = append)
 }
 
