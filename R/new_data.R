@@ -31,7 +31,7 @@ new_data <- function (data, data.path = "data",
     nm <- as.character(substitute(data))
     
     if (!file.exists(data.path)){
-        message(sprintf("The following location does not exists:\n%s\n", 
+        message(sprintf("The following location does not exist:\n%s\n", 
             data.path))
         message("Should this directory be created?")
         ans <- menu(c("Yes", "No"))

@@ -87,7 +87,13 @@ Arguments that can be set in the *.Rprofile* include:
 </tr>
 <tr class="odd">
 <td align="left"><code>samples</code></td>
-<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; *test-___.R* added | <code>options(samples = FALSE)</code>| | <code>tweak</code> | A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function* | <code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code>|</td>
+<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-FUN_NAME.R</em> added</td>
+<td align="left"><code>options(samples = FALSE)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>tweak</code></td>
+<td align="left">A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function*</td>
+<td align="left"><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
 </tr>
 </tbody>
 </table>
