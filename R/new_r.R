@@ -24,11 +24,11 @@ function (fun, path = "R", file.name = NULL) {
     nm <- as.character(substitute(fun))
     supp <- NULL
     if (!is.function(fun) && is.character(fun)) {
-        rox <- roxfun(NULL)
+        rox <- roxfun(NULL, nm)
     } else {
         if (!is.function(fun)) 
             stop("`fun` must be a function or character name")
-        rox <- roxfun(fun)
+        rox <- roxfun(fun, nm)
         supp <- capture.output(dput(fun))
         loc <- grep("^\\{$", supp)[1]
         if (!is.na(loc)) {
@@ -44,7 +44,12 @@ function (fun, path = "R", file.name = NULL) {
         file.name <- paste0(nm, ".R")
     }
 
-    out <- file.path(path, file.name)
+    if (is.null(path)) {
+        cat(rox, supp, "\n\n", file = "")
+        return(invisible())
+    } else {
+        out <- file.path(path, file.name)
+    }
     
     ## ensure file doesn't exist
     if (file.exists(out)) {

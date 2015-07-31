@@ -33,6 +33,8 @@ NEW FEATURES
 * `new_data` added to quickly add data sets and accompanying **roxygen2** style 
   template to the package description *.R* file.
 
+* `new_r` adds support for print ad plot methods.
+
 MINOR FEATURES
 
 IMPROVEMENTS

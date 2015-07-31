@@ -26,8 +26,14 @@ open_project <- function(Rproj.loc, package) {
 }
 
 
-roxfun <- function (fun) {
+roxfun <- function (fun, nm) {
 
+    # check if function is a printing function
+    if (!grepl("^print\\.", nm)) return(roxprint(fun, nm))
+
+    # check if function is a plotting function
+    if (!grepl("^plot\\.", nm)) return(roxplot(fun, nm))
+    
     ## grab arguments
     pars <- formals(fun)
     if (!is.null(pars)){
@@ -38,6 +44,42 @@ roxfun <- function (fun) {
     name.desc <- c("#' Title", "#' ", "#' Description", "#' ")
     ending <- c("#' @return", "#' @references", "#' @keywords", 
         "#' @export", "#' @seealso", "#' @examples")
+
+    paste0(c(name.desc, pars, ending), collapse = "\n")
+
+}
+
+roxprint <- function (fun, nm) {
+
+    ## grab arguments
+    pars <- formals(fun)
+    if (!is.null(pars)){
+        pars <- paste("#' @param", gsub("\\.{3}", "\\\\ldots", names(pars)))
+    } 
+
+    ## additional roxygen style markup
+    obj <- gsub("^print\\.", "", nm)
+    name.desc <- c(sprintf("#' Prints a %s Object", obj), "#' ", 
+        sprintf("#' Prints a %s object", obj), "#' ")
+    ending <- c(sprintf("#' @method print %s", obj), "#' @export")
+
+    paste0(c(name.desc, pars, ending), collapse = "\n")
+
+}
+
+roxplot <- function (fun, nm) {
+
+    ## grab arguments
+    pars <- formals(fun)
+    if (!is.null(pars)){
+        pars <- paste("#' @param", gsub("\\.{3}", "\\\\ldots", names(pars)))
+    } 
+
+    ## additional roxygen style markup
+    obj <- gsub("^print\\.", "", nm)
+    name.desc <- c(sprintf("#' Plots a %s Object", obj), "#' ", 
+        sprintf("#' Plots a %s object", obj), "#' ")
+    ending <- c(sprintf("#' @method plot %s", obj), "#' @export")
 
     paste0(c(name.desc, pars, ending), collapse = "\n")
 
