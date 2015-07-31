@@ -44,7 +44,7 @@ function (title = paste("Introduction to", basename(getwd())),
         message(sprintf("The following location does not exists:\n%s\n", 
             vign.path))
         message("Should this directory be created?")
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`new_vignette` aborted")
         } else {

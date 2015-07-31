@@ -110,7 +110,7 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     message(sprintf("-> Creating:..........  %s root directory", package))
     if (file.exists(path)) {
         message(paste0("\"", path, "\" already exists:\nDo you want to overwrite?\n"))
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`library_template` aborted")
         } else {

@@ -38,7 +38,7 @@ function (fun, path = "tests/testthat", file.name = NULL) {
     ## ensure file doesn't exist
     if (file.exists(out)) {
         message(sprintf("%s already exists:\nDo you want to overwrite?\n", out))
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`new_test` aborted")
         } else {

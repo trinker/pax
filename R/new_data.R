@@ -34,7 +34,7 @@ new_data <- function (data, data.path = "data",
         message(sprintf("The following location does not exist:\n%s\n", 
             data.path))
         message("Should this directory be created?")
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`new_data` aborted")
         } else {
@@ -53,7 +53,7 @@ new_data <- function (data, data.path = "data",
     if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
         message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
         message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
             final_message <- FALSE

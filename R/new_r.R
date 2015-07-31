@@ -29,14 +29,14 @@ function (fun, path = "R", file.name = NULL) {
         if (!is.function(fun)) 
             stop("`fun` must be a function or character name")
         rox <- roxfun(fun, nm)
-        supp <- capture.output(dput(fun))
+        supp <- utils::capture.output(dput(fun))
         loc <- grep("^\\{$", supp)[1]
         if (!is.na(loc)) {
             supp[loc - 1] <- paste0(supp[loc - 1], "{")
             supp <- supp[-loc]
         }
-        if (grepl("^<environment: namespace:", tail(supp, 1))) {
-            supp <- head(supp, -1)
+        if (grepl("^<environment: namespace:", utils::tail(supp, 1))) {
+            supp <- utils::head(supp, -1)
         }
         supp <- paste(c(paste0("\n", nm, " <-"), supp), collapse = "\n")
     }
@@ -54,7 +54,7 @@ function (fun, path = "R", file.name = NULL) {
     ## ensure file doesn't exist
     if (file.exists(out)) {
         message(sprintf("%s already exists:\nDo you want to overwrite?\n", out))
-        ans <- menu(c("Yes", "No"))
+        ans <- utils::menu(c("Yes", "No"))
         if (ans == "2") {
             stop("`new_r` aborted")
         } else {
