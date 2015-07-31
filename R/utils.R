@@ -29,10 +29,10 @@ open_project <- function(Rproj.loc, package) {
 roxfun <- function (fun, nm) {
 
     # check if function is a printing function
-    if (!grepl("^print\\.", nm)) return(roxprint(fun, nm))
+    if (grepl("^print\\.", nm)) return(roxprint(fun, nm))
 
     # check if function is a plotting function
-    if (!grepl("^plot\\.", nm)) return(roxplot(fun, nm))
+    if (grepl("^plot\\.", nm)) return(roxplot(fun, nm))
     
     ## grab arguments
     pars <- formals(fun)
