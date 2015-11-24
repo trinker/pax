@@ -16,7 +16,6 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.sv
 
 [![Build Status](https://travis-ci.org/%s/%s.svg?branch=master)](https://travis-ci.org/%s/%s)
 [![Coverage Status](https://coveralls.io/repos/%s/%s/badge.svg?branch=master)](https://coveralls.io/r/%s/%s?branch=master)
-
 `r verbadge`
 
 **%s** is...
@@ -34,7 +33,7 @@ pacman::p_load_gh("%s/%s")
 
 # Contact
 
-You are welcome to:
-* submit suggestions and bug-reports at: <https://github.com/%s/%s/issues>
-* send a pull request on: <https://github.com/%s/%s/>
-* compose a friendly e-mail to: <%s>
+You are welcome to:    
+- submit suggestions and bug-reports at: <https://github.com/%s/%s/issues>    
+- send a pull request on: <https://github.com/%s/%s/>    
+- compose a friendly e-mail to: <%s>    
