@@ -351,7 +351,8 @@ gitignore_temp <- c(
     "",
     ".Rprofile",
     ".Rproj.user",
-    "%s.Rproj"
+    "%s.Rproj",
+    "Thumbs.db"
 )
 
 
@@ -372,5 +373,6 @@ buildignore_temp <- c(
     "README.Rmd", 
     "README.R",
     "travis.yml",
-    "inst/maintenance.R"
+    "inst/maintenance.R",
+    "Thumb.db"
 )
