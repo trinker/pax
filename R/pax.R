@@ -315,31 +315,18 @@ DESCRIPTION_temp <- c(
 testthat_temp <- "library(\"testthat\")\nlibrary(\"%s\")\n\ntest_check(\"%s\")" 
 
 travis_temp <- c(
-    "language:      c", 
-    "", 
-    "sudo: required", 
-    "before_install:", 
-    "  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh", 
-    "  - chmod 755 ./travis-tool.sh", 
-    "  - ./travis-tool.sh bootstrap", 
-    "install:", 
+    "language: r", 
+    "sudo: false", 
+    "cache: packages", 
+    "r_build_args: \"--resave-data=best\"", 
+    "env:", 
+    "   global:", 
+    "     - DISPLAY=:99.0", "", "r_github_packages: ", 
+    "  - jimhester/covr", "", "before_install:", 
     "  - sh -e /etc/init.d/xvfb start", 
-    "  - ./travis-tool.sh aptget_install r-cran-xml ", 
-    "  - ./travis-tool.sh install_github hadley/devtools", 
-    "  - ./travis-tool.sh install_deps", 
-    "  - ./travis-tool.sh github_package jimhester/covr",         ## if isTRUE(coveralls)
-    "script:      ./travis-tool.sh run_tests",                
-    "after_success:",                                             ## if isTRUE(coveralls)
-    "  - Rscript -e 'library(covr);coveralls()'",                 ## if isTRUE(coveralls)
-    "notifications:", 
-    "  email:", 
-    "    on_success:      change", 
-    "    on_failure:      change", 
-    "env:", "   global:", 
-    "     - R_BUILD_ARGS=\"--resave-data=best\" ", 
-    "     - R_CHECK_ARGS=\"--as-cran\"", 
-    "     - DISPLAY=:99.0", 
-    "     - BOOTSTRAP_LATEX=1"
+    "", 
+    "after_success:", 
+    "  - Rscript -e 'covr::coveralls()'"
 )
 
 gitignore_temp <- c(
