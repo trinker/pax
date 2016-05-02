@@ -3,6 +3,7 @@
 export(is.global)
 export(new_data)
 export(new_r)
+export(new_r_min)
 export(new_r_test)
 export(new_test)
 export(new_vignette)

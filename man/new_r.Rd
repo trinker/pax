@@ -2,16 +2,21 @@
 % Please edit documentation in R/new_r.R
 \name{new_r}
 \alias{new_r}
+\alias{new_r_min}
 \title{Generate \pkg{roxygen2} Style R Files}
 \usage{
 new_r(fun, path = "R", file.name = NULL)
+
+new_r_min(fun, path = "R", file.name = NULL)
 }
 \arguments{
 \item{fun}{A \code{\link[base]{function}} or character string naming the 
 function.}
 
 \item{path}{Path to directory to generate the function test in.  Default is 
-to use \code{"R"} for ease of use within RStudio.}
+to use \code{"R"} for ease of use within RStudio.  Setting to \code{TRUE} 
+copies just the roxygen2 code to the clipboard.  Setting to \code{NULL}
+just prints the output to the console.}
 
 \item{file.name}{By default the file is named the same as \code{fun} + ".R".
 This can be changed by supplying a file name to \code{file.name}.}
@@ -20,9 +25,11 @@ This can be changed by supplying a file name to \code{file.name}.}
 Generates a \file{____.R} file.
 }
 \description{
-Quickly produce a \href{http://r-pkgs.had.co.nz/man.html}{\pkg{roxygen2} style} 
+\code{new_r} - Quickly produce a \href{http://r-pkgs.had.co.nz/man.html}{\pkg{roxygen2} style} 
 \file{.R} template  file from a \code{\link[base]{function}} (output file will 
 include the function) or a character string.
+
+\code{new_r_min} - A minimal version of \code{new_r} that does not output
 }
 \examples{
 dir.create("temp_dir")

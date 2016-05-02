@@ -1,4 +1,4 @@
-pax
+pax   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
 ============
 
 
@@ -10,12 +10,12 @@ Status](https://travis-ci.org/trinker/pax.svg?branch=master)](https://travis-ci.
 [![Coverage
 Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
-<a href="https://img.shields.io/badge/Version-0.1.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"/></a>
+<a href="https://img.shields.io/badge/Version-0.2.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.2.0-orange.svg" alt="Version"/></a>
 </p>
 A Gold Version R Package Template
 =================================
 
-<img src="inst/pax_logo/r_pax.png" width="20%", alt="">
+&lt;img src="inst/pax\_logo/r\_pax.png" width="20%", alt=""&gt;
 
 
 Table of Contents
@@ -57,6 +57,11 @@ to specify construction arguments (locally or [via options in
 Arguments that can be set in the *.Rprofile* include:
 
 <table>
+<colgroup>
+<col width="15%" />
+<col width="38%" />
+<col width="45%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Argument</th>
@@ -159,7 +164,11 @@ the development version:
 Additional Features
 ===================
 
-<table>
+<table style="width:49%;">
+<colgroup>
+<col width="23%" />
+<col width="25%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Function</th>
@@ -228,7 +237,7 @@ Additional Package Development Resources
 Contact
 =======
 
-You are welcome to: 
-* submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues> 
-* send a pull request on: <https://github.com/trinker/pax/> 
-* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+You are welcome to:    
+- submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues>    
+- send a pull request on: <https://github.com/trinker/pax/>    
+- compose a friendly e-mail to: <tyler.rinker@gmail.com>    

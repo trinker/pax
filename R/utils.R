@@ -49,6 +49,28 @@ roxfun <- function (fun, nm) {
 
 }
 
+roxfun_min <- function (fun, nm) {
+
+    # check if function is a printing function
+    if (grepl("^print\\.", nm)) return(roxprint(fun, nm))
+
+    # check if function is a plotting function
+    if (grepl("^plot\\.", nm)) return(roxplot(fun, nm))
+    
+    ## grab arguments
+    pars <- formals(fun)
+    if (!is.null(pars)){
+        pars <- paste("#' @param", gsub("\\.{3}", "\\\\ldots", names(pars)))
+    } 
+
+    ## additional roxygen style markup
+    name.desc <- c("#' Title", "#' ", "#' Description", "#' ")
+    ending <- c("#' @export", "#' @examples")
+
+    paste0(c(name.desc, pars, ending), collapse = "\n")
+
+}
+
 roxprint <- function (fun, nm) {
 
     ## grab arguments
