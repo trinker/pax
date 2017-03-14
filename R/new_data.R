@@ -16,7 +16,6 @@
 #' @references \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
 #' @keywords data
 #' @export
-#' @rdname new_data 
 #' @family new functions
 #' @examples 
 #' \dontrun{
@@ -95,6 +94,8 @@ new_data <- function (data, data.path = "data",
 #' @param verbose logical. If \code{TRUE} prints output to the console.
 #' @param \ldots ignored.
 #' @export
+#' @examples 
+#' rox_data(mtcars)
 rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
 
     name <- nm <- as.character(substitute(data))
