@@ -95,7 +95,9 @@ new_data <- function (data, data.path = "data",
 #' @param \ldots ignored.
 #' @export
 #' @examples 
+#' \dontrun{
 #' rox_data(mtcars)
+#' }
 rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
 
     name <- nm <- as.character(substitute(data))

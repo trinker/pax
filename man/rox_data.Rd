@@ -21,5 +21,7 @@ rox_data(data, copy2clip = TRUE, verbose = TRUE, ...)
 Generate \pkg{roxygen2} style data documentation.
 }
 \examples{
+\dontrun{
 rox_data(mtcars)
+}
 }
