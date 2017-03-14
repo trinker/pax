@@ -106,7 +106,7 @@ Download the [zip ball](https://github.com/trinker/pax/zipball/master) or [tar b
 
 ```r
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load_gh("trinker/pax")
+pacman::p_load_current_gh("trinker/pax")
 ```
 # Additional Features
 
@@ -124,9 +124,7 @@ The `new_data` enables the user to add a data set to the *data* directory and ap
 
 # Help
 
-- [Web Page](http://trinker.github.com/pax/)     
 - [HTML Vignette: Introduction to pax](http://trinker.github.io/pax/vignettes/introduction.html)       
-- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)   
 
 # Additional Package Development Resources
 
