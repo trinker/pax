@@ -35,7 +35,8 @@ knitr::opts_chunk$set(fig.path = "tools/figure/")
 A gold version R package template.
 
 
-<img src="tools/pax_logo/r_pax.png" width="20%", alt="">  
+<img src="tools/pax_logo/r_pax.png" width="200" alt="pax Logo">  
+  
 
 # Description
 

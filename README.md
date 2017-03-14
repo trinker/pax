@@ -14,7 +14,7 @@ Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https:/
 </p>
 A gold version R package template.
 
-<img src="tools/pax_logo/r_pax.png" width="20%", alt="">
+<img src="tools/pax_logo/r_pax.png" width="200" alt="pax Logo">
 
 
 Table of Contents
