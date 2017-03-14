@@ -13,7 +13,7 @@ travis-tool.sh
 inst/web
 contributors.geojson
 inst/build.R
-inst/pax_logo/pax.pptx
+tools/pax_logo/pax.pptx
 ^.*\.Rprofile$
 README.Rmd
 README.R
