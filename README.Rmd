@@ -32,7 +32,7 @@ knitr::opts_chunk$set(fig.path = "tools/figure/")
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 `r verbad`
 
-# A Gold Version R Package Template
+A gold version R package template.
 
 
 <img src="tools/pax_logo/r_pax.png" width="20%", alt="">  
