@@ -14,6 +14,7 @@
 #' @references \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
 #' @keywords data
 #' @export
+#' @rdname new_data 
 #' @family new functions
 #' @examples 
 #' \dontrun{
@@ -77,6 +78,68 @@ new_data <- function (data, data.path = "data",
     }
 }
 
+#' @export
+#' @param copy2clip logical.  If \code{TRUE} copies output to the clipboard.
+#' @param verbose logical. If \code{TRUE} prints output to the console.
+#' @param \ldots ignored.
+#' @rdname new_data 
+rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
+
+    nm <- as.character(substitute(data))
+    x <- "#'"
+
+    type <- what(dat)
+
+    if (type == "environment") {
+        desc <- "#' A dataset containing an environment"
+    } else {
+        if (type == "data frame") {
+            desc <- "#' A dataset containing"
+        } else {
+            if (type %in% c("character vector", "vector", "list")) {
+              desc <- paste("#' A dataset containing a", type)
+            }
+        }
+    }
+
+    if (is.data.frame(dat)) {
+        dets <- c("#' \\itemize{", paste("#'   \\item ", 
+            colnames(dat), ".", sep = ""), "#' }")
+    } else {
+        if (is.vector(dat) | is.enviroment(dat) | class(dat) ==  "character") {
+            dets <- x
+        } else {
+            if (!is.data.frame(dat) && is.list(dat)) {
+                dets <- c("#' \\describe{", paste("#'   \\item{", 
+                    names(dat), "}{}", sep = ""), "#' }")
+            }
+        }
+    }
+    if (type == "data frame") {
+        elems <- c(nrow(dat), "rows and", ncol(dat), "variables")
+    } else {
+        if (type %in% c("character vector", "vector")) {
+            elems <- c(length(dat), "elements")
+        } else {
+            if (type == "list") {
+                elems <- c(length(dat), "elements")
+            } else {
+                if (type == "environment") {
+                    elems <- NULL
+                }
+            }
+        }
+    }
+    out <- c("\n\n#'", x, desc, x, "#' @details", dets, x, "#' @docType data", 
+        "#' @keywords datasets", paste("#' @name", name), 
+        paste0("#' @usage data(", name, ")"), paste("#' @format A", 
+            type, "with", paste(elems, collapse = " ")), 
+        "#' @references", "NULL")
+    if (verbose) cat(paste(out, "\n", collapse = ""), "\n\n", file="")
+    if (copy2clip) clipr::write_clip(paste(out, "\n", collapse = ""))
+    return(invisible(paste(out, "\n", collapse = "")))
+}
+    
 roxdat <- function(dat, name, file = "", append = FALSE) {
 
     x <- "#'"
