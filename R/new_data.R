@@ -8,7 +8,9 @@
 #' \code{\link[base]{vector}}).
 #' @param data.path The path to the data directory (where the data will
 #' be placed).  Defaults to \file{data}.
-#' @param doc.path The path to the package documentation \file{.R} file. 
+#' @param doc.path The path to the package documentation \file{.R} file. Use 
+#' \code{NULL} to skip adding documentation.
+#' @param stand.alone logical.  If \code{TRUE} the documentation is added to its own file.
 #' @return Generates a \file{____.rda} file and accompanying \pkg{roxygen2} style 
 #' documentation.
 #' @references \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
@@ -27,9 +29,11 @@
 #' unlink("temp_dir", TRUE, TRUE)
 #' }
 new_data <- function (data, data.path = "data", 
-    doc.path = sprintf("R/%s-package.R", basename(getwd()))) {
-    
+    stand.alone = FALSE, doc.path = sprintf("R/%s-package.R", basename(getwd()))) {
+   
     nm <- as.character(substitute(data))
+    if (stand.alone) doc.path <- sprintf("R/%s.R", nm)
+        
     
     if (!file.exists(data.path)){
         message(sprintf("The following location does not exist:\n%s\n", 
@@ -48,26 +52,28 @@ new_data <- function (data, data.path = "data",
     save(list=nm, envir=datenv, file = sprintf("%s/%s.rda", data.path, nm), 
         compress = TRUE)
     
-    pdoc <- suppressWarnings(readLines(doc.path))
-    
-    final_message <- TRUE
-    if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
-        message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
-        message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
-        ans <- utils::menu(c("Yes", "No"))
-        if (ans == "2") {
-            warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
-            final_message <- FALSE
+    if (!is.null(doc.path)) {
+        pdoc <- suppressWarnings(readLines(doc.path))
+
+        final_message <- TRUE
+        if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
+            message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
+            message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
+            ans <- utils::menu(c("Yes", "No"))
+            if (ans == "2") {
+                warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
+                final_message <- FALSE
+            } else {
+                roxdat(data, nm, file = doc.path, append = TRUE)
+                inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
+                warning(sprintf(
+                    "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
+                        nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
+                ))
+            }
         } else {
-            roxdat(data, nm, file = doc.path, append = TRUE)
-            inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
-            warning(sprintf(
-                "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
-                    nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
-            ))
+            roxdat(data, nm, file = doc.path, append = TRUE)   
         }
-    } else {
-        roxdat(data, nm, file = doc.path, append = TRUE)   
     }
 
     if (file.exists(sprintf("%s/%s.rda", data.path, nm))) {
