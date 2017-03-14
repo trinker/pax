@@ -91,7 +91,7 @@ new_data <- function (data, data.path = "data",
 #' @rdname new_data 
 rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
 
-    nm <- as.character(substitute(data))
+    name <- nm <- as.character(substitute(data))
     x <- "#'"
 
     type <- what(data)
@@ -145,6 +145,7 @@ rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
     if (copy2clip) clipr::write_clip(paste(out, "\n", collapse = ""))
     return(invisible(paste(out, "\n", collapse = "")))
 }
+    
     
     
 roxdat <- function(dat, name, file = "", append = FALSE) {
