@@ -28,7 +28,7 @@ Download the [zip ball](https://github.com/%s/%s/zipball/master) or [tar ball](h
 
 ```r
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load_gh("%s/%s")
+pacman::p_load_current_gh("%s/%s")
 ```
 
 # Contact
