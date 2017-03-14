@@ -13,11 +13,10 @@ Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https:/
 <a href="https://img.shields.io/badge/Version-0.2.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.2.0-orange.svg" alt="Version"/></a>
 </p>
 
-A Gold Version R Package Template    
-=================================    
+A Gold Version R Package Template
+=================================
 
-<img src="inst/pax_logo/r_pax.png" width="20%", alt="">    
-
+<img src="inst/pax_logo/r_pax.png" width="20%", alt="">
 
 Table of Contents
 ============
