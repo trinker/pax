@@ -157,7 +157,7 @@ and run `R CMD INSTALL` on it, or use the **pacman** package to install
 the development version:
 
     if (!require("pacman")) install.packages("pacman")
-    pacman::p_load_gh("trinker/pax")
+    pacman::p_load_current_gh("trinker/pax")
 
 Additional Features
 ===================
@@ -217,11 +217,8 @@ with the appropriate `title` field and `\VignetteIndexEntry` set.
 Help
 ====
 
--   [Web Page](http://trinker.github.com/pax/)  
 -   [HTML Vignette: Introduction to
-    pax](http://trinker.github.io/pax/vignettes/introduction.html)  
--   [Package PDF Help
-    Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)
+    pax](http://trinker.github.io/pax/vignettes/introduction.html)
 
 Additional Package Development Resources
 ========================================
