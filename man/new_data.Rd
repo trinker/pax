@@ -4,8 +4,8 @@
 \alias{new_data}
 \title{Add and Document (\pkg{roxygen2} Style) Data}
 \usage{
-new_data(data, data.path = "data", doc.path = sprintf("R/\%s-package.R",
-  basename(getwd())))
+new_data(data, data.path = "data", stand.alone = FALSE,
+  doc.path = sprintf("R/\%s-package.R", basename(getwd())))
 }
 \arguments{
 \item{data}{A data set (\code{\link[base]{environment}},
@@ -15,7 +15,10 @@ new_data(data, data.path = "data", doc.path = sprintf("R/\%s-package.R",
 \item{data.path}{The path to the data directory (where the data will
 be placed).  Defaults to \file{data}.}
 
-\item{doc.path}{The path to the package documentation \file{.R} file.}
+\item{stand.alone}{logical.  If \code{TRUE} the documentation is added to its own file.}
+
+\item{doc.path}{The path to the package documentation \file{.R} file. Use 
+\code{NULL} to skip adding documentation.}
 }
 \value{
 Generates a \file{____.rda} file and accompanying \pkg{roxygen2} style 
@@ -40,9 +43,8 @@ unlink("temp_dir", TRUE, TRUE)
 \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
 }
 \seealso{
-Other new.functions: \code{\link{new_r_test}},
+Other new functions: \code{\link{new_r_test}},
   \code{\link{new_r}}, \code{\link{new_test}},
   \code{\link{new_vignette}}
 }
 \keyword{data}
-

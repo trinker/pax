@@ -2,17 +2,17 @@ Package: pax
 Type: Package
 Title: A Package Templating Package
 Version: 0.2.0
-Date: 2016-05-02
+Date: 2017-03-14
 Author: Tyler Rinker <tyler.rinker@gmail.com>
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 3.1.0)
 Imports: clipr, curl, rmarkdown, utils
 Suggests: testthat, knitr
 LazyData: TRUE
-Description: A templating system for R packages that assumes the use of GitHub, RStudio, 'testthat', Travis-CI and 'covr'
-              (coveralls).
+Description: A templating system for R packages that assumes the use of
+        GitHub, RStudio, 'testthat', Travis-CI and 'covr' (coveralls).
 License: GPL-2
 URL: http://trinker.github.com/pax/
 BugReports: http://github.com/trinker/pax/issues
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

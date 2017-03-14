@@ -15,7 +15,7 @@ Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https:/
 A Gold Version R Package Template
 =================================
 
-<img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
+<img src="inst/pax_logo/r_pax.png" width="20%", alt="">
 
 
 Table of Contents
@@ -64,41 +64,41 @@ Arguments that can be set in the *.Rprofile* include:
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Argument</th>
-<th align="left">Description</th>
-<th align="left">Example</th>
+<th>Argument</th>
+<th>Description</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left">The user's name (first &amp; last)</td>
-<td align="left"><code>options(name = c(first=&quot;Tyler&quot;,  last=&quot;Rinker&quot;))</code></td>
+<td><code>name</code></td>
+<td>The user's name (first &amp; last)</td>
+<td><code>options(name = c(first=&quot;Tyler&quot;,  last=&quot;Rinker&quot;))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>email</code></td>
-<td align="left">The user's email address</td>
-<td align="left"><code>options(email = &quot;tyler.rinker@gmail.com&quot;)</code></td>
+<td><code>email</code></td>
+<td>The user's email address</td>
+<td><code>options(email = &quot;tyler.rinker@gmail.com&quot;)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>license</code></td>
-<td align="left">The package license</td>
-<td align="left"><code>options(license = &quot;GPL-2&quot;)</code></td>
+<td><code>license</code></td>
+<td>The package license</td>
+<td><code>options(license = &quot;GPL-2&quot;)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>github.user</code></td>
-<td align="left">The user's <a href="https://github.com">GitHub</a> name</td>
-<td align="left"><code>options(github.user = &quot;trinker&quot;)</code></td>
+<td><code>github.user</code></td>
+<td>The user's <a href="https://github.com">GitHub</a> name</td>
+<td><code>options(github.user = &quot;trinker&quot;)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>samples</code></td>
-<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-.R</em> added</td>
-<td align="left"><code>options(samples = FALSE)</code></td>
+<td><code>samples</code></td>
+<td>Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-.R</em> added</td>
+<td><code>options(samples = FALSE)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>tweak</code></td>
-<td align="left">A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function*</td>
-<td align="left"><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
+<td><code>tweak</code></td>
+<td>A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function*</td>
+<td><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
 </tr>
 </tbody>
 </table>
@@ -171,30 +171,30 @@ Additional Features
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
+<th>Function</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>new_r</code></td>
-<td align="left">Makes <strong>roxygen2</strong> style <em>.R</em> template file from a <code>function</code> or character string</td>
+<td><code>new_r</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> template file from a <code>function</code> or character string</td>
 </tr>
 <tr class="even">
-<td align="left"><code>new_test</code></td>
-<td align="left">Makes <strong>testthat</strong> style unit test template file from a <code>function</code> or character string</td>
+<td><code>new_test</code></td>
+<td>Makes <strong>testthat</strong> style unit test template file from a <code>function</code> or character string</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>new_r_test</code></td>
-<td align="left">Makes <strong>roxygen2</strong> style <em>.R</em> and <strong>testthat</strong> style unit test files from a <code>function</code> or character string</td>
+<td><code>new_r_test</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> and <strong>testthat</strong> style unit test files from a <code>function</code> or character string</td>
 </tr>
 <tr class="even">
-<td align="left"><code>new_data</code></td>
-<td align="left">Adds data &amp; appends <strong>roxygen2</strong> style template to package description <em>.R</em> file</td>
+<td><code>new_data</code></td>
+<td>Adds data &amp; appends <strong>roxygen2</strong> style template to package description <em>.R</em> file</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>new_vignette</code></td>
-<td align="left">Makes <strong>rmarkdown</strong> style <em>.Rmd</em> vignette template file</td>
+<td><code>new_vignette</code></td>
+<td>Makes <strong>rmarkdown</strong> style <em>.Rmd</em> vignette template file</td>
 </tr>
 </tbody>
 </table>
