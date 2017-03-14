@@ -94,7 +94,7 @@ rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
     nm <- as.character(substitute(data))
     x <- "#'"
 
-    type <- what(dat)
+    type <- what(data)
 
     if (type == "environment") {
         desc <- "#' A dataset containing an environment"
@@ -108,27 +108,27 @@ rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
         }
     }
 
-    if (is.data.frame(dat)) {
+    if (is.data.frame(data)) {
         dets <- c("#' \\itemize{", paste("#'   \\item ", 
-            colnames(dat), ".", sep = ""), "#' }")
+            colnames(data), ".", sep = ""), "#' }")
     } else {
-        if (is.vector(dat) | is.enviroment(dat) | class(dat) ==  "character") {
+        if (is.vector(data) | is.enviroment(data) | class(data) ==  "character") {
             dets <- x
         } else {
-            if (!is.data.frame(dat) && is.list(dat)) {
+            if (!is.data.frame(data) && is.list(data)) {
                 dets <- c("#' \\describe{", paste("#'   \\item{", 
-                    names(dat), "}{}", sep = ""), "#' }")
+                    names(data), "}{}", sep = ""), "#' }")
             }
         }
     }
     if (type == "data frame") {
-        elems <- c(nrow(dat), "rows and", ncol(dat), "variables")
+        elems <- c(nrow(data), "rows and", ncol(data), "variables")
     } else {
         if (type %in% c("character vector", "vector")) {
-            elems <- c(length(dat), "elements")
+            elems <- c(length(data), "elements")
         } else {
             if (type == "list") {
-                elems <- c(length(dat), "elements")
+                elems <- c(length(data), "elements")
             } else {
                 if (type == "environment") {
                     elems <- NULL
@@ -145,6 +145,7 @@ rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
     if (copy2clip) clipr::write_clip(paste(out, "\n", collapse = ""))
     return(invisible(paste(out, "\n", collapse = "")))
 }
+    
     
 roxdat <- function(dat, name, file = "", append = FALSE) {
 
