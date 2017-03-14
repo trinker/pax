@@ -12,8 +12,9 @@ Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https:/
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 <a href="https://img.shields.io/badge/Version-0.2.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.2.0-orange.svg" alt="Version"/></a>
 </p>
-A Gold Version R Package Template
-=================================
+
+A Gold Version R Package Template    
+=================================    
 
 <img src="inst/pax_logo/r_pax.png" width="20%", alt="">
 
