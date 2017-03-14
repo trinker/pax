@@ -84,11 +84,17 @@ new_data <- function (data, data.path = "data",
     }
 }
 
-#' @export
+#' Generate \pkg{roxygen2} Style Data Documentation
+#' 
+#' Generate \pkg{roxygen2} style data documentation.
+#' 
+#' @param data A data set (\code{\link[base]{environment}},
+#' \code{\link[base]{list}}, \code{\link[base]{data.frame}}, 
+#' \code{\link[base]{vector}}).
 #' @param copy2clip logical.  If \code{TRUE} copies output to the clipboard.
 #' @param verbose logical. If \code{TRUE} prints output to the console.
 #' @param \ldots ignored.
-#' @rdname new_data 
+#' @export
 rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
 
     name <- nm <- as.character(substitute(data))
