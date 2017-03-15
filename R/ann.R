@@ -11,10 +11,11 @@
 #' @rdname ann
 #' @export
 #' @examples
+#' \dontrun{
 #' ann(mtcars)
 #' roxann(mtcars)
 #' ann(mtcars, symbol = "%%")  # LaTeX
-#' \dontrun{
+#' 
 #' library(clipr)
 #' clipr::write_clip(capture.output(new_r))
 #' ann()
