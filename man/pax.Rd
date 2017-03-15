@@ -2,9 +2,10 @@
 % Please edit documentation in R/pax-package.R, R/pax.R
 \docType{package}
 \name{pax}
-\alias{package-pax}
 \alias{pax}
+\alias{package-pax}
 \alias{pax-package}
+\alias{pax}
 \title{\pkg{pax}: A Gold Version Package Template}
 \usage{
 pax(path, name = getOption("name"), email = getOption("email"),
@@ -111,4 +112,3 @@ pax(ploc("DELETE_ME"))
 }
 }
 \keyword{template}
-

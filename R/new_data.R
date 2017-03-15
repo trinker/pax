@@ -8,7 +8,9 @@
 #' \code{\link[base]{vector}}).
 #' @param data.path The path to the data directory (where the data will
 #' be placed).  Defaults to \file{data}.
-#' @param doc.path The path to the package documentation \file{.R} file. 
+#' @param doc.path The path to the package documentation \file{.R} file. Use 
+#' \code{NULL} to skip adding documentation.
+#' @param stand.alone logical.  If \code{TRUE} the documentation is added to its own file.
 #' @return Generates a \file{____.rda} file and accompanying \pkg{roxygen2} style 
 #' documentation.
 #' @references \url{http://r-pkgs.had.co.nz/data.html#documenting-data}
@@ -26,9 +28,11 @@
 #' unlink("temp_dir", TRUE, TRUE)
 #' }
 new_data <- function (data, data.path = "data", 
-    doc.path = sprintf("R/%s-package.R", basename(getwd()))) {
-    
+    stand.alone = FALSE, doc.path = sprintf("R/%s-package.R", basename(getwd()))) {
+   
     nm <- as.character(substitute(data))
+    if (stand.alone) doc.path <- sprintf("R/%s.R", nm)
+        
     
     if (!file.exists(data.path)){
         message(sprintf("The following location does not exist:\n%s\n", 
@@ -47,26 +51,28 @@ new_data <- function (data, data.path = "data",
     save(list=nm, envir=datenv, file = sprintf("%s/%s.rda", data.path, nm), 
         compress = TRUE)
     
-    pdoc <- suppressWarnings(readLines(doc.path))
-    
-    final_message <- TRUE
-    if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
-        message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
-        message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
-        ans <- utils::menu(c("Yes", "No"))
-        if (ans == "2") {
-            warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
-            final_message <- FALSE
+    if (!is.null(doc.path)) {
+        pdoc <- suppressWarnings(readLines(doc.path))
+
+        final_message <- TRUE
+        if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
+            message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
+            message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
+            ans <- utils::menu(c("Yes", "No"))
+            if (ans == "2") {
+                warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
+                final_message <- FALSE
+            } else {
+                roxdat(data, nm, file = doc.path, append = TRUE)
+                inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
+                warning(sprintf(
+                    "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
+                        nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
+                ))
+            }
         } else {
-            roxdat(data, nm, file = doc.path, append = TRUE)
-            inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
-            warning(sprintf(
-                "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
-                    nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
-            ))
+            roxdat(data, nm, file = doc.path, append = TRUE)   
         }
-    } else {
-        roxdat(data, nm, file = doc.path, append = TRUE)   
     }
 
     if (file.exists(sprintf("%s/%s.rda", data.path, nm))) {
@@ -77,6 +83,80 @@ new_data <- function (data, data.path = "data",
     }
 }
 
+#' Generate \pkg{roxygen2} Style Data Documentation
+#' 
+#' Generate \pkg{roxygen2} style data documentation.
+#' 
+#' @param data A data set (\code{\link[base]{environment}},
+#' \code{\link[base]{list}}, \code{\link[base]{data.frame}}, 
+#' \code{\link[base]{vector}}).
+#' @param copy2clip logical.  If \code{TRUE} copies output to the clipboard.
+#' @param verbose logical. If \code{TRUE} prints output to the console.
+#' @param \ldots ignored.
+#' @export
+#' @examples 
+#' \dontrun{
+#' rox_data(mtcars)
+#' }
+rox_data <- function(data, copy2clip = TRUE, verbose = TRUE, ...) {
+
+    name <- nm <- as.character(substitute(data))
+    x <- "#'"
+
+    type <- what(data)
+
+    if (type == "environment") {
+        desc <- "#' A dataset containing an environment"
+    } else {
+        if (type == "data frame") {
+            desc <- "#' A dataset containing"
+        } else {
+            if (type %in% c("character vector", "vector", "list")) {
+              desc <- paste("#' A dataset containing a", type)
+            }
+        }
+    }
+
+    if (is.data.frame(data)) {
+        dets <- c("#' \\itemize{", paste("#'   \\item ", 
+            colnames(data), ".", sep = ""), "#' }")
+    } else {
+        if (is.vector(data) | is.enviroment(data) | class(data) ==  "character") {
+            dets <- x
+        } else {
+            if (!is.data.frame(data) && is.list(data)) {
+                dets <- c("#' \\describe{", paste("#'   \\item{", 
+                    names(data), "}{}", sep = ""), "#' }")
+            }
+        }
+    }
+    if (type == "data frame") {
+        elems <- c(nrow(data), "rows and", ncol(data), "variables")
+    } else {
+        if (type %in% c("character vector", "vector")) {
+            elems <- c(length(data), "elements")
+        } else {
+            if (type == "list") {
+                elems <- c(length(data), "elements")
+            } else {
+                if (type == "environment") {
+                    elems <- NULL
+                }
+            }
+        }
+    }
+    out <- c("\n\n#'", x, desc, x, "#' @details", dets, x, "#' @docType data", 
+        "#' @keywords datasets", paste("#' @name", name), 
+        paste0("#' @usage data(", name, ")"), paste("#' @format A", 
+            type, "with", paste(elems, collapse = " ")), 
+        "#' @references", "NULL")
+    if (verbose) cat(paste(out, "\n", collapse = ""), "\n\n", file="")
+    if (copy2clip) clipr::write_clip(paste(out, "\n", collapse = ""))
+    return(invisible(paste(out, "\n", collapse = "")))
+}
+    
+    
+    
 roxdat <- function(dat, name, file = "", append = FALSE) {
 
     x <- "#'"

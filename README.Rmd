@@ -15,16 +15,28 @@ ver <- gsub(regex, "\\2", desc[loc])
 verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 ````
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+knit_hooks$set(htmlcap = function(before, options, envir) {
+  if(!before) {
+    paste('<p class="caption"><b><em>',options$htmlcap,"</em></b></p>",sep="")
+    }
+    })
+knitr::opts_knit$set(self.contained = TRUE, cache = FALSE)
+knitr::opts_chunk$set(fig.path = "tools/figure/")
+```
+
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/trinker/pax.svg?branch=master)](https://travis-ci.org/trinker/pax)
 [![Coverage Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
 `r verbad`
 
-# A Gold Version R Package Template
+A gold version R package template.
 
 
-<img src="inst/pax_logo/r_pax.png" width="20%", alt="">  
+<img src="tools/pax_logo/r_pax.png" width="200" alt="pax Logo">  
+  
 
 # Description
 
@@ -94,7 +106,7 @@ Download the [zip ball](https://github.com/trinker/pax/zipball/master) or [tar b
 
 ```r
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load_gh("trinker/pax")
+pacman::p_load_current_gh("trinker/pax")
 ```
 # Additional Features
 
@@ -112,9 +124,7 @@ The `new_data` enables the user to add a data set to the *data* directory and ap
 
 # Help
 
-- [Web Page](http://trinker.github.com/pax/)     
 - [HTML Vignette: Introduction to pax](http://trinker.github.io/pax/vignettes/introduction.html)       
-- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)   
 
 # Additional Package Development Resources
 

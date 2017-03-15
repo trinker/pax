@@ -23,4 +23,3 @@ the \file{.Rprofile}.
 pax_options()
 }
 \keyword{options}
-

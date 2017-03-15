@@ -1,4 +1,4 @@
-pax
+pax   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
 ============
 
 
@@ -10,18 +10,16 @@ Status](https://travis-ci.org/trinker/pax.svg?branch=master)](https://travis-ci.
 [![Coverage
 Status](https://coveralls.io/repos/trinker/pax/badge.svg?branch=master)](https://coveralls.io/r/trinker/pax?branch=master)
 [![DOI](https://zenodo.org/badge/5398/trinker/pax.svg)](http://dx.doi.org/10.5281/zenodo.15891)
-<a href="https://img.shields.io/badge/Version-0.1.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"/></a>
+<a href="https://img.shields.io/badge/Version-0.2.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.2.0-orange.svg" alt="Version"/></a>
 </p>
-A Gold Version R Package Template
-=================================
+A gold version R package template.
 
-<img src="inst/pax_logo/r_pax.png" width="20%", alt="">
+<img src="tools/pax_logo/r_pax.png" width="200" alt="pax Logo">
 
 
 Table of Contents
 ============
 
--   [A Gold Version R Package Template](#a-gold-version-r-package-template)
 -   [Description](#description)
 -   [Template](#template)
 -   [Installation](#installation)
@@ -57,43 +55,48 @@ to specify construction arguments (locally or [via options in
 Arguments that can be set in the *.Rprofile* include:
 
 <table>
+<colgroup>
+<col width="15%" />
+<col width="38%" />
+<col width="45%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th align="left">Argument</th>
-<th align="left">Description</th>
-<th align="left">Example</th>
+<th>Argument</th>
+<th>Description</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left">The user's name (first &amp; last)</td>
-<td align="left"><code>options(name = c(first=&quot;Tyler&quot;,  last=&quot;Rinker&quot;))</code></td>
+<td><code>name</code></td>
+<td>The user's name (first &amp; last)</td>
+<td><code>options(name = c(first=&quot;Tyler&quot;,  last=&quot;Rinker&quot;))</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>email</code></td>
-<td align="left">The user's email address</td>
-<td align="left"><code>options(email = &quot;tyler.rinker@gmail.com&quot;)</code></td>
+<td><code>email</code></td>
+<td>The user's email address</td>
+<td><code>options(email = &quot;tyler.rinker@gmail.com&quot;)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>license</code></td>
-<td align="left">The package license</td>
-<td align="left"><code>options(license = &quot;GPL-2&quot;)</code></td>
+<td><code>license</code></td>
+<td>The package license</td>
+<td><code>options(license = &quot;GPL-2&quot;)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>github.user</code></td>
-<td align="left">The user's <a href="https://github.com">GitHub</a> name</td>
-<td align="left"><code>options(github.user = &quot;trinker&quot;)</code></td>
+<td><code>github.user</code></td>
+<td>The user's <a href="https://github.com">GitHub</a> name</td>
+<td><code>options(github.user = &quot;trinker&quot;)</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>samples</code></td>
-<td align="left">Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-.R</em> added</td>
-<td align="left"><code>options(samples = FALSE)</code></td>
+<td><code>samples</code></td>
+<td>Logical; if <code>TRUE</code>, sample <em>.R</em> &amp; <em>test-.R</em> added</td>
+<td><code>options(samples = FALSE)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>tweak</code></td>
-<td align="left">A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function*</td>
-<td align="left"><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
+<td><code>tweak</code></td>
+<td>A function or path/<a href="http://goo.gl/oL7UXO">url</a> to a user specified 'tweaking' function*</td>
+<td><code>options(tweak = &quot;http://goo.gl/oL7UXO&quot;)</code></td>
 </tr>
 </tbody>
 </table>
@@ -154,38 +157,42 @@ and run `R CMD INSTALL` on it, or use the **pacman** package to install
 the development version:
 
     if (!require("pacman")) install.packages("pacman")
-    pacman::p_load_gh("trinker/pax")
+    pacman::p_load_current_gh("trinker/pax")
 
 Additional Features
 ===================
 
-<table>
+<table style="width:49%;">
+<colgroup>
+<col width="23%" />
+<col width="25%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
+<th>Function</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>new_r</code></td>
-<td align="left">Makes <strong>roxygen2</strong> style <em>.R</em> template file from a <code>function</code> or character string</td>
+<td><code>new_r</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> template file from a <code>function</code> or character string</td>
 </tr>
 <tr class="even">
-<td align="left"><code>new_test</code></td>
-<td align="left">Makes <strong>testthat</strong> style unit test template file from a <code>function</code> or character string</td>
+<td><code>new_test</code></td>
+<td>Makes <strong>testthat</strong> style unit test template file from a <code>function</code> or character string</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>new_r_test</code></td>
-<td align="left">Makes <strong>roxygen2</strong> style <em>.R</em> and <strong>testthat</strong> style unit test files from a <code>function</code> or character string</td>
+<td><code>new_r_test</code></td>
+<td>Makes <strong>roxygen2</strong> style <em>.R</em> and <strong>testthat</strong> style unit test files from a <code>function</code> or character string</td>
 </tr>
 <tr class="even">
-<td align="left"><code>new_data</code></td>
-<td align="left">Adds data &amp; appends <strong>roxygen2</strong> style template to package description <em>.R</em> file</td>
+<td><code>new_data</code></td>
+<td>Adds data &amp; appends <strong>roxygen2</strong> style template to package description <em>.R</em> file</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>new_vignette</code></td>
-<td align="left">Makes <strong>rmarkdown</strong> style <em>.Rmd</em> vignette template file</td>
+<td><code>new_vignette</code></td>
+<td>Makes <strong>rmarkdown</strong> style <em>.Rmd</em> vignette template file</td>
 </tr>
 </tbody>
 </table>
@@ -210,11 +217,8 @@ with the appropriate `title` field and `\VignetteIndexEntry` set.
 Help
 ====
 
--   [Web Page](http://trinker.github.com/pax/)  
 -   [HTML Vignette: Introduction to
-    pax](http://trinker.github.io/pax/vignettes/introduction.html)  
--   [Package PDF Help
-    Manual](https://dl.dropboxusercontent.com/u/61803503/pax.pdf)
+    pax](http://trinker.github.io/pax/vignettes/introduction.html)
 
 Additional Package Development Resources
 ========================================
@@ -228,7 +232,7 @@ Additional Package Development Resources
 Contact
 =======
 
-You are welcome to: 
-* submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues> 
-* send a pull request on: <https://github.com/trinker/pax/> 
-* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+You are welcome to:    
+- submit suggestions and bug-reports at: <https://github.com/trinker/pax/issues>    
+- send a pull request on: <https://github.com/trinker/pax/>    
+- compose a friendly e-mail to: <tyler.rinker@gmail.com>    

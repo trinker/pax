@@ -55,9 +55,8 @@ unlink("temp_dir", TRUE, TRUE)
 \url{http://r-pkgs.had.co.nz/vignettes.html}
 }
 \seealso{
-Other new.functions: \code{\link{new_data}},
+Other new functions: \code{\link{new_data}},
   \code{\link{new_r_test}}, \code{\link{new_r}},
   \code{\link{new_test}}
 }
 \keyword{vignette}
-
