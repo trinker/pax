@@ -43,6 +43,6 @@ ann <- function(object = "clipboard", symbol = "##", space = 1, copy2clip = TRUE
 #' 
 #' @rdname ann
 #' @export
-roxann <- function(object = "clipboard", symbol = "##", space = 1, copy2clip = TRUE, ...) {
+roxann <- function(object = "clipboard", symbol = "#'", space = 1, copy2clip = TRUE, ...) {
     ann(object = object, space = space, symbol = symbol, copy2clip = copy2clip)
 }
