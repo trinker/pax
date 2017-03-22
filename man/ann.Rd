@@ -8,7 +8,7 @@
 ann(object = "clipboard", symbol = "##", space = 1, copy2clip = TRUE,
   ...)
 
-roxann(object = "clipboard", symbol = "##", space = 1, copy2clip = TRUE,
+roxann(object = "clipboard", symbol = "#'", space = 1, copy2clip = TRUE,
   ...)
 }
 \arguments{
