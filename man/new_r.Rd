@@ -30,6 +30,7 @@ Generates a \file{____.R} file.
 include the function) or a character string.
 
 \code{new_r_min} - A minimal version of \code{new_r} that does not output
+\@seealso, \@keywords, \@references, or \@return.
 }
 \examples{
 dir.create("temp_dir")

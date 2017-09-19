@@ -87,7 +87,7 @@ function (fun, path = "R", file.name = NULL) {
 #' Generate \pkg{roxygen2} Style R Files 
 #' 
 #' \code{new_r_min} - A minimal version of \code{new_r} that does not output
-#' @@seealso, @@keywords, @@references, or @@return.
+#' \@seealso, \@keywords, \@references, or \@return.
 #' @rdname new_r
 #' @export
 new_r_min <-
