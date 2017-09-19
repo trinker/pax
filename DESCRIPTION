@@ -2,7 +2,7 @@ Package: pax
 Type: Package
 Title: A Package Templating Package
 Version: 0.2.0
-Date: 2017-03-14
+Date: 2017-04-11
 Author: Tyler Rinker <tyler.rinker@gmail.com>
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 3.1.0)

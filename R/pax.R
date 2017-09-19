@@ -156,6 +156,10 @@ pax <- function(path, name = getOption("name"),  email = getOption("email"),
     message(sprintf("    -> Adding:............  %s-package.R", package))    
     cat(paste(sprintf(package_desc, package, package, package), collapse = "\n"),
         file = qpath(sprintf("R/%s-package.R", package)))    
+
+    ## Create tool directory
+    message("  -> Creating:..........  tools directory")        
+    suppressWarnings(dir.create(qpath("tools")))
     
     ## Generate testthat      
     if (testthat) {

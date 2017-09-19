@@ -32,7 +32,7 @@ function (fun, path = "R", file.name = NULL) {
         if (!is.function(fun)) 
             stop("`fun` must be a function or character name")
         rox <- roxfun(fun, nm)
-        supp <- utils::capture.output(dput(fun))
+        supp <- utils::capture.output(fun)
         loc <- grep("^\\{$", supp)[1]
         if (!is.na(loc)) {
             supp[loc - 1] <- paste0(supp[loc - 1], "{")
