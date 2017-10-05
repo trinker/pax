@@ -73,6 +73,8 @@ new_data <- function (data, data.path = "data",
         } else {
             roxdat(data, nm, file = doc.path, append = TRUE)   
         }
+    } else {
+        final_message <- FALSE
     }
 
     if (file.exists(sprintf("%s/%s.rda", data.path, nm))) {
