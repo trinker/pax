@@ -11,7 +11,8 @@ desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
 loc <- grep(regex, desc)
 ver <- gsub(regex, "\\2", desc[loc])
-verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.svg"><img src="https://img.shields.io/badge/Version-%%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+#verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%%s-orange.svg"><img src="https://img.shields.io/badge/Version-%%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+verbadge <- ''
 ````
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -21,8 +22,9 @@ knit_hooks$set(htmlcap = function(before, options, envir) {
     paste('<p class="caption"><b><em>',options$htmlcap,"</em></b></p>",sep="")
     }
     })
-knitr::opts_knit$set(self.contained = TRUE, cache = FALSE)
+knitr::opts_knit$set(self.contained = TRUE, cache = FALSE, fig.align = 'center')
 knitr::opts_chunk$set(fig.path = "tools/figure/")
+options(scipen=999)
 ```
 
 
@@ -47,5 +49,5 @@ pacman::p_load_current_gh("%s/%s")
 
 You are welcome to:    
 - submit suggestions and bug-reports at: <https://github.com/%s/%s/issues>    
-- send a pull request on: <https://github.com/%s/%s/>    
+- send a pull request on: <https://github.com/%s/%s>    
 - compose a friendly e-mail to: <%s>    

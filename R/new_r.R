@@ -32,7 +32,7 @@ function (fun, path = "R", file.name = NULL) {
         if (!is.function(fun)) 
             stop("`fun` must be a function or character name")
         rox <- roxfun(fun, nm)
-        supp <- utils::capture.output(dput(fun))
+        supp <- utils::capture.output(fun)
         loc <- grep("^\\{$", supp)[1]
         if (!is.na(loc)) {
             supp[loc - 1] <- paste0(supp[loc - 1], "{")
@@ -87,7 +87,7 @@ function (fun, path = "R", file.name = NULL) {
 #' Generate \pkg{roxygen2} Style R Files 
 #' 
 #' \code{new_r_min} - A minimal version of \code{new_r} that does not output
-#' @@seealso, @@keywords, @@references, or @@return.
+#' \@seealso, \@keywords, \@references, or \@return.
 #' @rdname new_r
 #' @export
 new_r_min <-
