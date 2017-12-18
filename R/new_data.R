@@ -31,8 +31,9 @@ new_data <- function (data, data.path = "data",
     stand.alone = FALSE, doc.path = sprintf("R/%s-package.R", basename(getwd()))) {
    
     nm <- as.character(substitute(data))
-    if (stand.alone) doc.path <- sprintf("R/%s.R", nm)
-        
+    if (stand.alone & doc.path == sprintf("R/%s-package.R", basename(getwd()))) {
+        doc.path <- sprintf("R/%s.R", nm)
+    }  
     
     if (!file.exists(data.path)){
         message(sprintf("The following location does not exist:\n%s\n", 
@@ -52,33 +53,42 @@ new_data <- function (data, data.path = "data",
         compress = TRUE)
     
     if (!is.null(doc.path)) {
-        pdoc <- suppressWarnings(readLines(doc.path))
-
-        final_message <- TRUE
-        if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
-            message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
-            message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
-            ans <- utils::menu(c("Yes", "No"))
-            if (ans == "2") {
-                warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
-                final_message <- FALSE
-            } else {
-                roxdat(data, nm, file = doc.path, append = TRUE)
-                inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
-                warning(sprintf(
-                    "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
-                        nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
-                ))
-            }
+        
+        if (!file.exists(doc.path)) {
+            
+            roxdat(data, nm, file = doc.path, append = FALSE)   
+            final_message <- TRUE
+            
         } else {
-            roxdat(data, nm, file = doc.path, append = TRUE)   
+
+            pdoc <- suppressWarnings(readLines(doc.path))
+    
+            final_message <- TRUE
+            if (any(grepl(paste0("^#' @name ", nm, "\\b"), pdoc))) {
+                message(sprintf("`%s` already detected in:\n%s", nm, doc.path))
+                message(sprintf("\nDo you want to add an additional instance in %s?", doc.path))
+                ans <- utils::menu(c("Yes", "No"))
+                if (ans == "2") {
+                    warning(sprintf("`%s` not added to:\n%s", nm, doc.path), immediate. = TRUE)
+                    final_message <- FALSE
+                } else {
+                    roxdat(data, nm, file = doc.path, append = TRUE)
+                    inst <- grep(paste0("^#' @name ", nm, "\\b"), pdoc)
+                    warning(sprintf(
+                        "`%s` already detected in:\n%s\n\nConsider removing previous instance(s) (see line(s): %s).", 
+                            nm, doc.path, paste(inst, collapse = ", "), immediate. = TRUE
+                    ))
+                }
+            } else {
+                roxdat(data, nm, file = doc.path, append = TRUE)   
+            }
         }
     } else {
         final_message <- FALSE
     }
 
     if (file.exists(sprintf("%s/%s.rda", data.path, nm))) {
-        message(sprintf("Data set `%s.rda` added to:\n%s", nm, data.path))
+        message(sprintf("Data set `%s.rda` added to:\n%s\n", nm, data.path))
     }    
     if (final_message){
         message(sprintf("Data set documentation added to:\n%s\n\nAdjust as necessary.", doc.path))
