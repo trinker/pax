@@ -18,6 +18,29 @@ And constructed with the following guidelines:
 
 * Bug fixes and misc changes bumps the patch
 
+
+
+CHANGES IN pax VERSION 0.2.0 -
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+
+* `arg_rep` added for easy passing through of arguments from a main function to 
+  a helper function.
+  
+* `arg_assign` added for easy assignment of arguments (especially when there are 
+  defaults) for testing/code writing purposes.
+  
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
+
 CHANGES IN pax VERSION 0.1.0
 ----------------------------------------------------------------
 

@@ -18,6 +18,29 @@ And constructed with the following guidelines:
 
 * Bug fixes and misc changes bumps the patch
 
+
+
+**CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.2.0 -
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+* `arg_rep` added for easy passing through of arguments from a main function to 
+  a helper function.
+  
+* `arg_assign` added for easy assignment of arguments (especially when there are 
+  defaults) for testing/code writing purposes.
+  
+**MINOR FEATURES**
+
+IMPROVEMENTS
+
+**CHANGES**
+
+
+
 **CHANGES** IN <a href="https://github.com/trinker/pax" target="_blank">pax</a> VERSION 0.1.0
 ----------------------------------------------------------------
 
@@ -37,7 +60,7 @@ First stable release.
 
 **MINOR FEATURES**
 
-**IMPROVEMENTS**
+IMPROVEMENTS
 
 * A *package-package.R* file is added to the *R* directory that describes the 
   package in the documentation.  This is also where **roxygen2** style 
@@ -86,7 +109,7 @@ First stable release.
 * `pax::pax`'s `sample` argument is now set to `getOption("samples")`.  The 
   argument can now be set via .Rprofile.
 
-**IMPROVEMENTS**
+IMPROVEMENTS
 
 * The **README.Rmd** uses *.svg* badges rather than *.png* badges.
 
