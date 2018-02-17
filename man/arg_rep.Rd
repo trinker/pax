@@ -20,3 +20,14 @@ the clipboard.}
 Allows for easy passing through of arguments from a main function to a helper
 function.
 }
+\examples{
+\dontrun{
+arg_rep(lm)
+
+clipr::write_clip(c('formula, data, subset, weights, na.action, method = "qr"',    
+    'model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE,',
+    'contrasts = NULL, offset, ...'
+))
+arg_rep()
+}
+}

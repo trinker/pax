@@ -3,6 +3,7 @@
 S3method(arg_rep,"function")
 S3method(arg_rep,default)
 export(ann)
+export(arg_rep)
 export(is.global)
 export(new_data)
 export(new_r)

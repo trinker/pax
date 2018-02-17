@@ -6,6 +6,7 @@
 #' @param args A vector of arguments, a function, or \code{NULL} is copying from
 #' the clipboard.
 #' @export
+#' @examples 
 #' \dontrun{
 #' arg_rep(lm)
 #' 
