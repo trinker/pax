@@ -15,6 +15,8 @@ arg_rep(args = NULL, ...)
 \arguments{
 \item{args}{A vector of arguments, a function, or \code{NULL} is copying from
 the clipboard.}
+
+\item{\ldots}{ignored.}
 }
 \description{
 Allows for easy passing through of arguments from a main function to a helper

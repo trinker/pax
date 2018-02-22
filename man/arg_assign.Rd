@@ -15,6 +15,8 @@ arg_assign(args = NULL, ...)
 \arguments{
 \item{args}{A vector of arguments, a function, or \code{NULL} is copying from
 the clipboard.}
+
+\item{\ldots}{ignored.}
 }
 \description{
 Allows for easy assignment of arguments (especially when there are defaults)

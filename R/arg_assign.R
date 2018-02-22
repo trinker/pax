@@ -5,6 +5,7 @@
 #' 
 #' @param args A vector of arguments, a function, or \code{NULL} is copying from
 #' the clipboard.
+#' @param \ldots ignored.
 #' @export
 #' @examples 
 #' \dontrun{
