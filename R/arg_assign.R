@@ -35,10 +35,14 @@ arg_assign.default <- function(args = NULL, ...) {
     args <- gsub('\\s*=\\s*', ' <- ', trimws(strsplit(args, ',')[[1]]))
     
     args <- args[args != '...']
-    
+
+    ## get unassigned arguments  
+    unassigned_args <- paste0(sort(grep('<-', args, value = TRUE, invert = TRUE)), ' <- ')
+    if (length(unassigned_args) == 1 && unassigned_args == " <- ") unassigned_args <- NULL
+
     args <- c(
         sort(grep('<-', args, value = TRUE)),
-        paste0(sort(grep('<-', args, value = TRUE, invert = TRUE)), ' <- ')
+        unassigned_args
     )
     
 
@@ -78,9 +82,13 @@ arg_assign.function <- function(args = NULL, ...) {
         
     }, names(args), args)))
     
+    ## get unassigned arguments
+    unassigned_args <- paste0(sort(grep('<-', args, value = TRUE, invert = TRUE)), ' <- ')
+    if (length(unassigned_args) == 1 && unassigned_args == " <- ") unassigned_args <- NULL
+
     args <- c(
         sort(grep('<-', args, value = TRUE)),
-        paste0(sort(grep('<-', args, value = TRUE, invert = TRUE)), ' <- ')
+        unassigned_args
     )
     
 

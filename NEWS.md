@@ -35,7 +35,7 @@ And constructed with the following guidelines:
   
 **MINOR FEATURES**
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 **CHANGES**
 
@@ -60,7 +60,7 @@ First stable release.
 
 **MINOR FEATURES**
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 * A *package-package.R* file is added to the *R* directory that describes the 
   package in the documentation.  This is also where **roxygen2** style 
@@ -109,7 +109,7 @@ IMPROVEMENTS
 * `pax::pax`'s `sample` argument is now set to `getOption("samples")`.  The 
   argument can now be set via .Rprofile.
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 * The **README.Rmd** uses *.svg* badges rather than *.png* badges.
 
